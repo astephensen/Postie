@@ -9,6 +9,13 @@
 import Cocoa
 
 class Document: NSDocument {
+    var text: String = "" {
+        didSet {
+            updateRequests()
+        }
+    }
+    var requests = [Request]()
+    var documentWindowController: DocumentWindowController?
 
     override init() {
         super.init()
@@ -27,8 +34,10 @@ class Document: NSDocument {
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let windowController = storyboard.instantiateControllerWithIdentifier("MainWindowController") as! NSWindowController
-        self.addWindowController(windowController)
+        documentWindowController = storyboard.instantiateControllerWithIdentifier("DocumentWindowController") as? DocumentWindowController
+        if let documentWindowController = documentWindowController {
+            self.addWindowController(documentWindowController)   
+        }
     }
 
     override func dataOfType(typeName: String) throws -> NSData {
@@ -44,6 +53,11 @@ class Document: NSDocument {
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
 
+    // MARK: - Requests
+    
+    func updateRequests() {
+        
+    }
 
 }
 
