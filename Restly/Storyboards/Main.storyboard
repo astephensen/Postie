@@ -658,11 +658,33 @@
                         <value key="minSize" type="size" width="420" height="260"/>
                         <toolbar key="toolbar" implicitIdentifier="2C711E27-FAFC-4D49-ACC4-BD9F15698B7C" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Qil-pF-6BD">
                             <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="82EB454C-2ADF-44A4-ABD3-8150F34BBBA2" label="Panels" paletteLabel="Panels" id="Thw-Gj-dn0">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="62" height="24"/>
+                                    <size key="maxSize" width="62" height="25"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="DDQ-gr-K3j">
+                                        <rect key="frame" x="0.0" y="14" width="62" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <animations/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="ixs-FF-zCh">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="icon-hide-left-panel" width="29">
+                                                    <nil key="label"/>
+                                                </segment>
+                                                <segment image="icon-hide-right-panel" width="30" tag="1">
+                                                    <nil key="label"/>
+                                                </segment>
+                                            </segments>
+                                        </segmentedCell>
+                                    </segmentedControl>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="GlL-20-pVO"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="GjJ-vI-RdE"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="GjJ-vI-RdE"/>
+                                <toolbarItem reference="Thw-Gj-dn0"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
@@ -863,4 +885,8 @@
             <point key="canvasLocation" x="484" y="1283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-hide-left-panel" width="20" height="16"/>
+        <image name="icon-hide-right-panel" width="20" height="16"/>
+    </resources>
 </document>
