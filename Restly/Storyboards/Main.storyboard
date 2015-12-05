@@ -649,46 +649,107 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="MainWindowController" id="jGA-0Y-lOj" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="MainWindowController" id="jGA-0Y-lOj" customClass="MainWindowController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="239" width="480" height="271"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="2C711E27-FAFC-4D49-ACC4-BD9F15698B7C" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Qil-pF-6BD">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="GlL-20-pVO"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="GjJ-vI-RdE"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="GjJ-vI-RdE"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                     </window>
                     <connections>
-                        <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
+                        <segue destination="q3S-ZV-PeO" kind="relationship" relationship="window.shadowedContentViewController" id="8F4-h9-Vob"/>
                     </connections>
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="249.5"/>
+            <point key="canvasLocation" x="75" y="335.5"/>
         </scene>
-        <!--Main View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Split View Controller-->
+        <scene sceneID="bGd-bE-8P1">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="MainViewController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <splitViewController id="q3S-ZV-PeO" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="b31-FJ-buT"/>
+                        <splitViewItem id="fnM-8Z-pVh"/>
+                        <splitViewItem id="Huv-X8-bRb"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="tmg-YC-thZ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </splitView>
+                    <connections>
+                        <segue destination="isD-aX-gMa" kind="relationship" relationship="splitItems" id="hnd-OY-n5U"/>
+                        <segue destination="IbS-U6-2vU" kind="relationship" relationship="splitItems" id="c7M-qv-Jz7"/>
+                        <segue destination="7qS-1O-Kvx" kind="relationship" relationship="splitItems" id="gmA-Oe-NIk"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="vbf-3k-2h1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="746"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZXs-mF-eDi">
+            <objects>
+                <viewController id="isD-aX-gMa" sceneMemberID="viewController">
+                    <view key="view" id="v2a-YB-NOR">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="420"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </view>
+                </viewController>
+                <customObject id="BDi-3C-VO3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310" y="1283"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nty-FL-r8h">
+            <objects>
+                <viewController id="IbS-U6-2vU" sceneMemberID="viewController">
+                    <view key="view" id="89F-h8-o5D">
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="420"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cEy-ML-317" customClass="CodeMirrorView" customModule="Restly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oaf-EZ-3KW" customClass="CodeMirrorView" customModule="Restly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="420"/>
                                 <animations/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="cEy-ML-317" secondAttribute="bottom" id="5Bt-9B-bWp"/>
-                            <constraint firstItem="cEy-ML-317" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" id="Hcg-GL-aTf"/>
-                            <constraint firstItem="cEy-ML-317" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="hSo-L4-687"/>
-                            <constraint firstAttribute="trailing" secondItem="cEy-ML-317" secondAttribute="trailing" id="wpZ-db-gDm"/>
+                            <constraint firstAttribute="trailing" secondItem="oaf-EZ-3KW" secondAttribute="trailing" id="G6Y-o8-aUH"/>
+                            <constraint firstItem="oaf-EZ-3KW" firstAttribute="leading" secondItem="89F-h8-o5D" secondAttribute="leading" id="JRw-wy-MPK"/>
+                            <constraint firstAttribute="bottom" secondItem="oaf-EZ-3KW" secondAttribute="bottom" id="KIP-3w-qqz"/>
+                            <constraint firstItem="oaf-EZ-3KW" firstAttribute="top" secondItem="89F-h8-o5D" secondAttribute="top" id="aLp-VC-RLi"/>
                         </constraints>
                         <animations/>
                     </view>
                 </viewController>
-                <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Rrd-5u-plh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="1283"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o3r-ep-d93">
+            <objects>
+                <viewController id="7qS-1O-Kvx" sceneMemberID="viewController">
+                    <view key="view" id="8wn-Ox-ZTq">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </view>
+                </viewController>
+                <customObject id="06o-Ot-Y95" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="1283"/>
         </scene>
     </scenes>
 </document>

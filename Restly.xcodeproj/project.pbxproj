@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7421F951C126D0700C0DA38 /* Main.storyboard */; };
-		E7421F981C126F3C00C0DA38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F971C126F3C00C0DA38 /* MainViewController.swift */; };
 		E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7421F9A1C126F7600C0DA38 /* Assets.xcassets */; };
 		E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F9D1C126F8D00C0DA38 /* Document.swift */; };
+		E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA01C12718900C0DA38 /* MainViewController.swift */; };
+		E7421FA31C12719900C0DA38 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA21C12719900C0DA38 /* MainWindowController.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
@@ -50,9 +51,10 @@
 
 /* Begin PBXFileReference section */
 		E7421F951C126D0700C0DA38 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E7421F971C126F3C00C0DA38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E7421F9A1C126F7600C0DA38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7421F9D1C126F8D00C0DA38 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		E7421FA01C12718900C0DA38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E7421FA21C12719900C0DA38 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		E77E62E81BEEBFF600F14261 /* Restly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,14 +94,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E7421F931C126C9D00C0DA38 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E7421F971C126F3C00C0DA38 /* MainViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		E7421F941C126D0700C0DA38 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +116,15 @@
 				E7421F9D1C126F8D00C0DA38 /* Document.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E7421F9F1C12718900C0DA38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
+				E7421FA21C12719900C0DA38 /* MainWindowController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E77E62DF1BEEBFF500F14261 = {
@@ -150,10 +153,10 @@
 				E77E62F61BEEBFF600F14261 /* Info.plist */,
 				E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */,
 				E77E63181BEEC0D300F14261 /* CodeMirror */,
+				E7421F9F1C12718900C0DA38 /* Controllers */,
 				E7421F9C1C126F8D00C0DA38 /* Models */,
 				E7421F991C126F7600C0DA38 /* Resources */,
 				E7421F941C126D0700C0DA38 /* Storyboards */,
-				E7421F931C126C9D00C0DA38 /* View Controllers */,
 			);
 			path = Restly;
 			sourceTree = "<group>";
@@ -321,8 +324,9 @@
 			files = (
 				E77E631A1BEEC0FC00F14261 /* CodeMirrorView.swift in Sources */,
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
-				E7421F981C126F3C00C0DA38 /* MainViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
+				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
+				E7421FA31C12719900C0DA38 /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
