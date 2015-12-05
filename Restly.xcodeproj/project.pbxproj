@@ -12,6 +12,7 @@
 		E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F9D1C126F8D00C0DA38 /* Document.swift */; };
 		E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA01C12718900C0DA38 /* MainViewController.swift */; };
 		E7421FA31C12719900C0DA38 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA21C12719900C0DA38 /* MainWindowController.swift */; };
+		E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
@@ -55,6 +56,7 @@
 		E7421F9D1C126F8D00C0DA38 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		E7421FA01C12718900C0DA38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E7421FA21C12719900C0DA38 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsListViewController.swift; sourceTree = "<group>"; };
 		E77E62E81BEEBFF600F14261 /* Restly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
 				E7421FA21C12719900C0DA38 /* MainWindowController.swift */,
+				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				E77E631A1BEEC0FC00F14261 /* CodeMirrorView.swift in Sources */,
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
+				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
 				E7421FA31C12719900C0DA38 /* MainWindowController.swift in Sources */,
