@@ -662,11 +662,11 @@
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="53" height="24"/>
                                     <size key="maxSize" width="53" height="25"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" id="nFy-BI-wMh">
+                                    <segmentedControl key="view" verticalHuggingPriority="750" misplaced="YES" id="nFy-BI-wMh">
                                         <rect key="frame" x="5" y="14" width="53" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <animations/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="CL5-rs-KvJ">
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="CL5-rs-KvJ">
                                             <font key="font" metaFont="system"/>
                                             <segments>
                                                 <segment image="icon-back" width="23">
