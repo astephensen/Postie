@@ -1,27 +1,24 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Restly
 //
-//  Created by Alan Stephensen on 8/11/2015.
+//  Created by Alan Stephensen on 5/12/2015.
 //  Copyright © 2015 Alan Stephensen. All rights reserved.
 //
 
 import Cocoa
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do view setup here.
     }
-
+    
     override var representedObject: AnyObject? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
 
-
 }
-

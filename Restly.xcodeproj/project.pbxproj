@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7421F951C126D0700C0DA38 /* Main.storyboard */; };
+		E7421F981C126F3C00C0DA38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F971C126F3C00C0DA38 /* MainViewController.swift */; };
+		E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7421F9A1C126F7600C0DA38 /* Assets.xcassets */; };
+		E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F9D1C126F8D00C0DA38 /* Document.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
-		E77E62EE1BEEBFF600F14261 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62ED1BEEBFF600F14261 /* ViewController.swift */; };
-		E77E62F01BEEBFF600F14261 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EF1BEEBFF600F14261 /* Document.swift */; };
-		E77E62F21BEEBFF600F14261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77E62F11BEEBFF600F14261 /* Assets.xcassets */; };
-		E77E62F51BEEBFF600F14261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77E62F31BEEBFF600F14261 /* Main.storyboard */; };
 		E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
 		E77E631A1BEEC0FC00F14261 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E63191BEEC0FC00F14261 /* CodeMirrorView.swift */; };
@@ -49,12 +49,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E7421F951C126D0700C0DA38 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E7421F971C126F3C00C0DA38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E7421F9A1C126F7600C0DA38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7421F9D1C126F8D00C0DA38 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		E77E62E81BEEBFF600F14261 /* Restly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E77E62ED1BEEBFF600F14261 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E77E62EF1BEEBFF600F14261 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		E77E62F11BEEBFF600F14261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E77E62F41BEEBFF600F14261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E77E62FB1BEEBFF600F14261 /* RestlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestlyTests.swift; sourceTree = "<group>"; };
@@ -92,6 +92,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7421F931C126C9D00C0DA38 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7421F971C126F3C00C0DA38 /* MainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E7421F941C126D0700C0DA38 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E7421F951C126D0700C0DA38 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E7421F991C126F7600C0DA38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7421F9A1C126F7600C0DA38 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E7421F9C1C126F8D00C0DA38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7421F9D1C126F8D00C0DA38 /* Document.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E77E62DF1BEEBFF500F14261 = {
 			isa = PBXGroup;
 			children = (
@@ -115,13 +147,13 @@
 		E77E62EA1BEEBFF600F14261 /* Restly */ = {
 			isa = PBXGroup;
 			children = (
-				E77E63181BEEC0D300F14261 /* CodeMirror */,
-				E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */,
-				E77E62ED1BEEBFF600F14261 /* ViewController.swift */,
-				E77E62EF1BEEBFF600F14261 /* Document.swift */,
-				E77E62F11BEEBFF600F14261 /* Assets.xcassets */,
-				E77E62F31BEEBFF600F14261 /* Main.storyboard */,
 				E77E62F61BEEBFF600F14261 /* Info.plist */,
+				E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */,
+				E77E63181BEEC0D300F14261 /* CodeMirror */,
+				E7421F9C1C126F8D00C0DA38 /* Models */,
+				E7421F991C126F7600C0DA38 /* Resources */,
+				E7421F941C126D0700C0DA38 /* Storyboards */,
+				E7421F931C126C9D00C0DA38 /* View Controllers */,
 			);
 			path = Restly;
 			sourceTree = "<group>";
@@ -260,9 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E77E631E1BEEC57300F14261 /* CodeMirror.html in Resources */,
-				E77E62F21BEEBFF600F14261 /* Assets.xcassets in Resources */,
-				E77E62F51BEEBFF600F14261 /* Main.storyboard in Resources */,
 				E77E631C1BEEC52F00F14261 /* CodeMirror.bundle in Resources */,
+				E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */,
+				E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,9 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E77E631A1BEEC0FC00F14261 /* CodeMirrorView.swift in Sources */,
-				E77E62EE1BEEBFF600F14261 /* ViewController.swift in Sources */,
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
-				E77E62F01BEEBFF600F14261 /* Document.swift in Sources */,
+				E7421F981C126F3C00C0DA38 /* MainViewController.swift in Sources */,
+				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,17 +356,6 @@
 			targetProxy = E77E63071BEEBFF600F14261 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E77E62F31BEEBFF600F14261 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E77E62F41BEEBFF600F14261 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E77E630D1BEEBFF600F14261 /* Debug */ = {
@@ -428,7 +449,8 @@
 				);
 				INFOPLIST_FILE = Restly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.alan.Restly;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.alan.restly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -444,7 +466,8 @@
 				);
 				INFOPLIST_FILE = Restly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.alan.Restly;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.alan.restly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
