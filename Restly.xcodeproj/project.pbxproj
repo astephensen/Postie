@@ -14,6 +14,9 @@
 		E77E62F51BEEBFF600F14261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77E62F31BEEBFF600F14261 /* Main.storyboard */; };
 		E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
+		E77E631A1BEEC0FC00F14261 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E63191BEEC0FC00F14261 /* CodeMirrorView.swift */; };
+		E77E631C1BEEC52F00F14261 /* CodeMirror.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E77E631B1BEEC52F00F14261 /* CodeMirror.bundle */; };
+		E77E631E1BEEC57300F14261 /* CodeMirror.html in Resources */ = {isa = PBXBuildFile; fileRef = E77E631D1BEEC57300F14261 /* CodeMirror.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E7F45D331C05C7690005248D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E77E62E81BEEBFF600F14261 /* Restly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +62,9 @@
 		E77E63061BEEBFF600F14261 /* RestlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestlyUITests.swift; sourceTree = "<group>"; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E77E63191BEEC0FC00F14261 /* CodeMirrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CodeMirrorView.swift; path = Vendor/CodeMirror/CodeMirrorView.swift; sourceTree = "<group>"; };
+		E77E631B1BEEC52F00F14261 /* CodeMirror.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CodeMirror.bundle; path = Vendor/CodeMirror/CodeMirror.bundle; sourceTree = "<group>"; };
+		E77E631D1BEEC57300F14261 /* CodeMirror.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = CodeMirror.html; path = Vendor/CodeMirror/CodeMirror.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +115,7 @@
 		E77E62EA1BEEBFF600F14261 /* Restly */ = {
 			isa = PBXGroup;
 			children = (
+				E77E63181BEEC0D300F14261 /* CodeMirror */,
 				E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */,
 				E77E62ED1BEEBFF600F14261 /* ViewController.swift */,
 				E77E62EF1BEEBFF600F14261 /* Document.swift */,
@@ -125,6 +144,16 @@
 			path = RestlyUITests;
 			sourceTree = "<group>";
 		};
+		E77E63181BEEC0D300F14261 /* CodeMirror */ = {
+			isa = PBXGroup;
+			children = (
+				E77E63191BEEC0FC00F14261 /* CodeMirrorView.swift */,
+				E77E631B1BEEC52F00F14261 /* CodeMirror.bundle */,
+				E77E631D1BEEC57300F14261 /* CodeMirror.html */,
+			);
+			name = CodeMirror;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +164,7 @@
 				E77E62E41BEEBFF500F14261 /* Sources */,
 				E77E62E51BEEBFF500F14261 /* Frameworks */,
 				E77E62E61BEEBFF500F14261 /* Resources */,
+				E7F45D331C05C7690005248D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -229,8 +259,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77E631E1BEEC57300F14261 /* CodeMirror.html in Resources */,
 				E77E62F21BEEBFF600F14261 /* Assets.xcassets in Resources */,
 				E77E62F51BEEBFF600F14261 /* Main.storyboard in Resources */,
+				E77E631C1BEEC52F00F14261 /* CodeMirror.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77E631A1BEEC0FC00F14261 /* CodeMirrorView.swift in Sources */,
 				E77E62EE1BEEBFF600F14261 /* ViewController.swift in Sources */,
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
 				E77E62F01BEEBFF600F14261 /* Document.swift in Sources */,
@@ -389,6 +422,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Restly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.Restly;
@@ -401,6 +438,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Restly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.Restly;
@@ -479,6 +520,7 @@
 				E77E63111BEEBFF600F14261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E77E63121BEEBFF600F14261 /* Build configuration list for PBXNativeTarget "RestlyTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +529,7 @@
 				E77E63141BEEBFF600F14261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E77E63151BEEBFF600F14261 /* Build configuration list for PBXNativeTarget "RestlyUITests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +538,7 @@
 				E77E63171BEEBFF600F14261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

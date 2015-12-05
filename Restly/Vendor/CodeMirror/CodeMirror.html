@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Editor</title>
+
+    <link rel="stylesheet" href="_BUNDLE_PATH_/codemirror.css">
+
+    <style>
+
+    html,
+    body {
+        padding; 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .CodeMirror {
+        height: calc(100vh);
+    }
+    </style>
+
+</head>
+
+<body>
+    
+    <textarea id="code" name="code"></textarea>
+
+    <script src="_BUNDLE_PATH_/codemirror.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+      window.editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true,
+        viewportMargin: Infinity
+      });
+    </script>
+
+</body>
+
+</html>
