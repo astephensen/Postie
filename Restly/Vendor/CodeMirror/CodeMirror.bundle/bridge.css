@@ -1,0 +1,14 @@
+html,
+body {
+    padding; 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.CodeMirror {
+    height: calc(100vh);
+    font-family: "menlo";
+    font-size: 11px;
+}

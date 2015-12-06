@@ -660,10 +660,10 @@
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="6096D24D-C448-4F3C-A0F1-ABA866395685" label="Navigation" paletteLabel="Navigation" id="BRo-X7-o6b">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="53" height="24"/>
+                                    <size key="minSize" width="45" height="24"/>
                                     <size key="maxSize" width="53" height="25"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" misplaced="YES" id="nFy-BI-wMh">
-                                        <rect key="frame" x="5" y="14" width="53" height="25"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="nFy-BI-wMh">
+                                        <rect key="frame" x="9" y="14" width="45" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <animations/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="CL5-rs-KvJ">
@@ -697,6 +697,9 @@
                                                     <nil key="label"/>
                                                 </segment>
                                             </segments>
+                                            <connections>
+                                                <action selector="panelsToggled:" target="jGA-0Y-lOj" id="3Tl-KT-sJs"/>
+                                            </connections>
                                         </segmentedCell>
                                     </segmentedControl>
                                 </toolbarItem>
@@ -718,14 +721,14 @@
             </objects>
             <point key="canvasLocation" x="75" y="335.5"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="bGd-bE-8P1">
             <objects>
-                <splitViewController id="q3S-ZV-PeO" sceneMemberID="viewController">
+                <splitViewController id="q3S-ZV-PeO" customClass="MainViewController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem id="b31-FJ-buT"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" id="b31-FJ-buT"/>
                         <splitViewItem id="fnM-8Z-pVh"/>
-                        <splitViewItem id="Huv-X8-bRb"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" id="Huv-X8-bRb"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="tmg-YC-thZ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -866,10 +869,10 @@
             </objects>
             <point key="canvasLocation" x="-310" y="1283"/>
         </scene>
-        <!--View Controller-->
+        <!--Editor View Controller-->
         <scene sceneID="nty-FL-r8h">
             <objects>
-                <viewController id="IbS-U6-2vU" sceneMemberID="viewController">
+                <viewController id="IbS-U6-2vU" customClass="EditorViewController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="89F-h8-o5D">
                         <rect key="frame" x="0.0" y="0.0" width="420" height="420"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -887,6 +890,9 @@
                         </constraints>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="codeMirrorView" destination="oaf-EZ-3KW" id="FFy-ig-fHT"/>
+                    </connections>
                 </viewController>
                 <customObject id="Rrd-5u-plh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,6 +18,7 @@
 		E7421FAF1C12C15300C0DA38 /* CodeMirror.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */; };
 		E7421FB01C12C15300C0DA38 /* CodeMirror.html in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAD1C12C15300C0DA38 /* CodeMirror.html */; };
 		E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */; };
+		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
@@ -64,6 +65,7 @@
 		E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeMirror.bundle; sourceTree = "<group>"; };
 		E7421FAD1C12C15300C0DA38 /* CodeMirror.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CodeMirror.html; sourceTree = "<group>"; };
 		E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeMirrorView.swift; sourceTree = "<group>"; };
+		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		E77E62E81BEEBFF600F14261 /* Restly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
 				E7421FA21C12719900C0DA38 /* DocumentWindowController.swift */,
 				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
+				E76468521C13E7A7001DE284 /* EditorViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
 				E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
+				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 				E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */,
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,

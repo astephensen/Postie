@@ -9,7 +9,12 @@
 import Cocoa
 import WebKit
 
-class CodeMirrorView: NSView {
+protocol CodeMirrorViewDelegate {
+    func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView)
+    func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView)
+}
+
+class CodeMirrorView: NSView, WKScriptMessageHandler {
     var webView: WKWebView?
 
     override func awakeFromNib() {
@@ -18,14 +23,22 @@ class CodeMirrorView: NSView {
     }
     
     func setupWebView() {
+        // Setup script notification handler.
+        let userContentController = WKUserContentController()
+        userContentController.addScriptMessageHandler(self, name: "notification")
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = userContentController
+        
         // Create the web view.
-        webView = WKWebView()
+        webView = WKWebView(frame: CGRectZero, configuration: configuration)
         webView?.translatesAutoresizingMaskIntoConstraints = false
         addSubview(webView!)
+        
         // Add constraints.
         let views = ["webView": webView!]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        
         // View setup is done, load the editor.
         loadEditor()
     }
@@ -42,4 +55,14 @@ class CodeMirrorView: NSView {
             
         }
     }
+    
+    // MARK: - Functions
+    
+    
+    // MARK: - WKScriptMessageHandler
+    
+    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+        Swift.print(message.body)
+    }
+    
 }
