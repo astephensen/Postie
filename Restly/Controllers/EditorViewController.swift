@@ -8,12 +8,35 @@
 
 import Cocoa
 
-class EditorViewController: NSViewController {
+class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     @IBOutlet var codeMirrorView: CodeMirrorView?
+    var currentDocument: Document? {
+        didSet {
+            loadDocument()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        codeMirrorView?.delegate = self
+    }
+    
+    // MARK: - Functions
+    
+    func loadDocument() {
+        // TODO: Set the text in the editor.
+    }
+    
+    // MARK: - CodeMirrorViewDelegate
+    
+    func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView) {
+        if let text = currentDocument?.text {
+            codeMirrorView.setText(text)   
+        }
+    }
+    
+    func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
+        currentDocument?.text = codeMirrorView.getText()
     }
     
 }

@@ -9,6 +9,7 @@
 import Cocoa
 
 class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+    var currentDocument: Document?
     @IBOutlet var tableView: NSTableView?
     var requests: [[String: String]] = []
 

@@ -130,10 +130,10 @@
 		E7421F9F1C12718900C0DA38 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
 				E7421FA21C12719900C0DA38 /* DocumentWindowController.swift */,
-				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
 				E76468521C13E7A7001DE284 /* EditorViewController.swift */,
+				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
+				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

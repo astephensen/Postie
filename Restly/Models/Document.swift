@@ -32,7 +32,8 @@ class Document: NSDocument {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         documentWindowController = storyboard.instantiateControllerWithIdentifier("DocumentWindowController") as? DocumentWindowController
         if let documentWindowController = documentWindowController {
-            self.addWindowController(documentWindowController)   
+            documentWindowController.currentDocument = self
+            addWindowController(documentWindowController)
         }
     }
     

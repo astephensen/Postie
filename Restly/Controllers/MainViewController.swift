@@ -9,16 +9,27 @@
 import Cocoa
 
 class MainViewController: NSSplitViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-    
-    override var representedObject: AnyObject? {
+    var requestsListViewController: RequestsListViewController?
+    var editorViewController: EditorViewController?
+    var currentDocument: Document? {
         didSet {
-            // Update the view, if already loaded.
+            requestsListViewController?.currentDocument = currentDocument
+            editorViewController?.currentDocument = currentDocument
         }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Reference the requests list view controller.
+        if let splitViewController = splitViewItems[0].viewController as? RequestsListViewController {
+            requestsListViewController = splitViewController
+        }
+        
+        // Reference the editor view controller.
+        if let splitViewController = splitViewItems[1].viewController as? EditorViewController {
+            editorViewController = splitViewController
+        }
+    }
+    
 }

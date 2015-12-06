@@ -16,6 +16,7 @@ protocol CodeMirrorViewDelegate {
 
 class CodeMirrorView: NSView, WKScriptMessageHandler {
     var webView: WKWebView?
+    var delegate: CodeMirrorViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,13 +57,52 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
     }
     
+    // MARK: - Properties
+    
+    private var editorText: String?
+    
     // MARK: - Functions
+    
+    func getText() -> String {
+        if let editorText = editorText {
+            return editorText
+        }
+        return ""
+    }
+    
+    func setText(text: String) {
+        let javascript = "window.editor.doc.setValue('\(text)')"
+        webView?.evaluateJavaScript(javascript, completionHandler: nil)
+    }
+    
+    func updateTextProperty() {
+        let javascript = "window.editor.doc.getValue()"
+        weak var weakSelf = self
+        webView?.evaluateJavaScript(javascript, completionHandler: { (result, error) -> Void in
+            if let text = result as? String {
+                weakSelf?.editorText = text
+                weakSelf?.delegate?.codeMirrorViewTextDidChange(self)
+            }
+        })
+    }
     
     
     // MARK: - WKScriptMessageHandler
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        Swift.print(message.body)
+        if let bodyObject = message.body as? [String: AnyObject] {
+            if let event = bodyObject["event"] as? String {
+                // The event will determine what to do with the body.
+                switch event {
+                case "change":
+                    updateTextProperty()
+                case "loaded":
+                    delegate?.codeMirrorViewDidLoad(self)
+                default:
+                    break
+                }
+            }
+        }
     }
     
 }
