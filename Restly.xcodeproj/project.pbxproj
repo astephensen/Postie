@@ -20,8 +20,8 @@
 		E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */; };
 		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
-		E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
+		E7FD1E241C163F6500EC3EC1 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +70,11 @@
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E77E62FB1BEEBFF600F14261 /* RestlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestlyTests.swift; sourceTree = "<group>"; };
 		E77E63011BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E77E63061BEEBFF600F14261 /* RestlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestlyUITests.swift; sourceTree = "<group>"; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,9 +193,9 @@
 		E77E62FE1BEEBFF600F14261 /* RestlyTests */ = {
 			isa = PBXGroup;
 			children = (
-				E77E62FF1BEEBFF600F14261 /* RestlyTests.swift */,
 				E77E63011BEEBFF600F14261 /* Info.plist */,
 				E7421FA81C12AF9400C0DA38 /* RequestTests.swift */,
+				E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */,
 			);
 			path = RestlyTests;
 			sourceTree = "<group>";
@@ -357,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E77E63001BEEBFF600F14261 /* RestlyTests.swift in Sources */,
+				E7FD1E241C163F6500EC3EC1 /* DocumentTests.swift in Sources */,
 				E7421FA91C12AF9400C0DA38 /* RequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

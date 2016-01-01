@@ -44,7 +44,7 @@ class Request {
             }
         }
         
-        // Extract the headers.
+        // Extract8 the headers.
         // Headers are in the format `Header: Content`. The headers must be provided before any body content.
         // let headerPattern = "^.*?-(.*)\\:(.*)"
         
