@@ -9,18 +9,16 @@
 import Cocoa
 
 class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
-    var currentDocument: Document?
+    var currentDocument: Document? {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
     @IBOutlet var tableView: NSTableView?
-    var requests: [[String: String]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // TODO: This is just temporary.
-        requests.append([
-            "type": "GET",
-            "path": "example.com"
-        ])
+        setupNotifications()
     }
     
     override func awakeFromNib() {
@@ -38,16 +36,32 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return requests.count
+        guard currentDocument != nil else {
+            return 0
+        }
+        return currentDocument!.requests.count
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let request = requests[row]
+        guard let request = currentDocument?.requests[row] else {
+            return nil
+        }
         let tableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? NSTableCellView
-        if let path = request["path"] {
-            tableCellView?.textField?.stringValue = path
+        tableCellView?.textField?.stringValue = ""
+        if let urlString = request.urlString {
+            tableCellView?.textField?.stringValue = urlString
         }
         return tableCellView
+    }
+    
+    // MARK: - Notifications
+
+    func setupNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "documentDidUpdateRequests:", name: DocumentDidUpdateRequestsNotification, object: currentDocument)
+    }
+    
+    func documentDidUpdateRequests(notification: NSNotification) {
+        tableView?.reloadData()
     }
     
 }

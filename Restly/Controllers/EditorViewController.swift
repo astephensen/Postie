@@ -24,7 +24,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - Functions
     
     func loadDocument() {
-        // TODO: Set the text in the editor.
+        codeMirrorView?.setText(currentDocument!.text)
     }
     
     // MARK: - CodeMirrorViewDelegate

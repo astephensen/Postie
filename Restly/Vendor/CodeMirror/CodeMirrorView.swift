@@ -71,6 +71,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     }
     
     func setText(text: String) {
+        editorText = text
         let javascript = "window.editor.doc.setValue('\(text)')"
         webView?.evaluateJavaScript(javascript, completionHandler: nil)
     }

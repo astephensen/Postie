@@ -8,6 +8,8 @@
 
 import Cocoa
 
+let DocumentDidUpdateRequestsNotification = "DocumentDidUpdateRequestsNotification"
+
 class Document: NSDocument {
     var text: String = "" {
         didSet {
@@ -109,6 +111,9 @@ class Document: NSDocument {
                 requests.append(request)
             }
         }
+        
+        // Post the notfication that the requests have been updated.
+        NSNotificationCenter.defaultCenter().postNotificationName(DocumentDidUpdateRequestsNotification, object: self)
     }
 }
 
