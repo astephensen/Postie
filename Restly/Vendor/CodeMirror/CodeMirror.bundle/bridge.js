@@ -1,4 +1,4 @@
-window.editor = CodeMirror(document.body, {
+window.editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   styleActiveLine: true,
   matchBrackets: true,

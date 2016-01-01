@@ -39,18 +39,21 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         let views = ["webView": webView!]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
-        
-        // View setup is done, load the editor.
-        loadEditor()
     }
     
     func loadEditor() {
+        loadEditor("")
+    }
+    
+    func loadEditor(text: String) {
         let htmlFilePath = NSBundle.mainBundle().pathForResource("CodeMirror", ofType: "html")
         do {
             var htmlFile = try NSString(contentsOfFile: htmlFilePath!, encoding: NSUTF8StringEncoding)
             let bundlePath = NSBundle.mainBundle().pathForResource("CodeMirror", ofType: "bundle")
             // Replace the bundle path in the editor with the real path.
             htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_BUNDLE_PATH_", withString: bundlePath!)
+            // Replace the text to load.
+            htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_LOAD_TEXT_", withString: text)
             webView?.loadHTMLString(htmlFile as String!, baseURL: NSURL.fileURLWithPath(bundlePath!))
         } catch {
             
@@ -72,6 +75,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     func setText(text: String) {
         editorText = text
+        Swift.print(editorText)
         let javascript = "window.editor.doc.setValue('\(text)')"
         webView?.evaluateJavaScript(javascript, completionHandler: nil)
     }

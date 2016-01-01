@@ -660,10 +660,10 @@
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="6096D24D-C448-4F3C-A0F1-ABA866395685" label="Navigation" paletteLabel="Navigation" id="BRo-X7-o6b">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="37" height="24"/>
+                                    <size key="minSize" width="33" height="24"/>
                                     <size key="maxSize" width="53" height="25"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="nFy-BI-wMh">
-                                        <rect key="frame" x="13" y="14" width="37" height="25"/>
+                                        <rect key="frame" x="15" y="14" width="33" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="CL5-rs-KvJ">
                                             <font key="font" metaFont="system"/>

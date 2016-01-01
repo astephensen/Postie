@@ -24,15 +24,13 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - Functions
     
     func loadDocument() {
-        codeMirrorView?.setText(currentDocument!.text)
+        codeMirrorView?.loadEditor(currentDocument!.text)
     }
     
     // MARK: - CodeMirrorViewDelegate
     
     func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView) {
-        if let text = currentDocument?.text {
-            codeMirrorView.setText(text)   
-        }
+
     }
     
     func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
