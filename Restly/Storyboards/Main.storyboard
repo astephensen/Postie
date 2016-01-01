@@ -866,6 +866,9 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="oaf-EZ-3KW" customClass="CodeMirrorView" customModule="Restly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="420" height="420"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="P3V-P5-qa9"/>
+                                </constraints>
                             </customView>
                         </subviews>
                         <constraints>
