@@ -12,9 +12,9 @@ extension NSURL {
     
     // The colours that should be used.
     struct AttributedStringColours {
-        static var scheme = NSColor(red: 128.0/255.0, green: 211.0/255.0, blue: 33.0/255.0, alpha: 1.0)
-        static var primary = NSColor(red: 22.0/255.0, green: 22.0/255.0, blue: 22.0/255.0, alpha: 1.0)
-        static var secondary = NSColor(red: 186.0/255.0, green: 186.0/255.0, blue: 186.0/255.0, alpha: 1.0)
+        static var scheme = NSColor(white: 0.5, alpha: 1.0)
+        static var primary = NSColor(white: 0.1, alpha: 1.0)
+        static var secondary = NSColor(white: 0.5, alpha: 1.0)
     }
     
     // Returns an attributed string.
