@@ -19,6 +19,8 @@
 		E7421FB01C12C15300C0DA38 /* CodeMirror.html in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAD1C12C15300C0DA38 /* CodeMirror.html */; };
 		E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */; };
 		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
+		E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983C1C374CAF00071283 /* RequestTableCellView.swift */; };
+		E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983E1C374D3600071283 /* RequestMethodView.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
 		E7FD1E241C163F6500EC3EC1 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */; };
@@ -66,6 +68,8 @@
 		E7421FAD1C12C15300C0DA38 /* CodeMirror.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CodeMirror.html; sourceTree = "<group>"; };
 		E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeMirrorView.swift; sourceTree = "<group>"; };
 		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		E778983C1C374CAF00071283 /* RequestTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableCellView.swift; sourceTree = "<group>"; };
+		E778983E1C374D3600071283 /* RequestMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethodView.swift; sourceTree = "<group>"; };
 		E77E62E81BEEBFF600F14261 /* Restly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +160,15 @@
 			path = CodeMirror;
 			sourceTree = "<group>";
 		};
+		E778983B1C374C9200071283 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E778983C1C374CAF00071283 /* RequestTableCellView.swift */,
+				E778983E1C374D3600071283 /* RequestMethodView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E77E62DF1BEEBFF500F14261 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +199,7 @@
 				E7421F991C126F7600C0DA38 /* Resources */,
 				E7421F941C126D0700C0DA38 /* Storyboards */,
 				E7421FAA1C12C15300C0DA38 /* Vendor */,
+				E778983B1C374C9200071283 /* Views */,
 			);
 			path = Restly;
 			sourceTree = "<group>";
@@ -344,6 +358,8 @@
 			files = (
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
 				E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */,
+				E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */,
+				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,

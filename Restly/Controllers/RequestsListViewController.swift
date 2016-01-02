@@ -46,12 +46,9 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
         guard let request = currentDocument?.requests[row] else {
             return nil
         }
-        let tableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? NSTableCellView
-        tableCellView?.textField?.stringValue = ""
-        if let urlString = request.urlString {
-            tableCellView?.textField?.stringValue = urlString
-        }
-        return tableCellView
+        let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
+        requestTableCellView?.configureForRequest(request)
+        return requestTableCellView
     }
     
     // MARK: - Notifications
