@@ -791,14 +791,6 @@
                                                                     <rect key="frame" x="1" y="1" width="187" height="30"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="omD-dt-4ZR">
-                                                                            <rect key="frame" x="51" y="8" width="133" height="16"/>
-                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="http://google.com" id="dxF-Hd-LXW">
-                                                                                <font key="font" metaFont="system" size="12"/>
-                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                            </textFieldCell>
-                                                                        </textField>
                                                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pru-v1-t3o" customClass="RequestMethodView" customModule="Restly" customModuleProvider="target">
                                                                             <rect key="frame" x="4" y="5" width="45" height="21"/>
                                                                             <constraints>
@@ -806,17 +798,25 @@
                                                                                 <constraint firstAttribute="height" constant="21" id="PxX-Wy-JSf"/>
                                                                             </constraints>
                                                                         </customView>
+                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-vg-vbr">
+                                                                            <rect key="frame" x="51" y="7" width="132" height="17"/>
+                                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ATA-eB-mcu">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="omD-dt-4ZR" secondAttribute="trailing" constant="5" id="6qB-Gd-aLf"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="nf8-vg-vbr" secondAttribute="trailing" constant="6" id="3MT-Vm-vFN"/>
                                                                         <constraint firstItem="Pru-v1-t3o" firstAttribute="centerY" secondItem="h0H-wu-h9x" secondAttribute="centerY" id="AQo-IO-Et8"/>
-                                                                        <constraint firstItem="omD-dt-4ZR" firstAttribute="leading" secondItem="Pru-v1-t3o" secondAttribute="trailing" constant="4" id="FJO-ss-Phz"/>
+                                                                        <constraint firstItem="nf8-vg-vbr" firstAttribute="centerY" secondItem="h0H-wu-h9x" secondAttribute="centerY" id="LRa-Ze-4JD"/>
                                                                         <constraint firstItem="Pru-v1-t3o" firstAttribute="leading" secondItem="h0H-wu-h9x" secondAttribute="leading" constant="4" id="WCg-Pp-zyr"/>
-                                                                        <constraint firstItem="omD-dt-4ZR" firstAttribute="centerY" secondItem="h0H-wu-h9x" secondAttribute="centerY" constant="-1" id="bvq-Jf-yKZ"/>
+                                                                        <constraint firstItem="nf8-vg-vbr" firstAttribute="leading" secondItem="Pru-v1-t3o" secondAttribute="trailing" constant="4" id="vgf-S0-JiD"/>
                                                                     </constraints>
                                                                     <connections>
                                                                         <outlet property="requestMethodView" destination="Pru-v1-t3o" id="vED-dc-6pg"/>
-                                                                        <outlet property="textField" destination="omD-dt-4ZR" id="FpB-6d-kNy"/>
+                                                                        <outlet property="requestTextField" destination="nf8-vg-vbr" id="ZJJ-Z7-zVX"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>

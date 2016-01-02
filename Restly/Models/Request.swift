@@ -36,15 +36,18 @@ class Request {
             let methodDividerRange = requestText.rangeOfString(" ")
             if methodDividerRange.location == NSNotFound {
                 // No divider means we'll treat the whole line as the method.
-                self.method = requestText as String
+                method = requestText as String
             } else {
-                // The method is the fist bit, the url string is whatever follows.
-                self.method = requestText.substringToIndex(methodDividerRange.location) as String
-                self.urlString = requestText.substringFromIndex(methodDividerRange.location + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                // The method is the first bit, the url string is whatever follows.
+                method = requestText.substringToIndex(methodDividerRange.location) as String
+                urlString = requestText.substringFromIndex(methodDividerRange.location + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                if let urlString = urlString {
+                    url = NSURL(string: urlString)   
+                }
             }
         }
         
-        // Extract8 the headers.
+        // Extract the headers.
         // Headers are in the format `Header: Content`. The headers must be provided before any body content.
         // let headerPattern = "^.*?-(.*)\\:(.*)"
         

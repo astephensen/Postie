@@ -10,6 +10,8 @@ import Cocoa
 
 class RequestTableCellView: NSTableCellView {
     @IBOutlet var requestMethodView: RequestMethodView?
+    @IBOutlet var requestTextField: NSTextField?
+    
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -19,9 +21,9 @@ class RequestTableCellView: NSTableCellView {
     
     func configureForRequest(request: Request) {
         // Set the URL.
-        textField?.stringValue = ""
-        if let urlString = request.urlString {
-            textField?.stringValue = urlString
+        requestTextField?.stringValue = ""
+        if let url = request.url {
+            requestTextField?.attributedStringValue = url.attributedString
         }
         
         // Set the method.
