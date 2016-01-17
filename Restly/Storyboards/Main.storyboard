@@ -703,9 +703,23 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="GlL-20-pVO"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="GjJ-vI-RdE"/>
+                                <toolbarItem implicitItemIdentifier="65AD8CC4-84D4-4726-9C97-8A7DB70AF938" label="Send" paletteLabel="Send" image="icon-send" id="CAp-fk-mpW">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="39" height="25"/>
+                                    <size key="maxSize" width="39" height="25"/>
+                                    <button key="view" verticalHuggingPriority="750" id="dyq-GY-htN">
+                                        <rect key="frame" x="0.0" y="14" width="39" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" title="S" bezelStyle="texturedRounded" image="icon-send" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bw9-W4-Cw6">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="BRo-X7-o6b"/>
+                                <toolbarItem reference="CAp-fk-mpW"/>
                                 <toolbarItem reference="GjJ-vI-RdE"/>
                                 <toolbarItem reference="Thw-Gj-dn0"/>
                             </defaultToolbarItems>
@@ -917,6 +931,7 @@
         <image name="icon-forward" width="12" height="18"/>
         <image name="icon-hide-left-panel" width="20" height="16"/>
         <image name="icon-hide-right-panel" width="20" height="16"/>
+        <image name="icon-send" width="15" height="18"/>
         <image name="method-get" width="16" height="16"/>
     </resources>
 </document>
