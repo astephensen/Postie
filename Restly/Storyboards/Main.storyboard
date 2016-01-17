@@ -761,13 +761,13 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                     </searchField>
-                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Te-5z-aLH">
+                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Te-5z-aLH">
                                         <rect key="frame" x="0.0" y="28" width="190" height="392"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="EO3-p4-BZs">
                                             <rect key="frame" x="0.0" y="0.0" width="190" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" viewBased="YES" id="45T-Lg-qVs">
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" viewBased="YES" id="45T-Lg-qVs">
                                                     <rect key="frame" x="0.0" y="0.0" width="190" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -791,31 +791,32 @@
                                                                     <rect key="frame" x="1" y="1" width="187" height="30"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Pru-v1-t3o" customClass="RequestMethodView" customModule="Restly" customModuleProvider="target">
-                                                                            <rect key="frame" x="4" y="5" width="45" height="21"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="45" id="MCQ-Yf-Cla"/>
-                                                                                <constraint firstAttribute="height" constant="21" id="PxX-Wy-JSf"/>
-                                                                            </constraints>
-                                                                        </customView>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-vg-vbr">
-                                                                            <rect key="frame" x="51" y="7" width="132" height="17"/>
+                                                                            <rect key="frame" x="25" y="7" width="158" height="17"/>
                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="ATA-eB-mcu">
                                                                                 <font key="font" metaFont="system"/>
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
                                                                         </textField>
+                                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k4Q-rc-IRt">
+                                                                            <rect key="frame" x="5" y="7" width="16" height="16"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="16" id="mFc-8N-YOP"/>
+                                                                                <constraint firstAttribute="width" constant="16" id="tLg-Ij-JK0"/>
+                                                                            </constraints>
+                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="method-get" id="xWh-ru-zez"/>
+                                                                        </imageView>
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="nf8-vg-vbr" secondAttribute="trailing" constant="6" id="3MT-Vm-vFN"/>
-                                                                        <constraint firstItem="Pru-v1-t3o" firstAttribute="centerY" secondItem="h0H-wu-h9x" secondAttribute="centerY" id="AQo-IO-Et8"/>
+                                                                        <constraint firstItem="k4Q-rc-IRt" firstAttribute="leading" secondItem="h0H-wu-h9x" secondAttribute="leading" constant="5" id="4dM-r7-jAj"/>
                                                                         <constraint firstItem="nf8-vg-vbr" firstAttribute="centerY" secondItem="h0H-wu-h9x" secondAttribute="centerY" id="LRa-Ze-4JD"/>
-                                                                        <constraint firstItem="Pru-v1-t3o" firstAttribute="leading" secondItem="h0H-wu-h9x" secondAttribute="leading" constant="4" id="WCg-Pp-zyr"/>
-                                                                        <constraint firstItem="nf8-vg-vbr" firstAttribute="leading" secondItem="Pru-v1-t3o" secondAttribute="trailing" constant="4" id="vgf-S0-JiD"/>
+                                                                        <constraint firstItem="nf8-vg-vbr" firstAttribute="leading" secondItem="k4Q-rc-IRt" secondAttribute="trailing" constant="6" id="dRm-KD-THr"/>
+                                                                        <constraint firstItem="k4Q-rc-IRt" firstAttribute="centerY" secondItem="h0H-wu-h9x" secondAttribute="centerY" id="eBj-qH-Heo"/>
                                                                     </constraints>
                                                                     <connections>
-                                                                        <outlet property="requestMethodView" destination="Pru-v1-t3o" id="vED-dc-6pg"/>
+                                                                        <outlet property="requestIconImageView" destination="k4Q-rc-IRt" id="zPO-hw-AlT"/>
                                                                         <outlet property="requestTextField" destination="nf8-vg-vbr" id="ZJJ-Z7-zVX"/>
                                                                     </connections>
                                                                 </tableCellView>
@@ -916,5 +917,6 @@
         <image name="icon-forward" width="12" height="18"/>
         <image name="icon-hide-left-panel" width="20" height="16"/>
         <image name="icon-hide-right-panel" width="20" height="16"/>
+        <image name="method-get" width="16" height="16"/>
     </resources>
 </document>

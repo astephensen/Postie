@@ -9,9 +9,8 @@
 import Cocoa
 
 class RequestTableCellView: NSTableCellView {
-    @IBOutlet var requestMethodView: RequestMethodView?
+    @IBOutlet var requestIconImageView: NSImageView?
     @IBOutlet var requestTextField: NSTextField?
-    
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -26,9 +25,10 @@ class RequestTableCellView: NSTableCellView {
             requestTextField?.attributedStringValue = url.attributedString
         }
         
-        // Set the method.
+        // Set the method icon.
         if let method = request.method {
-            requestMethodView?.method = method
+            let methodIcon = "method-\(method.lowercaseString)"
+            requestIconImageView?.image = NSImage(named: methodIcon)
         }
     }
     
