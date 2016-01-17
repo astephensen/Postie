@@ -91,6 +91,10 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         })
     }
     
+    // MARK: - Cursors
+    // TODO: Update the cursor location
+    
+    var cursorLocation = 0
     
     // MARK: - WKScriptMessageHandler
     

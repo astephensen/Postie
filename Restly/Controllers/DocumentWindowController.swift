@@ -46,5 +46,15 @@ class DocumentWindowController: NSWindowController {
             togglePanel(selectedSegment)
         }
     }
+    
+    @IBAction func sendRequest(sender: NSToolbarItem?) {
+        guard let cursorLocation = mainViewController?.editorViewController?.codeMirrorView?.cursorLocation else {
+            return
+        }
+        guard let selectedRequest = currentDocument?.requestAtLocation(cursorLocation) else {
+            return
+        }
+        selectedRequest.send()
+    }
 
 }

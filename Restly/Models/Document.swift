@@ -17,6 +17,7 @@ class Document: NSDocument {
         }
     }
     var requests = [Request]()
+    var requestRanges = [NSRange]()
     var documentWindowController: DocumentWindowController?
 
     init(text: String) {
@@ -85,6 +86,7 @@ class Document: NSDocument {
         
         // Clear the existing requests array.
         requests.removeAll()
+        requestRanges.removeAll()
         
         // Convert the Swift string to an NSString so that it can be used in regex.
         let textNSString = text as NSString
@@ -109,11 +111,21 @@ class Document: NSDocument {
                 let requestText = textNSString.substringWithRange(matchRange)
                 let request = Request(text: requestText)
                 requests.append(request)
+                requestRanges.append(matchRange)
             }
         }
         
         // Post the notfication that the requests have been updated.
         NSNotificationCenter.defaultCenter().postNotificationName(DocumentDidUpdateRequestsNotification, object: self)
+    }
+    
+    func requestAtLocation(location: Int) -> Request? {
+        for (index, range) in requestRanges.enumerate() {
+            if NSLocationInRange(location, range) {
+                return requests[index]
+            }
+        }
+        return nil
     }
 }
 

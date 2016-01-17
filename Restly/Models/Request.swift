@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class Request {
     var text: String {
@@ -51,6 +52,24 @@ class Request {
         // Headers are in the format `Header: Content`. The headers must be provided before any body content.
         // let headerPattern = "^.*?-(.*)\\:(.*)"
         
+    }
+
+    // MARK: - Sending
+    
+    var isSending = false
+    var response: NSURLResponse?
+    var bodyData: NSData?
+    
+    func send() {
+        isSending = true
+        weak var weakSelf = self
+        guard let urlAbsoluteString = url?.absoluteString else {
+            return
+        }
+        Alamofire.request(.GET, urlAbsoluteString).responseString { response in
+            weakSelf?.isSending = false
+            print(response)
+        }
     }
     
 }
