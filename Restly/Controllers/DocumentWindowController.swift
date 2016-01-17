@@ -21,6 +21,10 @@ class DocumentWindowController: NSWindowController {
     
         window?.titleVisibility = .Hidden
         mainViewController = self.contentViewController as? MainViewController
+
+        // Make the window content view clip subviews. This ensures the bottom corners stay rounded.
+        window?.contentView?.wantsLayer = true
+        window?.contentView?.layer?.masksToBounds = true
     }
     
     // MARK: - Methods
