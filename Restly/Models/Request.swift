@@ -66,7 +66,10 @@ class Request {
         guard let urlAbsoluteString = url?.absoluteString else {
             return
         }
-        Alamofire.request(.GET, urlAbsoluteString).responseString { response in
+        guard let method = method else {
+            return
+        }
+        Alamofire.request(.fromString(method), urlAbsoluteString).responseString { response in
             weakSelf?.isSending = false
             print(response)
         }
