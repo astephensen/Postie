@@ -73,7 +73,7 @@ class Document: NSDocument {
     
     func updateRequests() {
         // Requests are determined by finding lines that start with a valid request method.
-        let methods = ["GET", "PUT", "POST", "PATCH", "DELETE", "HEAD"]
+        let methods = ["GET", "PUT", "POST", "PATCH", "DELETE", "HEAD", "OPTIONS", "TRACE", "CONNECT"]
         
         // Create expressions that will be used to match methods.
         let joinedMethods = methods.joinWithSeparator("|")
