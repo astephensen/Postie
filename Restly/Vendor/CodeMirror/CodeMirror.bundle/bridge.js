@@ -11,6 +11,12 @@ window.editor.on('change', function(instance, change) {
   });
 });
 
+window.editor.on('cursorActivity', function(instance) {
+  window.webkit.messageHandlers.notification.postMessage({
+    event: 'cursor-moved'
+  });
+});
+
 window.onload = function () {
   window.webkit.messageHandlers.notification.postMessage({
     event: 'loaded'

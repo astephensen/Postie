@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB681C548E26001E5514 /* ResponseViewController.swift */; };
+		E712BB731C549009001E5514 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB721C549009001E5514 /* ResultsViewController.swift */; };
+		E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB741C54902F001E5514 /* ResultsTabViewController.swift */; };
 		E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7421F951C126D0700C0DA38 /* Main.storyboard */; };
 		E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7421F9A1C126F7600C0DA38 /* Assets.xcassets */; };
 		E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F9D1C126F8D00C0DA38 /* Document.swift */; };
@@ -117,6 +120,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E712BB681C548E26001E5514 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
+		E712BB721C549009001E5514 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		E712BB741C54902F001E5514 /* ResultsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTabViewController.swift; sourceTree = "<group>"; };
 		E7421F951C126D0700C0DA38 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E7421F9A1C126F7600C0DA38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7421F9D1C126F8D00C0DA38 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -203,6 +209,9 @@
 				E76468521C13E7A7001DE284 /* EditorViewController.swift */,
 				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
 				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
+				E712BB681C548E26001E5514 /* ResponseViewController.swift */,
+				E712BB721C549009001E5514 /* ResultsViewController.swift */,
+				E712BB741C54902F001E5514 /* ResultsTabViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -516,12 +525,15 @@
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
 				E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */,
 				E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */,
+				E712BB731C549009001E5514 /* ResultsViewController.swift in Sources */,
+				E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */,
 				E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */,
 				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,
 				E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
+				E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */,
 				E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */,
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
 				E7421FA31C12719900C0DA38 /* DocumentWindowController.swift in Sources */,

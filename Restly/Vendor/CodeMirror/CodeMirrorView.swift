@@ -75,7 +75,6 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     func setText(text: String) {
         editorText = text
-        Swift.print(editorText)
         let javascript = "window.editor.doc.setValue('\(text)')"
         webView?.evaluateJavaScript(javascript, completionHandler: nil)
     }
@@ -83,7 +82,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     func updateTextProperty() {
         let javascript = "window.editor.doc.getValue()"
         weak var weakSelf = self
-        webView?.evaluateJavaScript(javascript, completionHandler: { (result, error) -> Void in
+        webView?.evaluateJavaScript(javascript, completionHandler: { result, error in
             if let text = result as? String {
                 weakSelf?.editorText = text
                 weakSelf?.delegate?.codeMirrorViewTextDidChange(self)
@@ -92,9 +91,19 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     }
     
     // MARK: - Cursors
-    // TODO: Update the cursor location
     
     var cursorLocation = 0
+    
+    func updateCursorProperty() {
+        let javascript = "window.editor.doc.indexFromPos(window.editor.doc.getCursor())"
+        weak var weakSelf = self
+        webView?.evaluateJavaScript(javascript, completionHandler: { result, error in
+            if let index = result as? Int {
+                weakSelf?.cursorLocation = index
+                // TODO: Add delegate method
+            }
+        })
+    }
     
     // MARK: - WKScriptMessageHandler
     
@@ -105,6 +114,8 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
                 switch event {
                 case "change":
                     updateTextProperty()
+                case "cursor-moved":
+                    updateCursorProperty()
                 case "loaded":
                     delegate?.codeMirrorViewDidLoad(self)
                 default:
