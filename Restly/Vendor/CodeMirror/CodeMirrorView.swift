@@ -93,6 +93,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         didSet {
             config["readOnly"] = readOnly
             config["cursorBlinkRate"] = readOnly ? -1 : 530
+            config["theme"] = readOnly ? "readonly" : "default"
         }
     }
     

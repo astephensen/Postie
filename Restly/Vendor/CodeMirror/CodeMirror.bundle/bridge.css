@@ -20,3 +20,15 @@ body {
 .CodeMirror-focused .CodeMirror-selected {
     background: #B2D7FF;
 }
+
+/* Default Theme */
+
+/* Read Only Theme */
+
+.cm-s-readonly .CodeMirror-gutters {
+    border-right: none;
+}
+
+.cm-s-readonly.CodeMirror {
+    background: #F7F7F7;
+}
