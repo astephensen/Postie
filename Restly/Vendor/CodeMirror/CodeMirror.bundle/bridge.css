@@ -12,3 +12,11 @@ body {
     font-family: "menlo";
     font-size: 11px;
 }
+
+.CodeMirror-selected {
+    background: #DCDCDC;
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+    background: #B2D7FF;
+}
