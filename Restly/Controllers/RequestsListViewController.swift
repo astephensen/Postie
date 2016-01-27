@@ -9,11 +9,6 @@
 import Cocoa
 
 class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
-    var currentDocument: Document? {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
     @IBOutlet var tableView: NSTableView?
 
     override func viewDidLoad() {
@@ -36,16 +31,11 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        guard currentDocument != nil else {
-            return 0
-        }
-        return currentDocument!.requests.count
+        return document?.requests.count ?? 0
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        guard let request = currentDocument?.requests[row] else {
-            return nil
-        }
+        let request = document!.requests[row]
         let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView
@@ -54,7 +44,7 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - Notifications
 
     func setupNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "documentDidUpdateRequests:", name: DocumentDidUpdateRequestsNotification, object: currentDocument)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "documentDidUpdateRequests:", name: DocumentDidUpdateRequestsNotification, object: nil)
     }
     
     func documentDidUpdateRequests(notification: NSNotification) {

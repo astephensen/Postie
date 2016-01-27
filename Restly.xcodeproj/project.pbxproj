@@ -31,6 +31,7 @@
 		E7B546471C58971A006B5A83 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; };
 		E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7B5464A1C58971D006B5A83 /* Alamofire.framework.dSYM in Carthage */ = {isa = PBXBuildFile; fileRef = E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */; };
+		E7B5465E1C58C8C1006B5A83 /* NSViewController+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5465D1C58C8C1006B5A83 /* NSViewController+Document.swift */; };
 		E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B55C001C4B769A00B7EA43 /* Method+String.swift */; };
 		E7FD1E241C163F6500EC3EC1 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7B5463E1C589708006B5A83 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
+		E7B5465D1C58C8C1006B5A83 /* NSViewController+Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+Document.swift"; sourceTree = "<group>"; };
 		E7B55C001C4B769A00B7EA43 /* Method+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Method+String.swift"; sourceTree = "<group>"; };
 		E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,8 +207,9 @@
 		E77898431C3765D100071283 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E77898441C37660800071283 /* NSURL+AttributedString.swift */,
 				E7B55C001C4B769A00B7EA43 /* Method+String.swift */,
+				E77898441C37660800071283 /* NSURL+AttributedString.swift */,
+				E7B5465D1C58C8C1006B5A83 /* NSViewController+Document.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */,
 				E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */,
 				E712BB731C549009001E5514 /* ResultsViewController.swift in Sources */,
+				E7B5465E1C58C8C1006B5A83 /* NSViewController+Document.swift in Sources */,
 				E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */,
 				E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */,
 				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,

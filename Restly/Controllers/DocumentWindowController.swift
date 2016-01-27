@@ -9,11 +9,7 @@
 import Cocoa
 
 class DocumentWindowController: NSWindowController {
-    var currentDocument: Document? {
-        didSet {
-            mainViewController?.currentDocument = currentDocument
-        }
-    }
+    var currentDocument: Document?
     var mainViewController: MainViewController?
 
     override func windowDidLoad() {

@@ -10,21 +10,25 @@ import Cocoa
 
 class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     @IBOutlet var codeMirrorView: CodeMirrorView?
-    var currentDocument: Document? {
-        didSet {
-            loadDocument()
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         codeMirrorView?.delegate = self
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        loadDocument()
+    }
+    
     // MARK: - Functions
     
     func loadDocument() {
-        codeMirrorView?.loadEditor(currentDocument!.text)
+        codeMirrorView?.loadEditor(document!.text)
     }
     
     // MARK: - CodeMirrorViewDelegate
@@ -35,7 +39,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     
     func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
         if let text = codeMirrorView.text {
-            currentDocument?.text = text
+            document?.text = text
         }
     }
     

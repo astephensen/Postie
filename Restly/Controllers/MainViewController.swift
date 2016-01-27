@@ -11,12 +11,6 @@ import Cocoa
 class MainViewController: NSSplitViewController {
     var requestsListViewController: RequestsListViewController?
     var editorViewController: EditorViewController?
-    var currentDocument: Document? {
-        didSet {
-            requestsListViewController?.currentDocument = currentDocument
-            editorViewController?.currentDocument = currentDocument
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
