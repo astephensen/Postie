@@ -10,6 +10,9 @@
 <body>
     <textarea id="code" name="code">_LOAD_TEXT_</textarea>
     <script src="_BUNDLE_PATH_/codemirror.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        window.editor = CodeMirror.fromTextArea(document.getElementById("code"), _CONFIG_);
+    </script>
     <script src="_BUNDLE_PATH_/bridge.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

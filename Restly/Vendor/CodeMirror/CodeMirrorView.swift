@@ -17,6 +17,11 @@ protocol CodeMirrorViewDelegate {
 class CodeMirrorView: NSView, WKScriptMessageHandler {
     var webView: WKWebView?
     var delegate: CodeMirrorViewDelegate?
+    var config: [String: AnyObject] = [
+        "lineNumbers": true,
+        "styleActiveLine": true,
+        "matchBrackets": true
+    ]
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,6 +57,9 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
             let bundlePath = NSBundle.mainBundle().pathForResource("CodeMirror", ofType: "bundle")
             // Replace the bundle path in the editor with the real path.
             htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_BUNDLE_PATH_", withString: bundlePath!)
+            // Replace the options with the config object.
+            let serialisedConfig = try NSJSONSerialization.dataWithJSONObject(config, options: .PrettyPrinted)
+            htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_CONFIG_", withString: String(data: serialisedConfig, encoding: NSUTF8StringEncoding)!)
             // Replace the text to load.
             htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_LOAD_TEXT_", withString: text)
             webView?.loadHTMLString(htmlFile as String!, baseURL: NSURL.fileURLWithPath(bundlePath!))
@@ -74,12 +82,18 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
         set(newText) {
             editorText = newText
-            let javascript = "window.editor.doc.setValue('\(text)')"
+            let javascript = "window.editor.doc.setValue('\(text)');"
             webView?.evaluateJavaScript(javascript, completionHandler: nil)
         }
     }
     
     var cursorLocation = 0
+    
+    var readOnly = false {
+        didSet {
+            config["readOnly"] = readOnly
+        }
+    }
     
     // MARK: - Functions
     

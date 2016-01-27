@@ -14,6 +14,8 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        codeMirrorView?.delegate = self
+        codeMirrorView?.readOnly = true
     }
     
     override func viewWillAppear() {
@@ -26,7 +28,6 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - CodeMirrorViewDelegate
     
     func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView) {
-        
     }
     
     func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
