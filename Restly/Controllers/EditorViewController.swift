@@ -34,7 +34,9 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     }
     
     func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
-        currentDocument?.text = codeMirrorView.getText()
+        if let text = codeMirrorView.text {
+            currentDocument?.text = text
+        }
     }
     
 }

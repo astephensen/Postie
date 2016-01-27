@@ -653,17 +653,17 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="239" width="480" height="271"/>
+                        <rect key="contentRect" x="196" y="239" width="700" height="260"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="700" height="260"/>
                         <toolbar key="toolbar" implicitIdentifier="2C711E27-FAFC-4D49-ACC4-BD9F15698B7C" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Qil-pF-6BD">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="6096D24D-C448-4F3C-A0F1-ABA866395685" label="Navigation" paletteLabel="Navigation" id="BRo-X7-o6b">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="17" height="24"/>
+                                    <size key="minSize" width="13" height="24"/>
                                     <size key="maxSize" width="53" height="25"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="nFy-BI-wMh">
-                                        <rect key="frame" x="23" y="14" width="17" height="25"/>
+                                        <rect key="frame" x="23" y="14" width="13" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="CL5-rs-KvJ">
                                             <font key="font" metaFont="system"/>
@@ -785,7 +785,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="22" viewBased="YES" id="45T-Lg-qVs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="292"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="0.0"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -895,6 +895,9 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="oaf-EZ-3KW" customClass="CodeMirrorView" customModule="Restly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="350" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="Yrv-YZ-0ep"/>
+                                </constraints>
                             </customView>
                         </subviews>
                         <constraints>
@@ -985,6 +988,9 @@
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="bXO-Gb-2VD">
                                 <rect key="frame" x="0.0" y="0.0" width="350" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="tXb-9R-g0p"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="fMZ-it-xDE" kind="embed" id="fhU-dY-WnC"/>
                                 </connections>

@@ -62,49 +62,42 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     // MARK: - Properties
     
-    private var editorText: String?
+    private var editorText: String? {
+        didSet {
+            delegate?.codeMirrorViewTextDidChange(self)
+        }
+    }
     
-    // MARK: - Functions
-    
-    func getText() -> String {
-        if let editorText = editorText {
+    var text: String? {
+        get {
             return editorText
         }
-        return ""
+        set(newText) {
+            editorText = newText
+            let javascript = "window.editor.doc.setValue('\(text)')"
+            webView?.evaluateJavaScript(javascript, completionHandler: nil)
+        }
     }
-    
-    func setText(text: String) {
-        editorText = text
-        let javascript = "window.editor.doc.setValue('\(text)')"
-        webView?.evaluateJavaScript(javascript, completionHandler: nil)
-    }
-    
-    func updateTextProperty() {
-        let javascript = "window.editor.doc.getValue()"
-        weak var weakSelf = self
-        webView?.evaluateJavaScript(javascript, completionHandler: { result, error in
-            if let text = result as? String {
-                weakSelf?.editorText = text
-                weakSelf?.delegate?.codeMirrorViewTextDidChange(self)
-            }
-        })
-    }
-    
-    // MARK: - Cursors
     
     var cursorLocation = 0
     
-    func updateCursorProperty() {
-        let javascript = "window.editor.doc.indexFromPos(window.editor.doc.getCursor())"
-        weak var weakSelf = self
-        webView?.evaluateJavaScript(javascript, completionHandler: { result, error in
-            if let index = result as? Int {
-                weakSelf?.cursorLocation = index
-                // TODO: Add delegate method
-            }
-        })
-    }
+    // MARK: - Functions
     
+    func updateProperty(property: String, value: AnyObject) {
+        switch property {
+        case "text":
+            if let textValue = value as? String {
+                editorText = textValue
+            }
+        case "cursor":
+            if let cursorValue = value as? Int {
+                cursorLocation = cursorValue
+            }
+        default:
+            break
+        }
+    }
+
     // MARK: - WKScriptMessageHandler
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
@@ -112,10 +105,16 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
             if let event = bodyObject["event"] as? String {
                 // The event will determine what to do with the body.
                 switch event {
-                case "change":
-                    updateTextProperty()
-                case "cursor-moved":
-                    updateCursorProperty()
+                case "updateProperty":
+                    guard let property = bodyObject["property"] as? String else {
+                        Swift.print("updateProperty event had no property")
+                        break
+                    }
+                    guard let value = bodyObject["value"] as AnyObject! else {
+                        Swift.print("updateProperty event had no value")
+                        break
+                    }
+                    updateProperty(property, value: value)
                 case "loaded":
                     delegate?.codeMirrorViewDidLoad(self)
                 default:
