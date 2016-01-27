@@ -13,7 +13,9 @@ struct AppReducer: Reducer {
     func handleAction(action: Action, state: AppState?) -> AppState {
         guard let state = state else {
             return AppState(
-                text: ""
+                text: "",
+                requests: [],
+                requestRanges: []
             )
         }
         switch action {
@@ -27,5 +29,9 @@ struct AppReducer: Reducer {
 
 func updateText(var state: AppState, action: UpdateTextAction) -> AppState {
     state.text = action.text
+    // Update the request and request ranges.
+    let (requests, requestRanges) = Request.requestsFromText(action.text)
+    state.requests = requests
+    state.requestRanges = requestRanges
     return state
 }

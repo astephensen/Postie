@@ -52,7 +52,7 @@ class DocumentWindowController: NSWindowController {
         guard let cursorLocation = mainViewController?.editorViewController?.codeMirrorView?.cursorLocation else {
             return
         }
-        guard let selectedRequest = currentDocument?.requestAtLocation(cursorLocation) else {
+        guard let selectedRequest = mainStore.state.requestAtLocation(cursorLocation) else {
             return
         }
         selectedRequest.send()

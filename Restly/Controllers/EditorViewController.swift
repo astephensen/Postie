@@ -40,6 +40,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
         if let text = codeMirrorView.text {
             document?.text = text
+            mainStore.dispatch(UpdateTextAction(text: text))
         }
     }
     

@@ -7,8 +7,9 @@
 //
 
 import Cocoa
+import ReSwift
 
-class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, StoreSubscriber {
     @IBOutlet var tableView: NSTableView?
 
     override func viewDidLoad() {
@@ -22,6 +23,22 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
         tableView?.selectionHighlightStyle = .SourceList
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        mainStore.subscribe(self)
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        mainStore.unsubscribe(self)
+    }
+    
+    // MARK: - ReSwift
+    
+    func newState(state: AppState) {
+
+    }
+    
     // MARK: - NSTableViewDelegate
     
     func tableViewSelectionDidChange(notification: NSNotification) {
@@ -31,11 +48,11 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return document?.requests.count ?? 0
+        return mainStore.state.requests.count ?? 0
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let request = document!.requests[row]
+        let request = mainStore.state.requests[row]
         let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView
