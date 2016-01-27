@@ -7,10 +7,15 @@
 //
 
 import Cocoa
+import ReSwift
 
 class DocumentWindowController: NSWindowController {
     var currentDocument: Document?
     var mainViewController: MainViewController?
+    var mainStore = Store<AppState>(
+        reducer: AppReducer(),
+        state: nil
+    )
 
     override func windowDidLoad() {
         super.windowDidLoad()
