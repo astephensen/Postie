@@ -48,11 +48,11 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return mainStore.state.requests.count ?? 0
+        return mainStore.state.requestState.requests.count ?? 0
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let request = mainStore.state.requests[row]
+        let request = mainStore.state.requestState.requests[row]
         let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView

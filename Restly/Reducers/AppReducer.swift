@@ -14,20 +14,6 @@ struct AppReducer: Reducer {
         guard let state = state else {
             assert(false, "State is nil")
         }
-        switch action {
-        case let action as UpdateTextAction:
-            return updateText(state, action: action)
-        default:
-            return state
-        }
+        return state
     }
-}
-
-func updateText(var state: AppState, action: UpdateTextAction) -> AppState {
-    state.text = action.text
-    // Update the request and request ranges.
-    let (requests, requestRanges) = Request.requestsFromText(action.text)
-    state.requests = requests
-    state.requestRanges = requestRanges
-    return state
 }

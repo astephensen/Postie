@@ -21,6 +21,10 @@
 		E7421FAF1C12C15300C0DA38 /* CodeMirror.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */; };
 		E7421FB01C12C15300C0DA38 /* CodeMirror.html in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAD1C12C15300C0DA38 /* CodeMirror.html */; };
 		E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */; };
+		E75481F61C599D7A007E3135 /* TextState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481F51C599D7A007E3135 /* TextState.swift */; };
+		E75481F81C59A00A007E3135 /* TextReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481F71C59A00A007E3135 /* TextReducer.swift */; };
+		E75481FA1C59A3B2007E3135 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481F91C59A3B2007E3135 /* RequestState.swift */; };
+		E75481FC1C59A3FA007E3135 /* RequestReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481FB1C59A3FA007E3135 /* RequestReducer.swift */; };
 		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
 		E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983C1C374CAF00071283 /* RequestTableCellView.swift */; };
 		E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983E1C374D3600071283 /* RequestMethodView.swift */; };
@@ -102,6 +106,10 @@
 		E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeMirror.bundle; sourceTree = "<group>"; };
 		E7421FAD1C12C15300C0DA38 /* CodeMirror.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CodeMirror.html; sourceTree = "<group>"; };
 		E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeMirrorView.swift; sourceTree = "<group>"; };
+		E75481F51C599D7A007E3135 /* TextState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextState.swift; sourceTree = "<group>"; };
+		E75481F71C59A00A007E3135 /* TextReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextReducer.swift; sourceTree = "<group>"; };
+		E75481F91C59A3B2007E3135 /* RequestState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
+		E75481FB1C59A3FA007E3135 /* RequestReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestReducer.swift; sourceTree = "<group>"; };
 		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		E778983C1C374CAF00071283 /* RequestTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableCellView.swift; sourceTree = "<group>"; };
 		E778983E1C374D3600071283 /* RequestMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethodView.swift; sourceTree = "<group>"; };
@@ -311,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				E7B546761C58D8A3006B5A83 /* AppReducer.swift */,
+				E75481F71C59A00A007E3135 /* TextReducer.swift */,
+				E75481FB1C59A3FA007E3135 /* RequestReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -319,6 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				E7B546781C58D8A3006B5A83 /* AppState.swift */,
+				E75481F51C599D7A007E3135 /* TextState.swift */,
+				E75481F91C59A3B2007E3135 /* RequestState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -467,16 +479,20 @@
 				E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */,
 				E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */,
 				E7B546791C58D8A3006B5A83 /* UpdateTextAction.swift in Sources */,
+				E75481F61C599D7A007E3135 /* TextState.swift in Sources */,
 				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,
 				E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
+				E75481F81C59A00A007E3135 /* TextReducer.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7B5467A1C58D8A3006B5A83 /* AppReducer.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 				E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */,
+				E75481FA1C59A3B2007E3135 /* RequestState.swift in Sources */,
 				E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */,
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
 				E7421FA31C12719900C0DA38 /* DocumentWindowController.swift in Sources */,
+				E75481FC1C59A3FA007E3135 /* RequestReducer.swift in Sources */,
 				E7B546861C58D8DE006B5A83 /* NSViewController+Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,12 +20,12 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubsc
     
     // Create the default store with a fresh state.
     var mainStore = Store<AppState>(
-        reducer: AppReducer(),
-        state: AppState(
-            text: "",
-            requests: [],
-            requestRanges: []
-        )
+        reducer: CombinedReducer([
+            AppReducer(),
+            TextReducer(),
+            RequestReducer()
+        ]),
+        state: AppState()
     )
 
     override func windowDidLoad() {
@@ -44,8 +44,8 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubsc
     
     // MARK: - ReSwift
     
-    func newState(state: AppState) {
-        currentDocument?.text = state.text
+    func newState(state: HasTextState) {
+        currentDocument?.text = state.textState.text
     }
     
     // MARK: - Methods
@@ -72,7 +72,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubsc
         guard let cursorLocation = mainViewController?.editorViewController?.codeMirrorView?.cursorLocation else {
             return
         }
-        guard let selectedRequest = mainStore.state.requestAtLocation(cursorLocation) else {
+        guard let selectedRequest = mainStore.state.requestState.requestAtLocation(cursorLocation) else {
             return
         }
         selectedRequest.send()

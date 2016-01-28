@@ -28,7 +28,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - Functions
     
     func loadDocument() {
-        codeMirrorView?.loadEditor(mainStore.state.text)
+        codeMirrorView?.loadEditor(mainStore.state.textState.text)
     }
     
     // MARK: - CodeMirrorViewDelegate
