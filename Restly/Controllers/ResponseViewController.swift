@@ -7,10 +7,12 @@
 //
 
 import Cocoa
+import ReSwift
 
-class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
+class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSubscriber {
     @IBOutlet var codeMirrorView: CodeMirrorView?
     var codeMirrorViewLoaded = false
+    var currentSelectedRequest: Request?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,36 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
             codeMirrorView?.loadEditor()
             codeMirrorViewLoaded = true
         }
+        mainStore.subscribe(self)
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        mainStore.unsubscribe(self)
+    }
+    
+    // MARK: - ReSwift
+    
+    func newState(state: HasRequestState) {
+        // Check if the selected request has been updated.
+        if state.requestState.selectedRequest !== currentSelectedRequest {
+            currentSelectedRequest = state.requestState.selectedRequest
+            loadRequestBody()
+        }
+    }
+    
+    // MARK: - Functions
+    
+    func loadRequestBody() {
+        guard let bodyData = currentSelectedRequest?.bodyData else {
+            codeMirrorView?.text = ""
+            return
+        }
+        guard let bodyDataString = String(data: bodyData, encoding: NSUTF8StringEncoding) else {
+            codeMirrorView?.text = ""
+            return
+        }
+        codeMirrorView?.text = bodyDataString
     }
     
     // MARK: - CodeMirrorViewDelegate

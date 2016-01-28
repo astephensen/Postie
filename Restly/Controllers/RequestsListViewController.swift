@@ -12,11 +12,6 @@ import ReSwift
 class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, StoreSubscriber {
     @IBOutlet var tableView: NSTableView?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupNotifications()
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         tableView?.backgroundColor = NSColor.clearColor()
@@ -35,8 +30,8 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     
     // MARK: - ReSwift
     
-    func newState(state: AppState) {
-
+    func newState(state: HasRequestState) {
+        tableView?.reloadData()
     }
     
     // MARK: - NSTableViewDelegate
@@ -56,16 +51,6 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
         let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView
-    }
-    
-    // MARK: - Notifications
-
-    func setupNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "documentDidUpdateRequests:", name: DocumentDidUpdateRequestsNotification, object: nil)
-    }
-    
-    func documentDidUpdateRequests(notification: NSNotification) {
-        tableView?.reloadData()
     }
     
 }

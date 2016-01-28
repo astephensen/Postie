@@ -83,8 +83,10 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
         set(newText) {
             editorText = newText
-            let javascript = "window.editor.doc.setValue('\(text)');"
-            webView?.evaluateJavaScript(javascript, completionHandler: nil)
+            if let encodedText = newText?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) {
+                let javascript = "window.editor.doc.setValue(decodeURIComponent('\(encodedText)'));"
+                webView?.evaluateJavaScript(javascript, completionHandler: nil)
+            }
         }
     }
     
