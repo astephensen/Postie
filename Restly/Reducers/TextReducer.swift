@@ -17,6 +17,8 @@ struct TextReducer: Reducer {
         switch action {
         case let action as UpdateTextAction:
             return updateText(state, action: action)
+        case let action as UpdateCursorLocationAction:
+            return updateCursorLocation(state, action: action)
         default:
             return state
         }
@@ -25,5 +27,10 @@ struct TextReducer: Reducer {
 
 func updateText(var state: HasTextState, action: UpdateTextAction) -> HasTextState {
     state.textState.text = action.text
+    return state
+}
+
+func updateCursorLocation(var state: HasTextState, action: UpdateCursorLocationAction) -> HasTextState {
+    state.textState.cursorLocation = action.location
     return state
 }

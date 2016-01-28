@@ -12,6 +12,7 @@ import ReSwift
 struct RequestState {
     var requests: [Request] = []
     var ranges: [NSRange] = []
+    var selectedRequest: Request?
     
     // TODO: Maybe this shouldn't exist in the state? Or maybe it should?
     func requestAtLocation(location: Int) -> Request? {

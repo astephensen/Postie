@@ -34,7 +34,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - CodeMirrorViewDelegate
     
     func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
-        
+        mainStore.dispatch(UpdateCursorLocationAction(location: cursorLocation))
     }
     
     func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String) {

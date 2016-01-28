@@ -1,5 +1,5 @@
 //
-//  TextState.swift
+//  UpdateCursorLocationAction.swift
 //  Restly
 //
 //  Created by Alan Stephensen on 28/01/2016.
@@ -9,11 +9,6 @@
 import Foundation
 import ReSwift
 
-struct TextState {
-    var text = ""
-    var cursorLocation = 0
-}
-
-protocol HasTextState {
-    var textState: TextState { get set }
+struct UpdateCursorLocationAction: Action {
+    let location: Int
 }

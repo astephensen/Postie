@@ -25,6 +25,7 @@
 		E75481F81C59A00A007E3135 /* TextReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481F71C59A00A007E3135 /* TextReducer.swift */; };
 		E75481FA1C59A3B2007E3135 /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481F91C59A3B2007E3135 /* RequestState.swift */; };
 		E75481FC1C59A3FA007E3135 /* RequestReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481FB1C59A3FA007E3135 /* RequestReducer.swift */; };
+		E75481FE1C5A0753007E3135 /* UpdateCursorLocationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75481FD1C5A0753007E3135 /* UpdateCursorLocationAction.swift */; };
 		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
 		E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983C1C374CAF00071283 /* RequestTableCellView.swift */; };
 		E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983E1C374D3600071283 /* RequestMethodView.swift */; };
@@ -110,6 +111,7 @@
 		E75481F71C59A00A007E3135 /* TextReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextReducer.swift; sourceTree = "<group>"; };
 		E75481F91C59A3B2007E3135 /* RequestState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		E75481FB1C59A3FA007E3135 /* RequestReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestReducer.swift; sourceTree = "<group>"; };
+		E75481FD1C5A0753007E3135 /* UpdateCursorLocationAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateCursorLocationAction.swift; sourceTree = "<group>"; };
 		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		E778983C1C374CAF00071283 /* RequestTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableCellView.swift; sourceTree = "<group>"; };
 		E778983E1C374D3600071283 /* RequestMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethodView.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		E7B546731C58D8A3006B5A83 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				E75481FD1C5A0753007E3135 /* UpdateCursorLocationAction.swift */,
 				E7B546741C58D8A3006B5A83 /* UpdateTextAction.swift */,
 			);
 			path = Actions;
@@ -319,8 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				E7B546761C58D8A3006B5A83 /* AppReducer.swift */,
-				E75481F71C59A00A007E3135 /* TextReducer.swift */,
 				E75481FB1C59A3FA007E3135 /* RequestReducer.swift */,
+				E75481F71C59A00A007E3135 /* TextReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -329,8 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				E7B546781C58D8A3006B5A83 /* AppState.swift */,
-				E75481F51C599D7A007E3135 /* TextState.swift */,
 				E75481F91C59A3B2007E3135 /* RequestState.swift */,
+				E75481F51C599D7A007E3135 /* TextState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
 				E7421FA31C12719900C0DA38 /* DocumentWindowController.swift in Sources */,
 				E75481FC1C59A3FA007E3135 /* RequestReducer.swift in Sources */,
+				E75481FE1C5A0753007E3135 /* UpdateCursorLocationAction.swift in Sources */,
 				E7B546861C58D8DE006B5A83 /* NSViewController+Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

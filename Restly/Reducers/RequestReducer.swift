@@ -17,6 +17,8 @@ struct RequestReducer: Reducer {
         switch action {
         case let action as UpdateTextAction:
             return updateRequests(state, action: action)
+        case let action as UpdateCursorLocationAction:
+            return updateSelectedRequest(state, action: action)
         default:
             return state
         }
@@ -27,5 +29,12 @@ func updateRequests(var state: HasRequestState, action: UpdateTextAction) -> Has
     let (requests, requestRanges) = Request.requestsFromText(action.text)
     state.requestState.requests = requests
     state.requestState.ranges = requestRanges
+    return state
+}
+
+func updateSelectedRequest(var state: HasRequestState, action: UpdateCursorLocationAction) -> HasRequestState {
+    if let request = state.requestState.requestAtLocation(action.location) {
+        state.requestState.selectedRequest = request
+    }
     return state
 }
