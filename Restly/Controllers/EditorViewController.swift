@@ -28,7 +28,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - Functions
     
     func loadDocument() {
-        codeMirrorView?.loadEditor(document!.text)
+        codeMirrorView?.loadEditor(mainStore.state.text)
     }
     
     // MARK: - CodeMirrorViewDelegate
@@ -39,7 +39,6 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     
     func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
         if let text = codeMirrorView.text {
-            document?.text = text
             mainStore.dispatch(UpdateTextAction(text: text))
         }
     }

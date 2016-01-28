@@ -12,11 +12,7 @@ import ReSwift
 struct AppReducer: Reducer {
     func handleAction(action: Action, state: AppState?) -> AppState {
         guard let state = state else {
-            return AppState(
-                text: "",
-                requests: [],
-                requestRanges: []
-            )
+            assert(false, "State is nil")
         }
         switch action {
         case let action as UpdateTextAction:
