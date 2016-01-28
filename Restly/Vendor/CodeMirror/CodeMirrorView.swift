@@ -9,9 +9,10 @@
 import Cocoa
 import WebKit
 
-protocol CodeMirrorViewDelegate {
-    func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView)
-    func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView)
+@objc protocol CodeMirrorViewDelegate {
+    optional func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView)
+    optional func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String)
+    optional func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int)
 }
 
 class CodeMirrorView: NSView, WKScriptMessageHandler {
@@ -72,7 +73,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     private var editorText: String? {
         didSet {
-            delegate?.codeMirrorViewTextDidChange(self)
+            delegate?.codeMirrorView?(self, didChangeText: editorText!)
         }
     }
     
@@ -87,7 +88,11 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
     }
     
-    var cursorLocation = 0
+    var cursorLocation = 0 {
+        didSet {
+            delegate?.codeMirrorView?(self, didChangeCursorLocation: cursorLocation)
+        }
+    }
     
     var readOnly = false {
         didSet {
@@ -132,7 +137,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
                     }
                     updateProperty(property, value: value)
                 case "loaded":
-                    delegate?.codeMirrorViewDidLoad(self)
+                    delegate?.codeMirrorViewDidLoad?(self)
                 default:
                     break
                 }

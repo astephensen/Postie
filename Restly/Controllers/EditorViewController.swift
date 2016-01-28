@@ -33,14 +33,12 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     
     // MARK: - CodeMirrorViewDelegate
     
-    func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView) {
+    func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
+        
+    }
+    
+    func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String) {
+        mainStore.dispatch(UpdateTextAction(text: newText))
+    }
 
-    }
-    
-    func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
-        if let text = codeMirrorView.text {
-            mainStore.dispatch(UpdateTextAction(text: text))
-        }
-    }
-    
 }
