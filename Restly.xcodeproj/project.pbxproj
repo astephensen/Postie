@@ -32,6 +32,11 @@
 		E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77898441C37660800071283 /* NSURL+AttributedString.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* RestlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */; };
+		E7922A7A1C5AFDE9005155B8 /* SendingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7922A791C5AFDE9005155B8 /* SendingState.swift */; };
+		E7922A7C1C5AFE15005155B8 /* SendRequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7922A7B1C5AFE15005155B8 /* SendRequestAction.swift */; };
+		E7922A7E1C5AFE7D005155B8 /* SendingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7922A7D1C5AFE7D005155B8 /* SendingReducer.swift */; };
+		E7922A801C5B00AA005155B8 /* RequestFinishedSendingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7922A7F1C5B00AA005155B8 /* RequestFinishedSendingAction.swift */; };
+		E7922A821C5B02FE005155B8 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7922A811C5B02FE005155B8 /* RequestSender.swift */; };
 		E7B546411C589708006B5A83 /* Alamofire.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */; };
 		E7B546471C58971A006B5A83 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; };
 		E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -124,6 +129,11 @@
 		E77E63061BEEBFF600F14261 /* RestlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* RestlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestlyUITests.swift; sourceTree = "<group>"; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7922A791C5AFDE9005155B8 /* SendingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingState.swift; sourceTree = "<group>"; };
+		E7922A7B1C5AFE15005155B8 /* SendRequestAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendRequestAction.swift; sourceTree = "<group>"; };
+		E7922A7D1C5AFE7D005155B8 /* SendingReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingReducer.swift; sourceTree = "<group>"; };
+		E7922A7F1C5B00AA005155B8 /* RequestFinishedSendingAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestFinishedSendingAction.swift; sourceTree = "<group>"; };
+		E7922A811C5B02FE005155B8 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		E7B5463E1C589708006B5A83 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		E7B546741C58D8A3006B5A83 /* UpdateTextAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTextAction.swift; sourceTree = "<group>"; };
@@ -184,6 +194,7 @@
 			children = (
 				E7421F9D1C126F8D00C0DA38 /* Document.swift */,
 				E7421FA61C12ACD600C0DA38 /* Request.swift */,
+				E7922A811C5B02FE005155B8 /* RequestSender.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +323,8 @@
 		E7B546731C58D8A3006B5A83 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				E7922A7F1C5B00AA005155B8 /* RequestFinishedSendingAction.swift */,
+				E7922A7B1C5AFE15005155B8 /* SendRequestAction.swift */,
 				E75481FD1C5A0753007E3135 /* UpdateCursorLocationAction.swift */,
 				E7B546741C58D8A3006B5A83 /* UpdateTextAction.swift */,
 			);
@@ -323,6 +336,7 @@
 			children = (
 				E7B546761C58D8A3006B5A83 /* AppReducer.swift */,
 				E75481FB1C59A3FA007E3135 /* RequestReducer.swift */,
+				E7922A7D1C5AFE7D005155B8 /* SendingReducer.swift */,
 				E75481F71C59A00A007E3135 /* TextReducer.swift */,
 			);
 			path = Reducers;
@@ -333,6 +347,7 @@
 			children = (
 				E7B546781C58D8A3006B5A83 /* AppState.swift */,
 				E75481F91C59A3B2007E3135 /* RequestState.swift */,
+				E7922A791C5AFDE9005155B8 /* SendingState.swift */,
 				E75481F51C599D7A007E3135 /* TextState.swift */,
 			);
 			path = State;
@@ -491,12 +506,17 @@
 				E7B5467A1C58D8A3006B5A83 /* AppReducer.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 				E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */,
+				E7922A7C1C5AFE15005155B8 /* SendRequestAction.swift in Sources */,
 				E75481FA1C59A3B2007E3135 /* RequestState.swift in Sources */,
 				E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */,
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
 				E7421FA31C12719900C0DA38 /* DocumentWindowController.swift in Sources */,
+				E7922A821C5B02FE005155B8 /* RequestSender.swift in Sources */,
+				E7922A801C5B00AA005155B8 /* RequestFinishedSendingAction.swift in Sources */,
+				E7922A7A1C5AFDE9005155B8 /* SendingState.swift in Sources */,
 				E75481FC1C59A3FA007E3135 /* RequestReducer.swift in Sources */,
 				E75481FE1C5A0753007E3135 /* UpdateCursorLocationAction.swift in Sources */,
+				E7922A7E1C5AFE7D005155B8 /* SendingReducer.swift in Sources */,
 				E7B546861C58D8DE006B5A83 /* NSViewController+Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,13 +17,15 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubsc
         }
     }
     var mainViewController: MainViewController?
+    var requestSender: RequestSender?
     
     // Create the default store with a fresh state.
     var mainStore = Store<AppState>(
         reducer: CombinedReducer([
             AppReducer(),
-            TextReducer(),
-            RequestReducer()
+            RequestReducer(),
+            SendingReducer(),
+            TextReducer()
         ]),
         state: AppState()
     )
@@ -39,7 +41,9 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubsc
         window?.contentView?.wantsLayer = true
         window?.contentView?.layer?.masksToBounds = true
         
+        requestSender = RequestSender(store: mainStore)
         mainStore.subscribe(self)
+        mainStore.subscribe(requestSender!)
     }
     
     // MARK: - ReSwift
@@ -69,19 +73,16 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubsc
     }
     
     @IBAction func sendRequest(sender: NSToolbarItem?) {
-        guard let cursorLocation = mainViewController?.editorViewController?.codeMirrorView?.cursorLocation else {
-            return
+        if let request = mainStore.state.requestState.selectedRequest {
+            mainStore.dispatch(SendRequestAction(request: request))
         }
-        guard let selectedRequest = mainStore.state.requestState.requestAtLocation(cursorLocation) else {
-            return
-        }
-        selectedRequest.send()
     }
     
     // MARK: - NSWindowDelegate
     
     func windowWillClose(notification: NSNotification) {
         mainStore.unsubscribe(self)
+        mainStore.unsubscribe(requestSender!)
     }
 
 }

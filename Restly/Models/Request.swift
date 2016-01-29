@@ -102,24 +102,7 @@ class Request {
 
     // MARK: - Sending
     
-    var isSending = false
     var response: NSURLResponse?
     var bodyData: NSData?
-    
-    func send() {
-        isSending = true
-        weak var weakSelf = self
-        guard let urlAbsoluteString = url?.absoluteString else {
-            return
-        }
-        guard let method = method else {
-            return
-        }
-        Alamofire.request(.fromString(method), urlAbsoluteString).response { (request, response, data, error) in
-            weakSelf?.response = response
-            weakSelf?.bodyData = data
-            weakSelf?.isSending = false
-        }
-    }
 
 }

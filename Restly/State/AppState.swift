@@ -9,7 +9,8 @@
 import Foundation
 import ReSwift
 
-struct AppState: StateType, HasTextState, HasRequestState {
-    var textState = TextState()
+struct AppState: StateType, HasRequestState, HasSendingState, HasTextState {
     var requestState = RequestState()
+    var sendingState = SendingState()
+    var textState = TextState()
 }
