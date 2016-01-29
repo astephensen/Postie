@@ -55,11 +55,12 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSub
             codeMirrorView?.text = ""
             return
         }
-        guard let bodyDataString = String(data: bodyData, encoding: NSUTF8StringEncoding) else {
-            codeMirrorView?.text = ""
-            return
+        // Guess encoding of the data to load.
+        var bodyString: NSString?
+        NSString.stringEncodingForData(bodyData, encodingOptions: nil, convertedString: &bodyString, usedLossyConversion: nil)
+        if let bodyString = bodyString as? String {
+            codeMirrorView?.text = bodyString
         }
-        codeMirrorView?.text = bodyDataString
         if let MIMEType = currentSelectedRequest?.response?.MIMEType {
             codeMirrorView?.mode = MIMEType
         }
