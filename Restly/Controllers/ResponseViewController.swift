@@ -60,16 +60,9 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSub
             return
         }
         codeMirrorView?.text = bodyDataString
-        codeMirrorView?.mode = "javascript"
+        if let MIMEType = currentSelectedRequest?.response?.MIMEType {
+            codeMirrorView?.mode = MIMEType
+        }
     }
-    
-    // MARK: - CodeMirrorViewDelegate
-    
-    func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView) {
-    }
-    
-    func codeMirrorViewTextDidChange(codeMirrorView: CodeMirrorView) {
-        
-    }
-    
+
 }
