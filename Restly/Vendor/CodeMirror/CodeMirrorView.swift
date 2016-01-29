@@ -21,7 +21,8 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     var config: [String: AnyObject] = [
         "lineNumbers": true,
         "styleActiveLine": true,
-        "matchBrackets": true
+        "matchBrackets": true,
+        "mode": "text"
     ]
 
     override func awakeFromNib() {
@@ -83,10 +84,16 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
         set(newText) {
             editorText = newText
-            if let encodedText = newText?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) {
-                let javascript = "window.editor.doc.setValue(decodeURIComponent('\(encodedText)'));"
+            // Encode to JSON to pass through to the web view.
+            do {
+                let encodeArray = [newText!]
+                let encodedData = try NSJSONSerialization.dataWithJSONObject(encodeArray, options: [])
+                let encodedJSON = String(data: encodedData, encoding: NSUTF8StringEncoding)
+                let encodedTextRange = Range<String.Index>(start: encodedJSON!.startIndex.advancedBy(2), end: encodedJSON!.endIndex.advancedBy(-2))
+                let encodedText = encodedJSON?.substringWithRange(encodedTextRange)
+                let javascript = "window.editor.doc.setValue(\"\(encodedText!)\");"
                 webView?.evaluateJavaScript(javascript, completionHandler: nil)
-            }
+            } catch {}
         }
     }
     
@@ -100,7 +107,15 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         didSet {
             config["readOnly"] = readOnly
             config["cursorBlinkRate"] = readOnly ? -1 : 530
-            config["theme"] = readOnly ? "readonly" : "default"
+            config["theme"] = readOnly ? "default readonly" : "default"
+        }
+    }
+    
+    var mode = "text" {
+        didSet {
+            config["mode"] = mode
+            let javascript = "window.editor.setOption('mode', '\(mode)');"
+            webView?.evaluateJavaScript(javascript, completionHandler: nil)
         }
     }
     

@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Editor</title>
+    <!-- Styles -->
     <link rel="stylesheet" href="_BUNDLE_PATH_/codemirror.css">
     <link rel="stylesheet" href="_BUNDLE_PATH_/bridge.css">
+    <!-- Code Mirror -->
+    <script src="_BUNDLE_PATH_/codemirror.js" type="text/javascript" charset="utf-8"></script>
+    <!-- Modes -->
+    <script src="_BUNDLE_PATH_/mode/javascript/javascript.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <textarea id="code" name="code">_LOAD_TEXT_</textarea>
-    <script src="_BUNDLE_PATH_/codemirror.js" type="text/javascript" charset="utf-8"></script>
     <script>
         window.editor = CodeMirror.fromTextArea(document.getElementById("code"), _CONFIG_);
     </script>

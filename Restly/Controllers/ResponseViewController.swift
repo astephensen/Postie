@@ -60,6 +60,7 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSub
             return
         }
         codeMirrorView?.text = bodyDataString
+        codeMirrorView?.mode = "javascript"
     }
     
     // MARK: - CodeMirrorViewDelegate
