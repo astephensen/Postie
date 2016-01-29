@@ -7,20 +7,49 @@
 //
 
 import Cocoa
+import ReSwift
 
-class DocumentWindowController: NSWindowController {
-    var currentDocument: Document?
+class DocumentWindowController: NSWindowController, NSWindowDelegate, StoreSubscriber {
+    var currentDocument: Document? {
+        // When the document has been set then dispatch an action to update the state.
+        didSet {
+            mainStore.dispatch(UpdateTextAction(text: currentDocument!.text))
+        }
+    }
     var mainViewController: MainViewController?
+    var requestSender: RequestSender?
+    
+    // Create the default store with a fresh state.
+    var mainStore = Store<AppState>(
+        reducer: CombinedReducer([
+            AppReducer(),
+            RequestReducer(),
+            SendingReducer(),
+            TextReducer()
+        ]),
+        state: AppState()
+    )
 
     override func windowDidLoad() {
         super.windowDidLoad()
     
         window?.titleVisibility = .Hidden
+        window?.delegate = self
         mainViewController = self.contentViewController as? MainViewController
 
         // Make the window content view clip subviews. This ensures the bottom corners stay rounded.
         window?.contentView?.wantsLayer = true
         window?.contentView?.layer?.masksToBounds = true
+        
+        requestSender = RequestSender(store: mainStore)
+        mainStore.subscribe(self)
+        mainStore.subscribe(requestSender!)
+    }
+    
+    // MARK: - ReSwift
+    
+    func newState(state: HasTextState) {
+        currentDocument?.text = state.textState.text
     }
     
     // MARK: - Methods
@@ -44,13 +73,16 @@ class DocumentWindowController: NSWindowController {
     }
     
     @IBAction func sendRequest(sender: NSToolbarItem?) {
-        guard let cursorLocation = mainViewController?.editorViewController?.codeMirrorView?.cursorLocation else {
-            return
+        if let request = mainStore.state.requestState.selectedRequest {
+            mainStore.dispatch(SendRequestAction(request: request))
         }
-        guard let selectedRequest = currentDocument?.requestAtLocation(cursorLocation) else {
-            return
-        }
-        selectedRequest.send()
+    }
+    
+    // MARK: - NSWindowDelegate
+    
+    func windowWillClose(notification: NSNotification) {
+        mainStore.unsubscribe(self)
+        mainStore.unsubscribe(requestSender!)
     }
 
 }

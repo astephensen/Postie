@@ -10,6 +10,52 @@ import Foundation
 import Alamofire
 
 class Request {
+    
+    class func requestsFromText(text: String) -> (requests: [Request], requestRanges: [NSRange]) {
+        // Requests are determined by finding lines that start with a valid request method.
+        let methods = ["GET", "PUT", "POST", "PATCH", "DELETE", "HEAD", "OPTIONS", "TRACE", "CONNECT"]
+        
+        // Create expressions that will be used to match methods.
+        let joinedMethods = methods.joinWithSeparator("|")
+        let expressionPattern = "^(\(joinedMethods))"
+        let methodExpression = try? NSRegularExpression(pattern: expressionPattern, options: .AnchorsMatchLines)
+        guard methodExpression != nil else {
+            return ([], [])
+        }
+        
+        // Create the arrays to hold the requests and ranges.
+        var requests: [Request] = []
+        var requestRanges: [NSRange] = []
+        
+        // Convert the Swift string to an NSString so that it can be used in regex.
+        let textNSString = text as NSString
+        
+        // Loop through all of the matches and create the requests.
+        if let matches = methodExpression?.matchesInString(text, options: NSMatchingOptions(), range: NSMakeRange(0, textNSString.length)) {
+            for (matchIndex, match) in matches.enumerate() {
+                // Find the real range of the request. The last object will contain the rest of the text, otherwise it will be the start of the next match.
+                let matchLocation = match.range.location
+                var matchLength = 0
+                // Check if it is the last object
+                if matches.last == match {
+                    matchLength = textNSString.length - matchLocation
+                } else {
+                    // Find the next match, the request text will be 'up to' the next one.
+                    let nextMatch = matches[matchIndex + 1]
+                    matchLength = nextMatch.range.location - match.range.location
+                }
+                // Extract the request text, create the request and add it to the array.
+                // TODO: Think about trimming trailing space. The range would need to be adjusted too.
+                let matchRange = NSMakeRange(matchLocation, matchLength)
+                let requestText = textNSString.substringWithRange(matchRange)
+                let request = Request(text: requestText)
+                requests.append(request)
+                requestRanges.append(matchRange)
+            }
+        }
+        return (requests, requestRanges)
+    }
+    
     var text: String {
         didSet {
             updateRequest()
@@ -56,23 +102,7 @@ class Request {
 
     // MARK: - Sending
     
-    var isSending = false
     var response: NSURLResponse?
     var bodyData: NSData?
-    
-    func send() {
-        isSending = true
-        weak var weakSelf = self
-        guard let urlAbsoluteString = url?.absoluteString else {
-            return
-        }
-        guard let method = method else {
-            return
-        }
-        Alamofire.request(.fromString(method), urlAbsoluteString).responseString { response in
-            weakSelf?.isSending = false
-            print(response)
-        }
-    }
-    
+
 }
