@@ -35,13 +35,18 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSub
     
     // MARK: - ReSwift
     
-    func newState(state: HasRequestState) {
+    func newState(state: protocol<HasRequestState, HasSendingState>) {
         // Check if the selected request has been updated.
         if state.requestState.selectedRequest !== currentSelectedRequest {
             currentSelectedRequest = state.requestState.selectedRequest
             loadRequestBody()
         }
+        // If the current request isn't in the sent requests then assume it has finished and refresh the result. This is a bit shite.
+        if !state.sendingState.sentRequests.contains({ sentRequest in return sentRequest.request === currentSelectedRequest }) {
+            loadRequestBody()
+        }
     }
+    
     
     // MARK: - Functions
     
