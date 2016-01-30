@@ -19,6 +19,10 @@ class RequestPathViewController: NSViewController, StoreSubscriber {
             setupPathForRequest(selectedRequest)
         }
     }
+    
+    var primaryColour = NSColor(white: 0.1, alpha: 1.0)
+    var secondaryColour = NSColor(white: 0.3, alpha: 1.0)
+    var tertiaryColour = NSColor(white: 0.5, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,34 +59,36 @@ class RequestPathViewController: NSViewController, StoreSubscriber {
         // Setup path bar.
         var pathControlItems: [NSPathControlItem] = []
         if let url = request?.url {
-            pathControlItems.append(pathControlItemForProperty(url.scheme))
+            if url.scheme != "" {
+                pathControlItems.append(pathControlItemForProperty(url.scheme, colour: secondaryColour))
+            }
             if let user = url.user {
-                pathControlItems.append(pathControlItemForProperty(user))
+                pathControlItems.append(pathControlItemForProperty(user, colour: tertiaryColour))
             }
             if let password = url.password {
-                pathControlItems.append(pathControlItemForProperty(password))
+                pathControlItems.append(pathControlItemForProperty(password, colour: tertiaryColour))
             }
             if let host = url.host {
-                pathControlItems.append(pathControlItemForProperty(host))
+                pathControlItems.append(pathControlItemForProperty(host, colour: primaryColour))
             }
             if let port = url.port?.stringValue {
-                pathControlItems.append(pathControlItemForProperty(port))
+                pathControlItems.append(pathControlItemForProperty(port, colour: tertiaryColour))
             }
             if let pathComponents = url.pathComponents {
                 for pathComponent in pathComponents {
                     if pathComponent == "/" {
                         continue
                     }
-                    pathControlItems.append(pathControlItemForProperty(pathComponent))
+                    pathControlItems.append(pathControlItemForProperty(pathComponent, colour: tertiaryColour))
                 }
             }
             if let query = url.query {
                 for queryComponent in query.componentsSeparatedByString("&") {
-                    pathControlItems.append(pathControlItemForProperty(queryComponent))
+                    pathControlItems.append(pathControlItemForProperty(queryComponent, colour: tertiaryColour))
                 }
             }
             if let fragment = url.fragment {
-                pathControlItems.append(pathControlItemForProperty(fragment))
+                pathControlItems.append(pathControlItemForProperty(fragment, colour: tertiaryColour))
             }
         }
         pathControl?.pathItems = pathControlItems
@@ -98,9 +104,18 @@ class RequestPathViewController: NSViewController, StoreSubscriber {
     
     // Mark: - Helpers
     
-    func pathControlItemForProperty(property: String) -> NSPathControlItem {
+    func pathControlItemForProperty(property: String, colour: NSColor = NSColor.blackColor()) -> NSPathControlItem {
+        // We need to word wrap using clipping because NSPathControlItem can't calculate attributed strings properly!
+        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.lineBreakMode = .ByClipping
+        let attributes = [
+            NSFontAttributeName: NSFont.systemFontOfSize(12.0),
+            NSParagraphStyleAttributeName: paragraphStyle,
+            NSForegroundColorAttributeName: colour
+        ]
+        // Note: Creating the path item before the attributes dictionary results in a weird exception.
         let pathItem = NSPathControlItem()
-        pathItem.title = property
+        pathItem.attributedTitle = NSMutableAttributedString(string: property, attributes: attributes)
         return pathItem
     }
     
