@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E702EBE61C5C54B3001C8F74 /* RequestPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */; };
 		E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB681C548E26001E5514 /* ResponseViewController.swift */; };
 		E712BB731C549009001E5514 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB721C549009001E5514 /* ResultsViewController.swift */; };
 		E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB741C54902F001E5514 /* ResultsTabViewController.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPathViewController.swift; sourceTree = "<group>"; };
 		E712BB681C548E26001E5514 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		E712BB721C549009001E5514 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		E712BB741C54902F001E5514 /* ResultsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTabViewController.swift; sourceTree = "<group>"; };
@@ -205,10 +207,11 @@
 				E7421FA21C12719900C0DA38 /* DocumentWindowController.swift */,
 				E76468521C13E7A7001DE284 /* EditorViewController.swift */,
 				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
+				E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */,
 				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
 				E712BB681C548E26001E5514 /* ResponseViewController.swift */,
-				E712BB721C549009001E5514 /* ResultsViewController.swift */,
 				E712BB741C54902F001E5514 /* ResultsTabViewController.swift */,
+				E712BB721C549009001E5514 /* ResultsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				E7922A821C5B02FE005155B8 /* RequestSender.swift in Sources */,
 				E7922A801C5B00AA005155B8 /* RequestFinishedSendingAction.swift in Sources */,
 				E7922A7A1C5AFDE9005155B8 /* SendingState.swift in Sources */,
+				E702EBE61C5C54B3001C8F74 /* RequestPathViewController.swift in Sources */,
 				E75481FC1C59A3FA007E3135 /* RequestReducer.swift in Sources */,
 				E75481FE1C5A0753007E3135 /* UpdateCursorLocationAction.swift in Sources */,
 				E7922A7E1C5AFE7D005155B8 /* SendingReducer.swift in Sources */,
