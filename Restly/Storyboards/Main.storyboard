@@ -949,7 +949,7 @@
                 </tabViewController>
                 <customObject id="dMx-JZ-Wak" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="1651"/>
+            <point key="canvasLocation" x="480" y="1641"/>
         </scene>
         <!--Response View Controller-->
         <scene sceneID="NTx-Oj-UdA">
@@ -1052,17 +1052,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="350" height="29"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-gx-NVo">
-                                <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Bfl-gx-NVo" secondAttribute="height" multiplier="1:1" id="Hqt-0T-QwD"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="method-get" id="sJQ-cC-FpZ"/>
-                            </imageView>
-                            <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05h-Qi-hOO">
+                            <pathControl focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1" misplaced="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05h-Qi-hOO">
                                 <rect key="frame" x="30" y="4" width="320" height="22"/>
                                 <pathCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" id="ftM-nA-wCp">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <url key="url" string="file://localhost/Applications/"/>
                                 </pathCell>
                             </pathControl>
@@ -1073,30 +1066,43 @@
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="csz-aU-sBK">
-                                <rect key="frame" x="29" y="6" width="1" height="17"/>
+                                <rect key="frame" x="28" y="6" width="1" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="i6P-hW-OqX"/>
                                 </constraints>
                             </customView>
+                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zDx-EG-nnJ">
+                                <rect key="frame" x="0.0" y="1" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zDx-EG-nnJ" secondAttribute="height" multiplier="1:1" id="Xe8-YZ-obG"/>
+                                    <constraint firstAttribute="height" constant="28" id="d1e-aB-CRz"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="method-get" imagePosition="only" alignment="center" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Gqr-4m-fSf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="05h-Qi-hOO" firstAttribute="leading" secondItem="csz-aU-sBK" secondAttribute="trailing" id="2Q9-kl-uCM"/>
                             <constraint firstAttribute="bottom" secondItem="csz-aU-sBK" secondAttribute="bottom" constant="6" id="7sD-IR-F1S"/>
+                            <constraint firstItem="csz-aU-sBK" firstAttribute="leading" secondItem="zDx-EG-nnJ" secondAttribute="trailing" id="DFd-6C-8yj"/>
+                            <constraint firstItem="zDx-EG-nnJ" firstAttribute="leading" secondItem="5RD-er-cu4" secondAttribute="leading" id="IwY-dI-UMe"/>
                             <constraint firstAttribute="bottom" secondItem="HCL-bb-jEc" secondAttribute="bottom" id="LGe-FR-eO4"/>
                             <constraint firstItem="HCL-bb-jEc" firstAttribute="leading" secondItem="5RD-er-cu4" secondAttribute="leading" id="MvU-uf-CqL"/>
                             <constraint firstItem="05h-Qi-hOO" firstAttribute="centerY" secondItem="5RD-er-cu4" secondAttribute="centerY" id="Mz7-J8-eSN"/>
                             <constraint firstAttribute="trailing" secondItem="05h-Qi-hOO" secondAttribute="trailing" id="Oe6-cN-ecB"/>
-                            <constraint firstItem="csz-aU-sBK" firstAttribute="leading" secondItem="Bfl-gx-NVo" secondAttribute="trailing" id="R9f-nk-jXk"/>
-                            <constraint firstAttribute="bottom" secondItem="Bfl-gx-NVo" secondAttribute="bottom" id="Za7-bn-wXn"/>
-                            <constraint firstItem="Bfl-gx-NVo" firstAttribute="top" secondItem="5RD-er-cu4" secondAttribute="top" id="f5V-WV-juA"/>
-                            <constraint firstItem="Bfl-gx-NVo" firstAttribute="leading" secondItem="5RD-er-cu4" secondAttribute="leading" id="feu-Td-T8u"/>
                             <constraint firstItem="csz-aU-sBK" firstAttribute="top" secondItem="5RD-er-cu4" secondAttribute="top" constant="6" id="g3E-0d-Ot9"/>
+                            <constraint firstItem="zDx-EG-nnJ" firstAttribute="top" secondItem="5RD-er-cu4" secondAttribute="top" id="qbn-ye-MwE"/>
+                            <constraint firstItem="HCL-bb-jEc" firstAttribute="top" secondItem="zDx-EG-nnJ" secondAttribute="bottom" id="wtX-AF-pay"/>
                             <constraint firstAttribute="trailing" secondItem="HCL-bb-jEc" secondAttribute="trailing" id="xh0-Wt-Yra"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomBorder" destination="HCL-bb-jEc" id="nvY-DE-ekF"/>
                         <outlet property="divider" destination="csz-aU-sBK" id="8nJ-tb-QGD"/>
+                        <outlet property="methodButton" destination="zDx-EG-nnJ" id="eal-NA-JAZ"/>
+                        <outlet property="pathControl" destination="05h-Qi-hOO" id="K8B-kc-WsU"/>
                     </connections>
                 </viewController>
                 <customObject id="zGB-G7-Z3z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
