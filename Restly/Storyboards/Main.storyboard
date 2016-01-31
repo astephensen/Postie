@@ -662,17 +662,17 @@
                                 <toolbarItem implicitItemIdentifier="6096D24D-C448-4F3C-A0F1-ABA866395685" label="Navigation" paletteLabel="Navigation" id="BRo-X7-o6b">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="13" height="24"/>
-                                    <size key="maxSize" width="53" height="25"/>
-                                    <segmentedControl key="view" verticalHuggingPriority="750" id="nFy-BI-wMh">
+                                    <size key="maxSize" width="59" height="25"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" misplaced="YES" id="nFy-BI-wMh">
                                         <rect key="frame" x="25" y="14" width="13" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="CL5-rs-KvJ">
                                             <font key="font" metaFont="system"/>
                                             <segments>
-                                                <segment image="icon-back" width="23">
+                                                <segment image="NSGoLeftTemplate" width="23">
                                                     <nil key="label"/>
                                                 </segment>
-                                                <segment image="icon-forward" width="23" tag="1">
+                                                <segment image="NSGoRightTemplate" width="23" tag="1">
                                                     <nil key="label"/>
                                                 </segment>
                                             </segments>
@@ -931,36 +931,38 @@
         <!--Results Tab View Controller-->
         <scene sceneID="hf4-FS-emn">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="fMZ-it-xDE" customClass="ResultsTabViewController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="2" id="fMZ-it-xDE" customClass="ResultsTabViewController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem identifier="" id="0QA-c9-an6"/>
                         <tabViewItem identifier="" id="hj1-Qi-o3C"/>
+                        <tabViewItem id="gVh-nD-m0U"/>
+                        <tabViewItem identifier="" id="0QA-c9-an6"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="hzg-Rm-HUn">
-                        <rect key="frame" x="-32" y="0.0" width="350" height="320"/>
+                        <rect key="frame" x="-32" y="0.0" width="350" height="316"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="message"/>
                         <tabViewItems/>
                     </tabView>
                     <connections>
-                        <segue destination="Kxe-At-b1v" kind="relationship" relationship="tabItems" id="HV0-b8-3Hi"/>
                         <segue destination="dQR-0O-xof" kind="relationship" relationship="tabItems" id="oJb-Fk-Nf8"/>
+                        <segue destination="LED-6k-83n" kind="relationship" relationship="tabItems" id="c2u-aK-4ch"/>
+                        <segue destination="Kxe-At-b1v" kind="relationship" relationship="tabItems" id="HV0-b8-3Hi"/>
                     </connections>
                 </tabViewController>
                 <customObject id="dMx-JZ-Wak" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="1641"/>
+            <point key="canvasLocation" x="480" y="1649"/>
         </scene>
         <!--Response View Controller-->
         <scene sceneID="NTx-Oj-UdA">
             <objects>
                 <viewController id="Kxe-At-b1v" customClass="ResponseViewController" customModule="Restly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5Up-ZQ-b6S">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="q2G-nb-yPB" customClass="CodeMirrorView" customModule="Restly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                             </customView>
                         </subviews>
                         <constraints>
@@ -976,20 +978,33 @@
                 </viewController>
                 <customObject id="2Ra-mR-QHb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="2140"/>
+            <point key="canvasLocation" x="883" y="2138"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oRg-y2-vAv">
             <objects>
                 <viewController id="dQR-0O-xof" sceneMemberID="viewController">
                     <view key="view" id="Bre-y8-9A8">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="RqO-ed-3kN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="743" y="2140"/>
+            <point key="canvasLocation" x="72" y="2138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="H7d-dR-L87">
+            <objects>
+                <viewController id="LED-6k-83n" sceneMemberID="viewController">
+                    <view key="view" id="HCx-Ep-jmX">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="YdF-Nh-7gV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="480" y="2138"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="o3r-ep-d93">
@@ -1017,10 +1032,54 @@
                                             <constraint firstAttribute="height" constant="1" id="EUv-K7-HVO"/>
                                         </constraints>
                                     </customView>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Svp-zR-uwi">
+                                        <rect key="frame" x="160" y="1" width="30" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="RL9-kd-96b"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tab-response" imagePosition="overlaps" alignment="center" alternateImage="tab-response-pressed" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="vYt-yd-Qzh">
+                                            <behavior key="behavior" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="switchTab:" target="7qS-1O-Kvx" id="fev-ar-Qdj"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hX1-Ee-GCt">
+                                        <rect key="frame" x="130" y="1" width="30" height="28"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tab-request" imagePosition="overlaps" alignment="center" alternateImage="tab-request-pressed" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="TFb-D9-VEh">
+                                            <behavior key="behavior" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="switchTab:" target="7qS-1O-Kvx" id="8Vd-u4-xPq"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="reA-sF-k8w">
+                                        <rect key="frame" x="190" y="1" width="30" height="28"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tab-data" imagePosition="overlaps" alignment="center" alternateImage="tab-data-pressed" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="cWx-et-1gb">
+                                            <behavior key="behavior" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="switchTab:" target="7qS-1O-Kvx" id="cz5-CE-Qln"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="9Lb-Pj-bwg" firstAttribute="top" secondItem="hX1-Ee-GCt" secondAttribute="bottom" id="3JM-ke-eYz"/>
                                     <constraint firstAttribute="bottom" secondItem="9Lb-Pj-bwg" secondAttribute="bottom" id="761-Mc-6lV"/>
+                                    <constraint firstItem="reA-sF-k8w" firstAttribute="top" secondItem="f6s-4P-1Tq" secondAttribute="top" id="Gsb-bx-XmB"/>
+                                    <constraint firstItem="reA-sF-k8w" firstAttribute="width" secondItem="Svp-zR-uwi" secondAttribute="width" id="HSw-Xg-2I5"/>
+                                    <constraint firstItem="hX1-Ee-GCt" firstAttribute="top" secondItem="f6s-4P-1Tq" secondAttribute="top" id="JMZ-9e-LQ6"/>
+                                    <constraint firstItem="Svp-zR-uwi" firstAttribute="leading" secondItem="hX1-Ee-GCt" secondAttribute="trailing" id="Lib-UZ-Heq"/>
+                                    <constraint firstItem="9Lb-Pj-bwg" firstAttribute="top" secondItem="reA-sF-k8w" secondAttribute="bottom" id="SKi-Hd-OL1"/>
+                                    <constraint firstItem="reA-sF-k8w" firstAttribute="leading" secondItem="Svp-zR-uwi" secondAttribute="trailing" id="Zry-Hm-Qhz"/>
+                                    <constraint firstItem="Svp-zR-uwi" firstAttribute="top" secondItem="f6s-4P-1Tq" secondAttribute="top" id="ZwA-Sk-650"/>
+                                    <constraint firstItem="9Lb-Pj-bwg" firstAttribute="top" secondItem="Svp-zR-uwi" secondAttribute="bottom" id="cKf-iG-OAy"/>
                                     <constraint firstAttribute="trailing" secondItem="9Lb-Pj-bwg" secondAttribute="trailing" id="lf8-sx-0dE"/>
+                                    <constraint firstItem="hX1-Ee-GCt" firstAttribute="width" secondItem="Svp-zR-uwi" secondAttribute="width" id="nVs-cP-icB"/>
+                                    <constraint firstItem="Svp-zR-uwi" firstAttribute="centerX" secondItem="f6s-4P-1Tq" secondAttribute="centerX" id="o70-2c-n9x"/>
                                     <constraint firstAttribute="height" constant="29" id="tWk-fN-PgM"/>
                                     <constraint firstItem="9Lb-Pj-bwg" firstAttribute="leading" secondItem="f6s-4P-1Tq" secondAttribute="leading" id="xYf-dq-qiW"/>
                                 </constraints>
@@ -1038,6 +1097,9 @@
                     </view>
                     <connections>
                         <outlet property="bottomBorder" destination="9Lb-Pj-bwg" id="b8m-d4-kMm"/>
+                        <outlet property="dataTabButton" destination="reA-sF-k8w" id="5W4-o1-dle"/>
+                        <outlet property="requestTabButton" destination="hX1-Ee-GCt" id="3Xc-z1-8OM"/>
+                        <outlet property="responseTabButton" destination="Svp-zR-uwi" id="l1F-Kc-u3b"/>
                     </connections>
                 </viewController>
                 <customObject id="06o-Ot-Y95" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1052,7 +1114,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="350" height="29"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <pathControl focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1" misplaced="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05h-Qi-hOO">
+                            <pathControl focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05h-Qi-hOO">
                                 <rect key="frame" x="30" y="4" width="320" height="22"/>
                                 <pathCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" id="ftM-nA-wCp">
                                     <font key="font" metaFont="cellTitle"/>
@@ -1066,7 +1128,7 @@
                                 </constraints>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="csz-aU-sBK">
-                                <rect key="frame" x="28" y="6" width="1" height="17"/>
+                                <rect key="frame" x="29" y="6" width="1" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="i6P-hW-OqX"/>
                                 </constraints>
@@ -1086,7 +1148,7 @@
                         <constraints>
                             <constraint firstItem="05h-Qi-hOO" firstAttribute="leading" secondItem="csz-aU-sBK" secondAttribute="trailing" id="2Q9-kl-uCM"/>
                             <constraint firstAttribute="bottom" secondItem="csz-aU-sBK" secondAttribute="bottom" constant="6" id="7sD-IR-F1S"/>
-                            <constraint firstItem="csz-aU-sBK" firstAttribute="leading" secondItem="zDx-EG-nnJ" secondAttribute="trailing" id="DFd-6C-8yj"/>
+                            <constraint firstItem="csz-aU-sBK" firstAttribute="leading" secondItem="zDx-EG-nnJ" secondAttribute="trailing" constant="1" id="DFd-6C-8yj"/>
                             <constraint firstItem="zDx-EG-nnJ" firstAttribute="leading" secondItem="5RD-er-cu4" secondAttribute="leading" id="IwY-dI-UMe"/>
                             <constraint firstAttribute="bottom" secondItem="HCL-bb-jEc" secondAttribute="bottom" id="LGe-FR-eO4"/>
                             <constraint firstItem="HCL-bb-jEc" firstAttribute="leading" secondItem="5RD-er-cu4" secondAttribute="leading" id="MvU-uf-CqL"/>
@@ -1111,11 +1173,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-back" width="12" height="18"/>
-        <image name="icon-forward" width="12" height="18"/>
+        <image name="NSGoLeftTemplate" width="9" height="12"/>
+        <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="icon-hide-left-panel" width="20" height="16"/>
         <image name="icon-hide-right-panel" width="20" height="16"/>
         <image name="icon-send" width="15" height="18"/>
         <image name="method-get" width="16" height="16"/>
+        <image name="tab-data" width="15" height="15"/>
+        <image name="tab-data-pressed" width="15" height="15"/>
+        <image name="tab-request" width="15" height="15"/>
+        <image name="tab-request-pressed" width="15" height="15"/>
+        <image name="tab-response" width="15" height="15"/>
+        <image name="tab-response-pressed" width="15" height="15"/>
     </resources>
 </document>
