@@ -66,6 +66,7 @@ class Request {
     var url: NSURL?
     var headers: [String: String] = [:]
     var formData: [String: String] = [:]
+    var bodyJSON: AnyObject?
     
     init(text: String) {
         self.text = text
@@ -109,10 +110,14 @@ class Request {
             // Trim any whitespace characters.
             lineText = lineText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             
-            // Check if it is JSON.
+            // Check if it is JSON. TODO: Should we bother with parsing it to JSON or just store the body as text?
             let firstCharacter = lineText[lineText.startIndex]
             if firstCharacter == "{" || firstCharacter == "[" {
-                // TODO: Parse JSON.
+                let bodyText = text.substringFromIndex(text.startIndex.advancedBy(scanner.scanLocation - 1))
+                do {
+                    let parsedJSON = try NSJSONSerialization.JSONObjectWithData(bodyText.dataUsingEncoding(NSUTF8StringEncoding)!, options: [])
+                    bodyJSON = parsedJSON
+                } catch { }
                 break
             }
             
