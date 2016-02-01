@@ -35,19 +35,30 @@ class RequestSender: StoreSubscriber {
     func sendRequest(request: Request) {
         weak var weakSelf = self
         weak var weakRequest = request
-        guard let urlAbsoluteString = request.url?.absoluteString else {
+        guard let requestURL = request.url else {
             return
         }
         guard let method = request.method else {
             return
         }
-        Alamofire.request(
-            .fromString(method),
-            urlAbsoluteString,
-            parameters: nil,
-            encoding: ParameterEncoding.URL,
-            headers: request.headers
-        ).response { (request, response, data, error) in
+        
+        // Create the requst
+        let urlRequest = NSMutableURLRequest(URL: requestURL)
+        urlRequest.HTTPMethod = method
+        
+        // Set the headers.
+        for (header, value) in request.headers {
+            urlRequest.setValue(value, forHTTPHeaderField: header)
+        }
+
+        // Set the body data.
+        if let bodyJSON = request.bodyJSON {
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(bodyJSON, options: [])
+        }
+        
+        // Send the request.
+        Alamofire.request(urlRequest).response { (request, response, data, error) in
             if let request = weakRequest, strongSelf = weakSelf {
                 request.response = response
                 request.bodyData = data
