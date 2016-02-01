@@ -41,8 +41,13 @@ class RequestSender: StoreSubscriber {
         guard let method = request.method else {
             return
         }
-        
-        Alamofire.request(.fromString(method), urlAbsoluteString).response { (request, response, data, error) in
+        Alamofire.request(
+            .fromString(method),
+            urlAbsoluteString,
+            parameters: nil,
+            encoding: ParameterEncoding.URL,
+            headers: request.headers
+        ).response { (request, response, data, error) in
             if let request = weakRequest, strongSelf = weakSelf {
                 request.response = response
                 request.bodyData = data

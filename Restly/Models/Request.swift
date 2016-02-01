@@ -64,7 +64,8 @@ class Request {
     var method: String?
     var urlString: String?
     var url: NSURL?
-    var headers = [String: String]()
+    var headers: [String: String] = [:]
+    var formData: [String: String] = [:]
     
     init(text: String) {
         self.text = text
@@ -94,10 +95,44 @@ class Request {
             }
         }
         
-        // Extract the headers.
-        // Headers are in the format `Header: Content`. The headers must be provided before any body content.
-        // let headerPattern = "^.*?-(.*)\\:(.*)"
-        
+        // Scan each line of the request.
+        // - Headers should have a colon anywhere in the line. e.g. Header: Value
+        // - Form data should have an equals sign anywhere in the line. e.g. Form = Data
+        // - JSON data is a line that starts with a curly bracket or square bracket.
+        // If JSON data is encountered then any further processing will be.
+        while (!scanner.atEnd) {
+            var scannedText: NSString?
+            scanner.scanUpToCharactersFromSet(NSCharacterSet.newlineCharacterSet(), intoString: &scannedText)
+            guard var lineText = scannedText as? String else {
+                continue
+            }
+            // Trim any whitespace characters.
+            lineText = lineText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            
+            // Check if it is JSON.
+            let firstCharacter = lineText[lineText.startIndex]
+            if firstCharacter == "{" || firstCharacter == "[" {
+                // TODO: Parse JSON.
+                break
+            }
+            
+            // Look for headers. TODO: Can this handle colons elsewhere? Do headers even have other colons?
+            if lineText.containsString(":") {
+                let headerComponents = lineText.componentsSeparatedByString(":")
+                if headerComponents.count == 2 {
+                    headers[headerComponents[0]] = headerComponents[1]
+                }
+            }
+            
+            // Look for form data. TODO: Same as above. Can form data contain equal signs? Maybe split on the first one?
+            if lineText.containsString("=") {
+                let formDataComponents = lineText.componentsSeparatedByString("=")
+                if formDataComponents.count == 2 {
+                    formData[formDataComponents[0]] = formDataComponents[1]
+                }
+            }
+        }
+
     }
 
     // MARK: - Sending
