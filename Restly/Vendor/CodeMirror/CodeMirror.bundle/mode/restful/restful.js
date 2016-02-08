@@ -8,74 +8,32 @@
 })(function(CodeMirror) {
 "use strict";
 
-CodeMirror.defineMode("restful", function() {
+  var methodRegex = /(?:GET|PUT|POST|PATCH|DELETE|HEAD|OPTIONS|TRACE|CONNECT)\b/;
 
-  function words(str) {
-    var obj = {}, words = str.split(" ");
-    for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
-    return obj;
-  }
-
-  var requestMethods = words("GET PUT POST PATCH DELETE HEAD OPTIONS TRACE CONNECT");
-
-  function tokenBase(stream, state) {
-    var ch = stream.next();
-
-    // Comment.
-    if (ch == "/") {
-      if (stream.eat("*")) {
-        state.tokenize = tokenComment;
-        return tokenComment(stream, state);
+  CodeMirror.defineSimpleMode("restful", {
+    start: [
+      // Methods.
+      {
+        regex: methodRegex,
+        token: "keyword",
+        next: "method"
       }
-    }
-
-    // Whitespace.
-    stream.eatWhile(/[\w\$_]/);
-    var cur = stream.current();
-
-    // Request Methods.
-    if (requestMethods.propertyIsEnumerable(cur)) {
-      stream.skipToEnd();
-      return "keyword";
-    }
-
-    // Something Else?
-    else if (ch == ":") {
-      stream.skipToEnd();
-      return "string";
-    }
-
-    return "text";
-  }
-
-  function tokenComment(stream, state) {
-    var maybeEnd = false, ch;
-    while (ch = stream.next()) {
-      if (ch == "/" && maybeEnd) {
-        state.tokenize = tokenBase;
-        break;
+    ],
+    // Method state.
+    method: [
+      {
+        regex: /.*/,
+        token: "text",
+        next: "start"
       }
-      maybeEnd = (ch == "*");
+    ],
+    // The meta property contains global information about the mode. It
+    // can contain properties like lineComment, which are supported by
+    // all modes, and also directives like dontIndentStates, which are
+    // specific to simple modes.
+    meta: {
+      lineComment: "//"
     }
-    return "comment";
-  }
-
-  return {
-    startState: function() {
-      return {tokenize: null};
-    },
-
-    token: function(stream, state) {
-      if (stream.eatSpace()) return null;
-      var style = (state.tokenize || tokenBase)(stream, state);
-      if (style == "comment" || style == "meta") return style;
-      return style;
-    },
-
-    electricChars: "{}"
-  }
-});
-
-CodeMirror.defineMIME("text/x-restful", "restful");
+  });
 
 });
