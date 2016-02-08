@@ -14,6 +14,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         codeMirrorView?.delegate = self
+        codeMirrorView?.mode = "restful"
     }
     
     override func awakeFromNib() {
