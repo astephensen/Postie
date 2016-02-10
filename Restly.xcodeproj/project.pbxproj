@@ -51,6 +51,7 @@
 		E7B546841C58D8C6006B5A83 /* ReSwift.framework.dSYM in Carthage */ = {isa = PBXBuildFile; fileRef = E7B5467D1C58D8B4006B5A83 /* ReSwift.framework.dSYM */; };
 		E7B546861C58D8DE006B5A83 /* NSViewController+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B546851C58D8DE006B5A83 /* NSViewController+Store.swift */; };
 		E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B55C001C4B769A00B7EA43 /* Method+String.swift */; };
+		E7F3BC5B1C6B36DD0087104F /* PrettyPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3BC5A1C6B36DD0087104F /* PrettyPrinter.swift */; };
 		E7FD1E241C163F6500EC3EC1 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +146,7 @@
 		E7B5467D1C58D8B4006B5A83 /* ReSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReSwift.framework.dSYM; path = Carthage/Build/Mac/ReSwift.framework.dSYM; sourceTree = "<group>"; };
 		E7B546851C58D8DE006B5A83 /* NSViewController+Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSViewController+Store.swift"; sourceTree = "<group>"; };
 		E7B55C001C4B769A00B7EA43 /* Method+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Method+String.swift"; sourceTree = "<group>"; };
+		E7F3BC5A1C6B36DD0087104F /* PrettyPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrinter.swift; sourceTree = "<group>"; };
 		E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +289,7 @@
 				E7421F991C126F7600C0DA38 /* Resources */,
 				E7B546771C58D8A3006B5A83 /* State */,
 				E7421F941C126D0700C0DA38 /* Storyboards */,
+				E7F3BC591C6B36C70087104F /* Utils */,
 				E7421FAA1C12C15300C0DA38 /* Vendor */,
 				E778983B1C374C9200071283 /* Views */,
 			);
@@ -354,6 +357,14 @@
 				E75481F51C599D7A007E3135 /* TextState.swift */,
 			);
 			path = State;
+			sourceTree = "<group>";
+		};
+		E7F3BC591C6B36C70087104F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E7F3BC5A1C6B36DD0087104F /* PrettyPrinter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +520,7 @@
 				E7B5467A1C58D8A3006B5A83 /* AppReducer.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 				E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */,
+				E7F3BC5B1C6B36DD0087104F /* PrettyPrinter.swift in Sources */,
 				E7922A7C1C5AFE15005155B8 /* SendRequestAction.swift in Sources */,
 				E75481FA1C59A3B2007E3135 /* RequestState.swift in Sources */,
 				E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */,

@@ -58,11 +58,15 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSub
         // Guess encoding of the data to load.
         var bodyString: NSString?
         NSString.stringEncodingForData(bodyData, encodingOptions: nil, convertedString: &bodyString, usedLossyConversion: nil)
-        if let bodyString = bodyString as? String {
+        
+        // Convert the NSString to a String
+        if var bodyString = bodyString as? String {
+            // Set the MIME type - this can also be used to pretty print the response.
+            if let MIMEType = currentSelectedRequest?.response?.MIMEType {
+                codeMirrorView?.mode = MIMEType
+                bodyString = PrettyPrinter.prettyPrint(bodyString, MIMEType: MIMEType)
+            }
             codeMirrorView?.text = bodyString
-        }
-        if let MIMEType = currentSelectedRequest?.response?.MIMEType {
-            codeMirrorView?.mode = MIMEType
         }
     }
 
