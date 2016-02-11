@@ -18,20 +18,42 @@ struct PrettyPrinter {
     /// - Returns: A new string that has been pretty printed.
     static func prettyPrint(text: String, MIMEType: String) -> String {
         switch MIMEType {
+        // Process JSON using python.
         case "application/json":
-            do {
-                // Convert the JSON to an object and convert back to pretty text. If it fails return the text. Not pretty, but it works.
-                let JSONObject = try NSJSONSerialization.JSONObjectWithData(text.dataUsingEncoding(NSUTF8StringEncoding)!, options: [])
-                let prettyData = try NSJSONSerialization.dataWithJSONObject(JSONObject, options: .PrettyPrinted)
-                if let prettyText = String(data: prettyData, encoding: NSUTF8StringEncoding) {
-                    return prettyText
-                }
-            } catch {
-                print("Could not create JSON object.")
+            let command = "echo '\(text)' | python -m json.tool"
+            if let prettyText = callSystemCommand(command) {
+                return prettyText
             }
+            return text
+        // Process XML using xmllint.
+        case "application/xml": fallthrough
+        case "text/xml":
+            return text
+        // Process HTML using tidy.
+        case "text/html":
             return text
         default:
             return text
         }
+    }
+    
+    /// Calls a system command with the passed in text.
+    ///
+    /// - Parameter command: The command to execute.
+    ///
+    /// - Returns: An optional string with the result of the command.
+    private static func callSystemCommand(command: String) -> String? {
+        // Create the task and pipe to execute the command.
+        let task = NSTask()
+        task.launchPath = "/bin/sh"
+        task.arguments = ["-c", command]
+        let pipe = NSPipe()
+        task.standardOutput = pipe
+        task.launch()
+        
+        // Read the output from the command.
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: NSUTF8StringEncoding)
+        return output
     }
 }

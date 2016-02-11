@@ -240,6 +240,24 @@ DQ
                                                 <action selector="sendRequest:" target="Ady-hI-5gd" id="Rw1-a9-Tjk"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Send and Save Response..." id="SOD-C9-0xA">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Send with File..." id="6Vg-yo-Cdu">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Send with File and Save Response..." alternate="YES" id="nem-rP-Air">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" option="YES" command="YES"/>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
