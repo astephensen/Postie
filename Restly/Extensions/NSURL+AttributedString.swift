@@ -30,7 +30,10 @@ extension NSURL {
             attributedString.appendAttributedString(formattedString("@", colour: AttributedStringColours.secondary))
         }
         attributedString.appendAttributedString(formattedString(host, colour: AttributedStringColours.primary))
-        attributedString.appendAttributedString(formattedString(port?.stringValue, colour: AttributedStringColours.secondary))
+        if port != nil {
+            attributedString.appendAttributedString(formattedString(":", colour: AttributedStringColours.secondary))
+            attributedString.appendAttributedString(formattedString(port?.stringValue, colour: AttributedStringColours.secondary))
+        }
         attributedString.appendAttributedString(formattedString(path, colour: AttributedStringColours.secondary))
         attributedString.appendAttributedString(formattedString(pathExtension, colour: AttributedStringColours.secondary))
         attributedString.appendAttributedString(formattedString(parameterString, colour: AttributedStringColours.secondary))
