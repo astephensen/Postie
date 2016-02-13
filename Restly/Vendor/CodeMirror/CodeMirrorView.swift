@@ -22,7 +22,8 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         "lineNumbers": true,
         "styleActiveLine": true,
         "matchBrackets": true,
-        "mode": "text"
+        "mode": "text",
+        "tabSize": 2
     ]
 
     override func awakeFromNib() {

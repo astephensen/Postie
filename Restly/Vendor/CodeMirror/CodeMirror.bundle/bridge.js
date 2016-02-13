@@ -19,3 +19,11 @@ window.onload = function () {
     event: 'loaded'
   });
 };
+
+// Use soft tabs.
+window.editor.setOption('extraKeys', {
+  Tab: function(cm) {
+    var spaces = Array(cm.getOption('indentUnit') + 1).join(' ');
+    cm.replaceSelection(spaces);
+  }
+});
