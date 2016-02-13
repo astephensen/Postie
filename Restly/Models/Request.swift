@@ -9,6 +9,9 @@
 import Foundation
 import Alamofire
 
+/// Notification sent when a request has finished sending.
+let RequestFinishedSendingNotification = "RequestFinishedSendingNotification"
+
 class Request {
     
     class func requestsFromText(text: String) -> (requests: [Request], requestRanges: [NSRange]) {
@@ -145,4 +148,38 @@ class Request {
     var response: NSURLResponse?
     var bodyData: NSData?
 
+    func send() {
+        weak var weakSelf = self
+        guard let requestURL = url else {
+            return
+        }
+        guard let method = method else {
+            return
+        }
+        
+        // Create the requst
+        let urlRequest = NSMutableURLRequest(URL: requestURL)
+        urlRequest.HTTPMethod = method
+        
+        // Set the headers.
+        for (header, value) in headers {
+            urlRequest.setValue(value, forHTTPHeaderField: header)
+        }
+        
+        // Set the body data.
+        if let bodyJSON = bodyJSON {
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(bodyJSON, options: [])
+        }
+        
+        // Send the request.
+        Alamofire.request(urlRequest).response { (request, response, data, error) in
+            if let strongSelf = weakSelf {
+                strongSelf.response = response
+                strongSelf.bodyData = data
+                NSNotificationCenter.defaultCenter().postNotificationName(RequestFinishedSendingNotification, object: strongSelf)
+            }
+        }
+    }
+    
 }

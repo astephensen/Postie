@@ -29,17 +29,17 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     // MARK: - Functions
     
     func loadDocument() {
-        codeMirrorView?.loadEditor(mainStore.state.textState.text)
+        codeMirrorView?.loadEditor(document.text)
     }
     
     // MARK: - CodeMirrorViewDelegate
     
     func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
-        mainStore.dispatch(UpdateCursorLocationAction(location: cursorLocation))
+        document.selectedRequest = document.requestAtLocation(cursorLocation)
     }
     
     func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String) {
-        mainStore.dispatch(UpdateTextAction(text: newText))
+        document.text = newText
     }
 
 }

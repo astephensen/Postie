@@ -7,15 +7,15 @@
 //
 
 import Cocoa
-import ReSwift
 
-class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSubscriber {
+class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
     @IBOutlet var codeMirrorView: CodeMirrorView?
     var codeMirrorViewLoaded = false
     var currentSelectedRequest: Request?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNotifications()
         codeMirrorView?.delegate = self
         codeMirrorView?.readOnly = true
     }
@@ -25,28 +25,17 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate, StoreSub
             codeMirrorView?.loadEditor()
             codeMirrorViewLoaded = true
         }
-        mainStore.subscribe(self)
     }
     
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        mainStore.unsubscribe(self)
-    }
+    // MARK: - Notifications
     
-    // MARK: - ReSwift
-    
-    func newState(state: protocol<HasRequestState, HasSendingState>) {
-        // Check if the selected request has been updated.
-        if state.requestState.selectedRequest !== currentSelectedRequest {
-            currentSelectedRequest = state.requestState.selectedRequest
-            loadRequestBody()
-        }
-        // If the current request isn't in the sent requests then assume it has finished and refresh the result. This is a bit shite.
-        if !state.sendingState.sentRequests.contains({ sentRequest in return sentRequest.request === currentSelectedRequest }) {
-            loadRequestBody()
+    func setupNotifications() {
+        weak var weakSelf = self
+        NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidChangeSelectedRequestNotification, object: nil, queue: nil) { notification in
+            weakSelf?.currentSelectedRequest = notification.object as? Request
+            weakSelf?.loadRequestBody()
         }
     }
-    
     
     // MARK: - Functions
     

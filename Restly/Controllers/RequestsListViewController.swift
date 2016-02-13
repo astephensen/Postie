@@ -9,29 +9,23 @@
 import Cocoa
 import ReSwift
 
-class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, StoreSubscriber {
+class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     @IBOutlet var tableView: NSTableView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupNotifications()
         tableView?.backgroundColor = NSColor.clearColor()
         tableView?.selectionHighlightStyle = .SourceList
     }
     
-    override func viewWillAppear() {
-        super.viewWillAppear()
-        mainStore.subscribe(self)
-    }
+    // MARK: - Notifications
     
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        mainStore.unsubscribe(self)
-    }
-    
-    // MARK: - ReSwift
-    
-    func newState(state: HasRequestState) {
-        tableView?.reloadData()
+    func setupNotifications() {
+        weak var weakSelf = self
+        NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidUpdateRequestsNotification, object: nil, queue: nil) { notification in
+            weakSelf?.tableView?.reloadData()
+        }
     }
     
     // MARK: - NSTableViewDelegate
@@ -43,11 +37,11 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return mainStore.state.requestState.requests.count ?? 0
+        return document.requests.count ?? 0
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let request = mainStore.state.requestState.requests[row]
+        let request = document.requests[row]
         let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView

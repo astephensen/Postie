@@ -8,15 +8,16 @@
 
 import Cocoa
 
+/// Notification sent whenever the requests for the document has been updated.
 let DocumentDidUpdateRequestsNotification = "DocumentDidUpdateRequestsNotification"
+/// Notification sent whenever the selected request is updated.
+let DocumentDidChangeSelectedRequestNotification = "DocumentDidChangeSelectedRequestNotification"
 
 class Document: NSDocument {
-    var text: String = ""
     var documentWindowController: DocumentWindowController?
 
     init(text: String) {
         super.init()
-        
         self.text = text
     }
     
@@ -38,6 +39,36 @@ class Document: NSDocument {
             documentWindowController.currentDocument = self
             addWindowController(documentWindowController)
         }
+    }
+    
+    // MARK: - Text / Requests
+    
+    var text: String = "" {
+        didSet {
+            (requests, requestRanges) = Request.requestsFromText(text)
+            NSNotificationCenter.defaultCenter().postNotificationName(DocumentDidUpdateRequestsNotification, object: nil)
+        }
+    }
+    var requests: [Request] = []
+    var requestRanges: [NSRange] = []
+    var selectedRequest: Request? {
+        didSet {
+            NSNotificationCenter.defaultCenter().postNotificationName(DocumentDidChangeSelectedRequestNotification, object: selectedRequest)
+        }
+    }
+    
+    /// Returns a request at the specified location.
+    ///
+    /// - Parameter location: The location of the request to find.
+    ///
+    /// - Returns: The request if one could be found.
+    func requestAtLocation(location: Int) -> Request? {
+        for (index, range) in requestRanges.enumerate() {
+            if NSLocationInRange(location, range) {
+                return requests[index]
+            }
+        }
+        return nil
     }
     
     // MARK: - Saving / Loading
@@ -62,5 +93,10 @@ class Document: NSDocument {
             throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         }
     }
+    
+    // MARK: - Sending Requests
+    
+    
+    
 }
 

@@ -7,9 +7,8 @@
 //
 
 import Cocoa
-import ReSwift
 
-class RequestPathViewController: NSViewController, StoreSubscriber {
+class RequestPathViewController: NSViewController {
     @IBOutlet var bottomBorder: NSView?
     @IBOutlet var divider: NSView?
     @IBOutlet var methodButton: NSButton?
@@ -26,6 +25,8 @@ class RequestPathViewController: NSViewController, StoreSubscriber {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNotifications()
         pathControl?.pathItems = []
 
         // Setup background, border and divider.
@@ -35,16 +36,6 @@ class RequestPathViewController: NSViewController, StoreSubscriber {
         bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).CGColor
         divider?.wantsLayer = true
         divider?.layer?.backgroundColor = bottomBorder?.layer?.backgroundColor
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        mainStore.subscribe(self)
-    }
-    
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        mainStore.unsubscribe(self)
     }
     
     // MARK: - Functions
@@ -94,11 +85,12 @@ class RequestPathViewController: NSViewController, StoreSubscriber {
         pathControl?.pathItems = pathControlItems
     }
     
-    // MARK: - ReSwift
+    // MARK: - Notifications
     
-    func newState(state: HasRequestState) {
-        if state.requestState.selectedRequest !== selectedRequest {
-            selectedRequest = state.requestState.selectedRequest
+    func setupNotifications() {
+        weak var weakSelf = self
+        NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidChangeSelectedRequestNotification, object: nil, queue: nil) { notification in
+            weakSelf?.selectedRequest = notification.object as? Request
         }
     }
     
