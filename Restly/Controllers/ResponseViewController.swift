@@ -31,9 +31,16 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
     
     func setupNotifications() {
         weak var weakSelf = self
+        // Observe when the selected request has changed - reload the request body.
         NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidChangeSelectedRequestNotification, object: nil, queue: nil) { notification in
             weakSelf?.currentSelectedRequest = notification.object as? Request
             weakSelf?.loadRequestBody()
+        }
+        // Observe when the request has been sent - reload the request body if it's the currently displayed request.
+        NSNotificationCenter.defaultCenter().addObserverForName(RequestFinishedSendingNotification, object: nil, queue: nil) { notification in
+            if weakSelf?.currentSelectedRequest === notification.object as? Request {
+                weakSelf?.loadRequestBody()
+            }
         }
     }
     
