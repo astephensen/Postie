@@ -6,77 +6,118 @@
   else // Plain browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
-"use strict";
+  "use strict";
 
-var restfulMode = CodeMirror.defineMode("restful", function (config) {
+  CodeMirror.defineSimpleMode("restful-main", {
+    start: [
+      // Methods.
+      {
+        regex: /((?:GET|PUT|POST|PATCH|DELETE|HEAD|OPTIONS|TRACE|CONNECT)\b)(.*)/,
+        token: [
+          'keyword',
+          'variable'
+        ]
+      },
+      // Headers.
+      {
+        regex: /(.*)(:)(.*)/,
+        token: [
+          'variable-2',
+          null,
+          'string'
+        ]
+      },
+      // Form Data
+      {
+        regex: /(.*)(=)(.*)/,
+        token: [
+          'variable-3',
+          null,
+          'string'
+        ]
+      }
+    ],
+    method: [
+      {
+        regex: /.*/,
+        token: 'variable',
+        next: 'start'
+      }
+    ]
+  });
 
-  var methods = {
-    "GET": true, "PUT": true, "POST": true, "PATCH": true, "DELETE": true, "HEAD": true, "OPTIONS": true,
-    "TRACE": true, "CONNECT": true
-  };
+  CodeMirror.defineMode('restful', function (config) {
 
-  function tokenBase(stream, state) {
-    var ch = stream.next();
+    // Stores the default mode that will be used.
+    var restfulMode = CodeMirror.getMode(config, {
+      name: 'restful-main'
+    });
 
-    // JSON.
-    if (state.startOfLine && (ch == "{" || ch == "[")) {
-      var mode = CodeMirror.getMode({json: true}, "javascript")
-      state.token = function (stream, state) {
-        // Check for closing brace.
-        var nextChar = stream.peek();
-        if (stream.sol() && (nextChar == "}" || nextChar == "]")) {
-          state.token = tokenBase;
-          stream.next();
-          return "comment";
+    // Processes restful state.
+    function restful(stream, state) {
+
+      // Check for JSON.
+      if (stream.sol() && (stream.peek() == '{' || stream.peek() == '[')) {
+        var mode = CodeMirror.getMode(config, 'javascript')
+        state.token = function (stream, state) {
+          // Check for closing brace.
+          if (stream.sol() && (stream.peek() == '}' || stream.peek() == ']')) {
+            state.token = restful;
+            state.localState = state.localMode = null;
+            stream.next();
+            return null;
+          }
+          return state.localMode.token(stream, state.localState);
         }
-        var ch = stream.next();
-        return state.localMode.token(stream, state.localState);
+        state.localMode = mode;
+        state.localState = CodeMirror.startState(mode);
       }
-      state.localMode = mode;
-      state.localState = CodeMirror.startState(mode);
-      return "comment";
+
+      var style = restfulMode.token(stream, state.restfulState), modeSpec;
+      return style;
     }
 
-    // Methods.
-    stream.eatWhile(/[\w]/);
-    var cur = stream.current();
-    if (methods.propertyIsEnumerable(cur)) {
-     return "keyword";
-    }
+    /* ----------------------------------------- */
 
-    return null;
-  }
+    return {
+      startState: function() {
+        var state = restfulMode.startState();
+        return {
+          token: restful,
+          localMode: null,
+          localState: null,
+          restfulState: state,
+          startOfLine: true
+        }
+      },
 
-  return {
-    startState: function() {
-      return {
-        token: tokenBase,
-        localMode: null,
-        localState: null,
-        startOfLine: true
+      copyState: function (state) {
+        var local;
+        if (state.localState) {
+          local = CodeMirror.copyState(state.localMode, state.localState);
+        }
+        return {
+          token: state.token,
+          localMode: state.localMode,
+          localState: local,
+          restfulState: CodeMirror.copyState(restfulMode, state.restfulState)
+        };
+      },
+
+      token: function (stream, state) {
+        state.startOfLine = stream.sol();
+        return state.token(stream, state);
+      },
+
+      innerMode: function (state) {
+        return {
+          state: state.localState || state.restfulState,
+          mode: state.localMode || restfulMode
+        };
       }
-    },
+    };
+  });
 
-    copyState: function (state) {
-      console.log('COPY STATE!');
-      var local;
-      if (state.localState) {
-        local = CodeMirror.copyState(state.localMode, state.localState);
-      }
-      return {
-        token: state.token,
-        localMode: state.localMode,
-        localState: local,
-      };
-    },
-
-    token: function (stream, state) {
-      state.startOfLine = stream.sol();
-      return state.token(stream, state);
-    }
-  };
-});
-
-CodeMirror.defineMIME("text/restful", "restful");
+  CodeMirror.defineMIME("text/restful", "restful");
 
 });
