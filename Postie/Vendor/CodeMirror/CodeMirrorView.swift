@@ -23,13 +23,16 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         "styleActiveLine": true,
         "matchBrackets": true,
         "mode": "text",
-        "tabSize": 2
+        "tabSize": 2,
+        "autofocus": true
     ]
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupWebView()
     }
+    
+    // MARK: - Setup / Loading
     
     func setupWebView() {
         // Setup script notification handler.
@@ -109,6 +112,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
             config["readOnly"] = readOnly
             config["cursorBlinkRate"] = readOnly ? -1 : 530
             config["theme"] = readOnly ? "default readonly" : "default"
+            config["autofocus"] = readOnly ? false : true
         }
     }
     
@@ -156,6 +160,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
                     updateProperty(property, value: value)
                 case "loaded":
                     delegate?.codeMirrorViewDidLoad?(self)
+                    webView?.becomeFirstResponder()
                 default:
                     break
                 }
