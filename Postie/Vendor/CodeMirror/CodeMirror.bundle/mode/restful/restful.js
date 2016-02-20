@@ -27,7 +27,7 @@
           'string'
         ]
       },
-      // Form Data
+      // Form Data.
       {
         regex: /(.*)(=)(.*)/,
         token: [
@@ -35,13 +35,36 @@
           null,
           'string'
         ]
+      },
+      // Comments.
+      {
+        regex: /\/\*/,
+        token: "comment",
+        next: "comment"
+      },
+      {
+        regex: /\/\/.*/,
+        token: "comment"
       }
     ],
+    // Method state.
     method: [
       {
         regex: /.*/,
         token: 'variable',
         next: 'start'
+      }
+    ],
+    // Comment state.
+    comment: [
+      {
+        regex: /.*?\*\//,
+        token: "comment",
+        next: "start"
+      },
+      {
+        regex: /.*/,
+        token: "comment"
       }
     ]
   });
