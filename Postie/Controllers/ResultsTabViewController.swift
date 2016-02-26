@@ -9,6 +9,12 @@
 import Cocoa
 
 class ResultsTabViewController: NSTabViewController {
+    
+    var responseViewController: ResponseViewController? {
+        get {
+            return tabViewItems[2].viewController as? ResponseViewController
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

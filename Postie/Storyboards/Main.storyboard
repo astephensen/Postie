@@ -237,7 +237,7 @@
 DQ
 </string>
                                             <connections>
-                                                <action selector="sendRequest:" target="Ady-hI-5gd" id="Rw1-a9-Tjk"/>
+                                                <action selector="sendRequestAction:" target="Ady-hI-5gd" id="EMs-1p-0mM"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Send and Save Response..." id="SOD-C9-0xA">
@@ -379,7 +379,7 @@ DQ
                                         </buttonCell>
                                     </button>
                                     <connections>
-                                        <action selector="sendRequest:" target="jGA-0Y-lOj" id="0ms-Cb-mGr"/>
+                                        <action selector="sendRequestAction:" target="jGA-0Y-lOj" id="tnr-KF-UZm"/>
                                     </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>

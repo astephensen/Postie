@@ -19,7 +19,6 @@ class ResultsViewController: NSViewController, NSTabViewDelegate {
         "tab-data"
     ]
     var resultsTabViewController: ResultsTabViewController?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

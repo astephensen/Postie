@@ -46,16 +46,11 @@ class Document: NSDocument {
     var text: String = "" {
         didSet {
             (requests, requestRanges) = Request.requestsFromText(text)
-            NSNotificationCenter.defaultCenter().postNotificationName(DocumentDidUpdateRequestsNotification, object: nil)
         }
     }
     var requests: [Request] = []
     var requestRanges: [NSRange] = []
-    var selectedRequest: Request? {
-        didSet {
-            NSNotificationCenter.defaultCenter().postNotificationName(DocumentDidChangeSelectedRequestNotification, object: selectedRequest)
-        }
-    }
+    var selectedRequest: Request?
     
     /// Returns a request at the specified location.
     ///

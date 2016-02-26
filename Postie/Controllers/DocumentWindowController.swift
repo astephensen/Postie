@@ -25,14 +25,6 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
         mainViewController?.editorViewController?.codeMirrorView?.delegate = self
     }
     
-    // MARK: - Methods
-    
-    func togglePanel(index: Int) {
-        if let splitViewItem = mainViewController?.splitViewItems[index] {
-            splitViewItem.collapsed = !splitViewItem.collapsed
-        }
-    }
-    
     // MARK: - Actions
     
     @IBAction func panelsToggled(sender: NSSegmentedControl?) {
@@ -45,9 +37,24 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
         }
     }
     
-    @IBAction func sendRequest(sender: NSToolbarItem?) {
-        if let request = currentDocument?.selectedRequest {
-            request.send()
+    @IBAction func sendRequestAction(sender: NSToolbarItem?) {
+        if let request = selectedRequest {
+            sendRequest(request)
+        }
+    }
+    
+    // MARK: - Methods
+    
+    func togglePanel(index: Int) {
+        if let splitViewItem = mainViewController?.splitViewItems[index] {
+            splitViewItem.collapsed = !splitViewItem.collapsed
+        }
+    }
+    
+    func sendRequest(request: Request) {
+        weak var weakMainViewController = mainViewController
+        RequestSender.sendRequest(request) { (request) -> Void in
+            weakMainViewController?.resultsViewController?.resultsTabViewController?.responseViewController?.requestChanged(request)
         }
     }
     
@@ -65,6 +72,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     var selectedRequest: Request? {
         didSet {
             mainViewController?.editorViewController?.requestPathViewController?.selectedRequest = selectedRequest
+            mainViewController?.resultsViewController?.resultsTabViewController?.responseViewController?.selectedRequest = selectedRequest
         }
     }
     

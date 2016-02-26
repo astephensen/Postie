@@ -11,11 +11,14 @@ import Cocoa
 class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
     @IBOutlet var codeMirrorView: CodeMirrorView?
     var codeMirrorViewLoaded = false
-    var currentSelectedRequest: Request?
+    var selectedRequest: Request? {
+        didSet {
+            loadRequestBody()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNotifications()
         codeMirrorView?.delegate = self
         codeMirrorView?.readOnly = true
     }
@@ -26,28 +29,17 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
             codeMirrorViewLoaded = true
         }
     }
+
+    // MARK: - Functions
     
-    // MARK: - Notifications
-    
-    func setupNotifications() {
-        weak var weakSelf = self
-        // Observe when the selected request has changed - reload the request body.
-        NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidChangeSelectedRequestNotification, object: nil, queue: nil) { notification in
-            weakSelf?.currentSelectedRequest = notification.object as? Request
-            weakSelf?.loadRequestBody()
-        }
-        // Observe when the request has been sent - reload the request body if it's the currently displayed request.
-        NSNotificationCenter.defaultCenter().addObserverForName(RequestFinishedSendingNotification, object: nil, queue: nil) { notification in
-            if weakSelf?.currentSelectedRequest === notification.object as? Request {
-                weakSelf?.loadRequestBody()
-            }
+    func requestChanged(request: Request) {
+        if request === selectedRequest {
+            loadRequestBody()
         }
     }
     
-    // MARK: - Functions
-    
     func loadRequestBody() {
-        guard let bodyData = currentSelectedRequest?.bodyData else {
+        guard let bodyData = selectedRequest?.bodyData else {
             codeMirrorView?.text = ""
             return
         }
@@ -58,7 +50,7 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
         // Convert the NSString to a String
         if var bodyString = bodyString as? String {
             // Set the MIME type - this can also be used to pretty print the response.
-            if let MIMEType = currentSelectedRequest?.response?.MIMEType {
+            if let MIMEType = selectedRequest?.response?.MIMEType {
                 codeMirrorView?.mode = MIMEType
                 bodyString = PrettyPrinter.prettyPrint(bodyString, MIMEType: MIMEType)
             }
