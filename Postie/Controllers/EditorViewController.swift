@@ -10,10 +10,10 @@ import Cocoa
 
 class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     @IBOutlet var codeMirrorView: CodeMirrorView?
+    var requestPathViewController: RequestPathViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        codeMirrorView?.delegate = self
         codeMirrorView?.mode = "restful"
     }
     
@@ -32,14 +32,11 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
         codeMirrorView?.loadEditor(document.text)
     }
     
-    // MARK: - CodeMirrorViewDelegate
+    // MARK: - UIStoryboard
     
-    func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
-        document.selectedRequest = document.requestAtLocation(cursorLocation)
+    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EmbedRequestPathViewController" {
+            requestPathViewController = segue.destinationController as? RequestPathViewController
+        }
     }
-    
-    func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String) {
-        document.text = newText
-    }
-
 }

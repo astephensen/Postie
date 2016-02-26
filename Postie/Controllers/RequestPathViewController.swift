@@ -25,8 +25,6 @@ class RequestPathViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupNotifications()
         pathControl?.pathItems = []
 
         // Setup background, border and divider.
@@ -83,15 +81,6 @@ class RequestPathViewController: NSViewController {
             }
         }
         pathControl?.pathItems = pathControlItems
-    }
-    
-    // MARK: - Notifications
-    
-    func setupNotifications() {
-        weak var weakSelf = self
-        NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidChangeSelectedRequestNotification, object: nil, queue: nil) { notification in
-            weakSelf?.selectedRequest = notification.object as? Request
-        }
     }
     
     // Mark: - Helpers

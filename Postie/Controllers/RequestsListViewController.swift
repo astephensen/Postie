@@ -11,21 +11,16 @@ import ReSwift
 
 class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     @IBOutlet var tableView: NSTableView?
+    var requests: [Request]? {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupNotifications()
         tableView?.backgroundColor = NSColor.clearColor()
         tableView?.selectionHighlightStyle = .SourceList
-    }
-    
-    // MARK: - Notifications
-    
-    func setupNotifications() {
-        weak var weakSelf = self
-        NSNotificationCenter.defaultCenter().addObserverForName(DocumentDidUpdateRequestsNotification, object: nil, queue: nil) { notification in
-            weakSelf?.tableView?.reloadData()
-        }
     }
     
     // MARK: - NSTableViewDelegate
@@ -37,11 +32,11 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return document.requests.count ?? 0
+        return requests?.count ?? 0
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let request = document.requests[row]
+        let request = requests![row]
         let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView
