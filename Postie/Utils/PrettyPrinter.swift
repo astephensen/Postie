@@ -20,7 +20,7 @@ struct PrettyPrinter {
         switch MIMEType {
         // Process JSON using python.
         case "application/json":
-            let command = "echo '\(text)' | python -m json.tool"
+            let command = "python -c 'import json; print(json.dumps(\(text), sort_keys=False, indent=2))'"
             if let prettyText = callSystemCommand(command) {
                 return prettyText
             }
