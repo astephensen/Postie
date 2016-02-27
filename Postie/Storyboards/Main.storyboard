@@ -600,7 +600,7 @@ DQ
                         <tabViewItem identifier="" id="0QA-c9-an6"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="hzg-Rm-HUn">
-                        <rect key="frame" x="-32" y="0.0" width="350" height="316"/>
+                        <rect key="frame" x="-16" y="0.0" width="350" height="316"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="message"/>
                         <tabViewItems/>
@@ -640,7 +640,7 @@ DQ
                 </viewController>
                 <customObject id="2Ra-mR-QHb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="883" y="2138"/>
+            <point key="canvasLocation" x="883" y="2134"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oRg-y2-vAv">
@@ -653,7 +653,7 @@ DQ
                 </viewController>
                 <customObject id="RqO-ed-3kN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="2138"/>
+            <point key="canvasLocation" x="72" y="2134"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H7d-dR-L87">
@@ -666,7 +666,7 @@ DQ
                 </viewController>
                 <customObject id="YdF-Nh-7gV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="2138"/>
+            <point key="canvasLocation" x="480" y="2134"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="o3r-ep-d93">
