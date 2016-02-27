@@ -63,6 +63,12 @@ class Document: NSDocument {
                 return requests[index]
             }
         }
+        // A separate check needs to be done in case the cursor is at the end.
+        if let lastRange = requestRanges.last {
+            if location == NSMaxRange(lastRange) {
+                return requests.last
+            }
+        }
         return nil
     }
     
