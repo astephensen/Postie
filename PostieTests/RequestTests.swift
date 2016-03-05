@@ -55,6 +55,8 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(request.urlString, urlString, "Request urlString should be '\(urlString)' received '\(request.urlString)'")
     }
     
+    /* Headers */
+    
     func testRequestHeaders() {
         let text = "GET http://example.com\n" +
                    "headerOne: firstHeader\n" +
@@ -64,4 +66,31 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(request.headers.count, 3, "Request should have three headers, has \(request.headers.count)")
     }
     
+    /* Form Data */
+    
+    
+    /* Body Data */
+    
+    func testBodyData() {
+        let text = "GET http://example.com\n" +
+                   "body data"
+        let request = Request(text: text)
+        XCTAssertEqual(request.bodyText, "body data")
+    }
+    
+    func testJSON() {
+        let text = "GET http://example.com\n" +
+                   "{\"json\": true}"
+        let request = Request(text: text)
+        XCTAssertNotNil(request.bodyJSON, "Request should have body json")
+    }
+    
+    func testMultiLineJSON() {
+        let text = "GET http://example.com\n" +
+                   "{" +
+                   "  \"hello\": \"world\"" +
+                   "}"
+        let request = Request(text: text)
+        XCTAssertNotNil(request.bodyJSON, "Request should have body json")
+    }
 }

@@ -70,6 +70,7 @@ class Request {
     var headers: [String: String] = [:]
     var formData: [String: String] = [:]
     var bodyJSON: AnyObject?
+    var bodyText: String?
     
     init(text: String) {
         self.text = text
@@ -120,37 +121,47 @@ class Request {
             guard var lineText = scannedText as? String else {
                 continue
             }
+            
             // Trim any whitespace characters.
             lineText = lineText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            
-            // Check if it is JSON. TODO: Should we bother with parsing it to JSON or just store the body as text?
-            let firstCharacter = lineText[lineText.startIndex]
-            if firstCharacter == "{" || firstCharacter == "[" {
-                let bodyText = text.substringFromIndex(text.startIndex.advancedBy(scanner.scanLocation - 1))
-                do {
-                    let parsedJSON = try NSJSONSerialization.JSONObjectWithData(bodyText.dataUsingEncoding(NSUTF8StringEncoding)!, options: [])
-                    bodyJSON = parsedJSON
-                } catch { }
-                break
-            }
+            var processedLine = false
             
             // Look for headers. TODO: Can this handle colons elsewhere? Do headers even have other colons?
-            if lineText.containsString(":") {
+            if !processedLine && lineText.containsString(":") && !lineText.hasPrefix("{") {
                 let headerComponents = lineText.componentsSeparatedByString(":")
                 if headerComponents.count == 2 {
                     headers[headerComponents[0]] = headerComponents[1]
+                    processedLine = true
                 }
             }
             
             // Look for form data. TODO: Same as above. Can form data contain equal signs? Maybe split on the first one?
-            if lineText.containsString("=") {
+            if !processedLine && lineText.containsString("=") {
                 let formDataComponents = lineText.componentsSeparatedByString("=")
                 if formDataComponents.count == 2 {
                     formData[formDataComponents[0]] = formDataComponents[1]
+                    processedLine = true
                 }
             }
+            
+            // The line doesn't contain any special data, the remaining text will be treated as body data.
+            if !processedLine {
+                let processedText = lineText + text.substringFromIndex(text.startIndex.advancedBy(scanner.scanLocation))
+                
+                // Check if it is JSON. TODO: Should we bother with this?
+                if processedText.hasPrefix("{") || processedText.hasPrefix("[") {
+                    do {
+                        let data = processedText.dataUsingEncoding(NSUTF8StringEncoding)
+                        let parsedJSON = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+                        bodyJSON = parsedJSON
+                    } catch { }
+                }
+                
+                // Finished processing the request text.
+                bodyText = processedText
+                return
+            }
         }
-
     }
 
     // MARK: - Sending
