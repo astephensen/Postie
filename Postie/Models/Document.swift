@@ -19,6 +19,7 @@ class Document: NSDocument {
     init(text: String) {
         super.init()
         self.text = text
+        updateRequests()
     }
     
     override init() {
@@ -41,11 +42,15 @@ class Document: NSDocument {
         }
     }
     
+    func updateRequests() {
+        (requests, requestRanges) = Request.requestsFromText(text)
+    }
+    
     // MARK: - Text / Requests
     
     var text: String = "" {
         didSet {
-            (requests, requestRanges) = Request.requestsFromText(text)
+            updateRequests()
         }
     }
     var requests: [Request] = []
@@ -94,10 +99,5 @@ class Document: NSDocument {
             throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
         }
     }
-    
-    // MARK: - Sending Requests
-    
-    
-    
 }
 

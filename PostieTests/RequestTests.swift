@@ -16,6 +16,23 @@ class RequestTests: XCTestCase {
         let request = Request(text: text)
         XCTAssertNotNil(request, "Request should not be nil")
         XCTAssertEqual(request.text, text, "Request text property should be '\(text)' received '\(request.text)'")
+        XCTAssertEqual(request.url?.absoluteString, "http://example.com", "Request URL should be http://example.com")
+    }
+    
+    func testCreatingRequestWithNoScheme() {
+        let text = "GET example.com"
+        let request = Request(text: text)
+        XCTAssertNotNil(request, "Request should not be nil")
+        XCTAssertEqual(request.text, text, "Request text property should be '\(text)' received '\(request.text)'")
+        XCTAssertEqual(request.url?.absoluteString, "http://example.com", "Request URL should be http://example.com")
+    }
+    
+    func testCreatingRequestWithLocalPort() {
+        let text = "GET :8080"
+        let request = Request(text: text)
+        XCTAssertNotNil(request, "Request should not be nil")
+        XCTAssertEqual(request.text, text, "Request text property should be '\(text)' received '\(request.text)'")
+        XCTAssertEqual(request.url?.absoluteString, "http://localhost:8080", "Request URL should be http://localhost:8080")
     }
     
     func testRequestMethod() {

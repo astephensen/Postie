@@ -84,6 +84,8 @@ class Request {
         scanner.scanUpToCharactersFromSet(NSCharacterSet.newlineCharacterSet(), intoString: &requestText)
         
         // Extract the method and url. This will always be the first line of text.
+        // - A request does not need to contain a scheme, http:// will be provided by default.
+        // - A request can have a port as the start address, localhost will be provided by default.
         if let requestText = requestText {
             let methodDividerRange = requestText.rangeOfString(" ")
             if methodDividerRange.location == NSNotFound {
@@ -93,7 +95,15 @@ class Request {
                 // The method is the first bit, the url string is whatever follows.
                 method = requestText.substringToIndex(methodDividerRange.location) as String
                 urlString = requestText.substringFromIndex(methodDividerRange.location + 1).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                if let urlString = urlString {
+                if var urlString = urlString {
+                    // A 'port only' address will require a localhost prefix
+                    if urlString.hasPrefix(":") {
+                        urlString = "localhost\(urlString)"
+                    }
+                    // Provide a scheme automatically if the URL does not start with one.
+                    if !urlString.containsString("://") {
+                        urlString = "http://\(urlString)"
+                    }
                     url = NSURL(string: urlString)   
                 }
             }

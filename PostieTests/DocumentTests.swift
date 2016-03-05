@@ -34,7 +34,7 @@ class DocumentTests: XCTestCase {
     }
     
     func testSingleRequest() {
-        let simpleRequest = "GET http://example.com"
+        let simpleRequest = "GET http://example.com\n"
         let document = Document(text: simpleRequest)
         XCTAssertNotNil(document.requests, "Document should not have nil requests.")
         XCTAssert(document.requests.count == 1, "Document should contain a single request.")
