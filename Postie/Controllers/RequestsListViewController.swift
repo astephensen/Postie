@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import ReSwift
 
 class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     @IBOutlet var tableView: NSTableView?
