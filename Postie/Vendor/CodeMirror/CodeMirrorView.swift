@@ -89,13 +89,16 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         set(newText) {
             editorText = newText
             // Encode to JSON to pass through to the web view.
+            if (newText == nil) {
+                return
+            }
             do {
                 let encodeArray = [newText!]
                 let encodedData = try NSJSONSerialization.dataWithJSONObject(encodeArray, options: [])
                 let encodedJSON = String(data: encodedData, encoding: NSUTF8StringEncoding)
                 let encodedTextRange = Range<String.Index>(start: encodedJSON!.startIndex.advancedBy(2), end: encodedJSON!.endIndex.advancedBy(-2))
                 let encodedText = encodedJSON?.substringWithRange(encodedTextRange)
-                let javascript = "window.editor.doc.setValue(\"\(encodedText!)\");"
+                let javascript = "window.editor.doc.setValue(\(prettyPrintText(encodedText!)));"
                 webView?.evaluateJavaScript(javascript, completionHandler: nil)
             } catch {}
         }
@@ -124,8 +127,26 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
     }
     
-    // MARK: - Functions
+    var prettyPrint = false {
+        didSet {
+            text = editorText
+        }
+    }
     
+    // MARK: - Functions
+
+    func prettyPrintText(text: String) -> String {
+        if prettyPrint == false {
+            return "\"\(text)\""
+        }
+        switch mode {
+        case "application/json":
+            return "JSON.stringify(JSON.parse(\"\(text)\"), null, 2)"
+        default:
+            return "\"\(text)\""
+        }
+    }
+
     func updateProperty(property: String, value: AnyObject) {
         switch property {
         case "text":

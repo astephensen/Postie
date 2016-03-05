@@ -25,6 +25,7 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
     
     override func viewWillAppear() {
         if !codeMirrorViewLoaded {
+            codeMirrorView?.prettyPrint = true
             codeMirrorView?.loadEditor()
             codeMirrorViewLoaded = true
         }
@@ -48,11 +49,12 @@ class ResponseViewController: NSViewController, CodeMirrorViewDelegate {
         NSString.stringEncodingForData(bodyData, encodingOptions: nil, convertedString: &bodyString, usedLossyConversion: nil)
         
         // Convert the NSString to a String
-        if var bodyString = bodyString as? String {
+        if let bodyString = bodyString as? String {
             // Set the MIME type - this can also be used to pretty print the response.
             if let MIMEType = selectedRequest?.response?.MIMEType {
                 codeMirrorView?.mode = MIMEType
-                bodyString = PrettyPrinter.prettyPrint(bodyString, MIMEType: MIMEType)
+            } else {
+                codeMirrorView?.mode = "text"
             }
             codeMirrorView?.text = bodyString
         }
