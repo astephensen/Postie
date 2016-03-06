@@ -54,7 +54,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     func sendRequest(request: Request) {
         weak var weakMainViewController = mainViewController
         RequestSender.sendRequest(request) { (request) -> Void in
-            weakMainViewController?.resultsViewController?.resultsTabViewController?.responseViewController?.requestChanged(request)
+            weakMainViewController?.resultsViewController?.resultsTabViewController?.responseDataViewController?.requestChanged(request)
         }
     }
     
@@ -72,7 +72,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     var selectedRequest: Request? {
         didSet {
             mainViewController?.editorViewController?.requestPathViewController?.selectedRequest = selectedRequest
-            mainViewController?.resultsViewController?.resultsTabViewController?.responseViewController?.selectedRequest = selectedRequest
+            mainViewController?.resultsViewController?.resultsTabViewController?.responseDataViewController?.selectedRequest = selectedRequest
         }
     }
     

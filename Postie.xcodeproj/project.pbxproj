@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E702EBE61C5C54B3001C8F74 /* RequestPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */; };
-		E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB681C548E26001E5514 /* ResponseViewController.swift */; };
 		E712BB731C549009001E5514 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB721C549009001E5514 /* ResultsViewController.swift */; };
 		E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712BB741C54902F001E5514 /* ResultsTabViewController.swift */; };
 		E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7421F951C126D0700C0DA38 /* Main.storyboard */; };
@@ -22,6 +21,8 @@
 		E7421FAF1C12C15300C0DA38 /* CodeMirror.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */; };
 		E7421FB01C12C15300C0DA38 /* CodeMirror.html in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAD1C12C15300C0DA38 /* CodeMirror.html */; };
 		E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */; };
+		E75850BB1C8BBF95007EBB34 /* ResponseDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */; };
+		E75850BD1C8BC009007EBB34 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */; };
 		E7626A641C6EC30400C2C4DB /* NSViewController+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626A631C6EC30400C2C4DB /* NSViewController+Document.swift */; };
 		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
 		E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983C1C374CAF00071283 /* RequestTableCellView.swift */; };
@@ -83,7 +84,6 @@
 
 /* Begin PBXFileReference section */
 		E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestPathViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E712BB681C548E26001E5514 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E712BB721C549009001E5514 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E712BB741C54902F001E5514 /* ResultsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResultsTabViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E7421F951C126D0700C0DA38 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeMirror.bundle; sourceTree = "<group>"; };
 		E7421FAD1C12C15300C0DA38 /* CodeMirror.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CodeMirror.html; sourceTree = "<group>"; };
 		E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodeMirrorView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataViewController.swift; sourceTree = "<group>"; };
+		E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		E7626A631C6EC30400C2C4DB /* NSViewController+Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSViewController+Document.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EditorViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E778983C1C374CAF00071283 /* RequestTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestTableCellView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -179,7 +181,8 @@
 				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
 				E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */,
 				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
-				E712BB681C548E26001E5514 /* ResponseViewController.swift */,
+				E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */,
+				E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */,
 				E712BB741C54902F001E5514 /* ResultsTabViewController.swift */,
 				E712BB721C549009001E5514 /* ResultsViewController.swift */,
 			);
@@ -444,13 +447,14 @@
 				E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */,
 				E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */,
 				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,
+				E75850BD1C8BC009007EBB34 /* ResponseViewController.swift in Sources */,
 				E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
-				E712BB6A1C548E26001E5514 /* ResponseViewController.swift in Sources */,
 				E7F3BC5B1C6B36DD0087104F /* PrettyPrinter.swift in Sources */,
 				E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */,
+				E75850BB1C8BBF95007EBB34 /* ResponseDataViewController.swift in Sources */,
 				E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */,
 				E7421FA31C12719900C0DA38 /* DocumentWindowController.swift in Sources */,
 				E702EBE61C5C54B3001C8F74 /* RequestPathViewController.swift in Sources */,
