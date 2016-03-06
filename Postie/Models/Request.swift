@@ -170,7 +170,27 @@ class Request {
 
     // MARK: - Sending
     
-    var response: NSURLResponse?
+    var response: NSHTTPURLResponse? {
+        didSet {
+            responseHeaders.removeAll()
+            if let allHeaderFields = response?.allHeaderFields {
+                for (name, value) in allHeaderFields {
+                    guard let nameString = name as? String else {
+                        return
+                    }
+                    guard let valueString = value as? String else {
+                        return
+                    }
+                    responseHeaders.append((name: nameString, value: valueString))
+                }
+            }
+            // Sort the response headers.
+            responseHeaders.sortInPlace { (firstHeader, secondHeader) -> Bool in
+                return firstHeader.name < secondHeader.name
+            }
+        }
+    }
+    var responseHeaders: [(name: String, value: String)] = []
     var bodyData: NSData?
     
 }

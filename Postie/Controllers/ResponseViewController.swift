@@ -14,6 +14,7 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView?.intercellSpacing = NSSize(width: 0, height: 0)
         // Register cell nibs.
         let tableHeaderCellViewNib = NSNib(nibNamed: "TableHeaderCellView", bundle: NSBundle.mainBundle())
         tableView?.registerNib(tableHeaderCellViewNib, forIdentifier: "TableHeaderCellView")
@@ -32,20 +33,38 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
     // MARK: - NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return 20
+        var headerCount = 0
+        if let allHeaders = selectedRequest?.response?.allHeaderFields {
+            headerCount = allHeaders.count
+        }
+        return 2 + headerCount
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        // Headers header cell view.
         if row == 0 {
-            let headerCellView = tableView.makeViewWithIdentifier("TableHeaderCellView", owner: self)
+            let headerCellView = tableView.makeViewWithIdentifier("TableHeaderCellView", owner: self) as? TableHeaderCellView
+            headerCellView?.headerLabel?.stringValue = "Headers"
             return headerCellView
         }
-        let nameValueCellView = tableView.makeViewWithIdentifier("TableNameValueCellView", owner: self)
+        // Header values.
+        let nameValueCellView = tableView.makeViewWithIdentifier("TableNameValueCellView", owner: self) as? TableNameValueCellView
+        if row == 1 {
+            nameValueCellView?.titleCell = true
+            nameValueCellView?.nameLabel?.stringValue = "Name"
+            nameValueCellView?.valueLabel?.stringValue = "Value"
+        } else {
+            nameValueCellView?.alternateRow = Bool(row % 2)
+            if let header = selectedRequest?.responseHeaders[row - 2] {
+                nameValueCellView?.nameLabel?.stringValue = header.name
+                nameValueCellView?.valueLabel?.stringValue = header.value
+            }
+        }
         return nameValueCellView
     }
     
     func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 50.0
+        return 28.0
     }
     
     // MARK: - NSTableViewDelegate
