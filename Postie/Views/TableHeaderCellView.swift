@@ -16,7 +16,7 @@ class TableHeaderCellView: NSView {
         super.awakeFromNib()
         // Setup background color and borders.
         wantsLayer = true
-        layer?.backgroundColor = NSColor(white: 250.0/255.0, alpha: 1.0).CGColor
+        layer?.backgroundColor = NSColor(white: 247.0/255.0, alpha: 1.0).CGColor
         bottomBorder?.wantsLayer = true
         bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).CGColor
     }

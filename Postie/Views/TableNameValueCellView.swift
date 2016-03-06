@@ -15,11 +15,11 @@ class TableNameValueCellView: NSView {
     @IBOutlet var valueLabel: NSTextField?
     // Colours.
     var backgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0).CGColor
-    var alternateBackgroundColour = NSColor(white: 239.0/255.0, alpha: 1.0).CGColor
+    var alternateBackgroundColour = NSColor(white: 250.0/255.0, alpha: 1.0).CGColor
     var titleBackgroundColour = NSColor.whiteColor().CGColor
     // Fonts.
-    var defaultFont = NSFont.systemFontOfSize(12.0)
-    var titleFont = NSFont.systemFontOfSize(12.0)
+    var defaultFont = NSFont.systemFontOfSize(11.0)
+    var titleFont = NSFont.systemFontOfSize(11.0)
     
     override func awakeFromNib() {
         super.awakeFromNib()

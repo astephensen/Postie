@@ -12,18 +12,18 @@
             <rect key="frame" x="0.0" y="0.0" width="318" height="28"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i0C-WJ-76o">
-                    <rect key="frame" x="8" y="7" width="115" height="16"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i0C-WJ-76o">
+                    <rect key="frame" x="8" y="7" width="115" height="14"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="bkq-7o-UpA">
-                        <font key="font" metaFont="cellTitle"/>
+                        <font key="font" metaFont="system" size="11"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Y-uc-NQ5">
-                    <rect key="frame" x="139" y="7" width="171" height="16"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="3EE-SV-5Fu">
-                        <font key="font" metaFont="cellTitle"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Y-uc-NQ5">
+                    <rect key="frame" x="139" y="7" width="171" height="14"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Label" id="3EE-SV-5Fu">
+                        <font key="font" metaFont="system" size="11"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -42,8 +42,8 @@
                 </customView>
             </subviews>
             <constraints>
-                <constraint firstItem="Y8Y-uc-NQ5" firstAttribute="centerY" secondItem="zCV-vn-E3g" secondAttribute="centerY" constant="-1" id="OFv-tJ-jcN"/>
-                <constraint firstItem="i0C-WJ-76o" firstAttribute="centerY" secondItem="zCV-vn-E3g" secondAttribute="centerY" constant="-1" id="Usy-O4-F8n"/>
+                <constraint firstItem="Y8Y-uc-NQ5" firstAttribute="centerY" secondItem="zCV-vn-E3g" secondAttribute="centerY" id="OFv-tJ-jcN"/>
+                <constraint firstItem="i0C-WJ-76o" firstAttribute="centerY" secondItem="zCV-vn-E3g" secondAttribute="centerY" id="Usy-O4-F8n"/>
                 <constraint firstItem="w2G-Id-gnJ" firstAttribute="leading" secondItem="zCV-vn-E3g" secondAttribute="leading" id="aGY-7i-wlj"/>
                 <constraint firstItem="Y8Y-uc-NQ5" firstAttribute="leading" secondItem="i0C-WJ-76o" secondAttribute="trailing" constant="20" id="e9g-rZ-XNj"/>
                 <constraint firstAttribute="trailing" secondItem="w2G-Id-gnJ" secondAttribute="trailing" id="eDt-Cy-GoB"/>

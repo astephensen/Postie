@@ -9,7 +9,11 @@
 import Cocoa
 
 class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-    var selectedRequest: Request?
+    var selectedRequest: Request? {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
     @IBOutlet var tableView: NSTableView?
 
     override func viewDidLoad() {
