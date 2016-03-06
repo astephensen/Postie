@@ -24,13 +24,19 @@ struct RequestSender {
             return
         }
         
-        // Create the requst
-        let urlRequest = NSMutableURLRequest(URL: requestURL)
+        // Create the request and set the method.
+        var urlRequest = NSMutableURLRequest(URL: requestURL)
         urlRequest.HTTPMethod = method
         
         // Set the headers.
         for (header, value) in request.headers {
             urlRequest.setValue(value, forHTTPHeaderField: header)
+        }
+        
+        // Set form data.
+        if request.formData.count > 0 {
+            let encoding = Alamofire.ParameterEncoding.URL
+            (urlRequest, _) = encoding.encode(urlRequest, parameters: request.formData)
         }
         
         // Set the body data.

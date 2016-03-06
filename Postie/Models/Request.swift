@@ -130,7 +130,9 @@ class Request {
             if !processedLine && lineText.containsString(":") && !lineText.hasPrefix("{") {
                 let headerComponents = lineText.componentsSeparatedByString(":")
                 if headerComponents.count == 2 {
-                    headers[headerComponents[0]] = headerComponents[1]
+                    let header = headerComponents[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                    let value = headerComponents[1].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                    headers[header] = value
                     processedLine = true
                 }
             }
@@ -139,7 +141,9 @@ class Request {
             if !processedLine && lineText.containsString("=") {
                 let formDataComponents = lineText.componentsSeparatedByString("=")
                 if formDataComponents.count == 2 {
-                    formData[formDataComponents[0]] = formDataComponents[1]
+                    let key = formDataComponents[0].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                    let value = formDataComponents[1].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                    formData[key] = value
                     processedLine = true
                 }
             }

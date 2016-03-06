@@ -68,6 +68,14 @@ class RequestTests: XCTestCase {
     
     /* Form Data */
     
+    func testFormData() {
+        let text = "GET http://example.com\n" +
+                   "key = value"
+        let request = Request(text: text)
+        XCTAssertEqual(request.formData.count, 1, "Request should have form data")
+        XCTAssertEqual(request.formData.first!.0, "key")
+        XCTAssertEqual(request.formData.first!.1, "value")
+    }
     
     /* Body Data */
     
