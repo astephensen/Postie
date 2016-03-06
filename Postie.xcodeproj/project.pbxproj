@@ -30,6 +30,10 @@
 		E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77898441C37660800071283 /* NSURL+AttributedString.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* PostieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* PostieUITests.swift */; };
+		E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */; };
+		E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */; };
+		E79561A51C8BC9510040B4C4 /* TableNameValueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */; };
+		E79561A71C8BC9870040B4C4 /* TableNameValueCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79561A61C8BC9870040B4C4 /* TableNameValueCellView.xib */; };
 		E7B546411C589708006B5A83 /* Alamofire.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */; };
 		E7B546471C58971A006B5A83 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; };
 		E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -112,6 +116,10 @@
 		E77E63061BEEBFF600F14261 /* PostieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* PostieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostieUITests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeaderCellView.swift; sourceTree = "<group>"; };
+		E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderCellView.xib; sourceTree = "<group>"; };
+		E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNameValueCellView.swift; sourceTree = "<group>"; };
+		E79561A61C8BC9870040B4C4 /* TableNameValueCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableNameValueCellView.xib; sourceTree = "<group>"; };
 		E7B5463E1C589708006B5A83 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		E7B5467C1C58D8B4006B5A83 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
@@ -212,6 +220,10 @@
 			children = (
 				E778983C1C374CAF00071283 /* RequestTableCellView.swift */,
 				E778983E1C374D3600071283 /* RequestMethodView.swift */,
+				E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */,
+				E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */,
+				E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */,
+				E79561A61C8BC9870040B4C4 /* TableNameValueCellView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +425,8 @@
 				E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */,
 				E7B546411C589708006B5A83 /* Alamofire.framework.dSYM in Resources */,
 				E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */,
+				E79561A71C8BC9870040B4C4 /* TableNameValueCellView.xib in Resources */,
+				E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */,
 				E7421FAF1C12C15300C0DA38 /* CodeMirror.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +456,7 @@
 				E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */,
 				E7E9369B1C810ED80092552D /* RequestSender.swift in Sources */,
 				E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */,
+				E79561A51C8BC9510040B4C4 /* TableNameValueCellView.swift in Sources */,
 				E7626A641C6EC30400C2C4DB /* NSViewController+Document.swift in Sources */,
 				E712BB731C549009001E5514 /* ResultsViewController.swift in Sources */,
 				E712BB751C54902F001E5514 /* ResultsTabViewController.swift in Sources */,
@@ -450,6 +465,7 @@
 				E75850BD1C8BC009007EBB34 /* ResponseViewController.swift in Sources */,
 				E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
+				E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
 				E7F3BC5B1C6B36DD0087104F /* PrettyPrinter.swift in Sources */,

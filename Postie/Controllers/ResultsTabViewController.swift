@@ -10,6 +10,12 @@ import Cocoa
 
 class ResultsTabViewController: NSTabViewController {
     
+    var responseViewController: ResponseViewController? {
+        get {
+            return tabViewItems[1].viewController as? ResponseViewController
+        }
+    }
+    
     var responseDataViewController: ResponseDataViewController? {
         get {
             return tabViewItems[2].viewController as? ResponseDataViewController

@@ -613,7 +613,7 @@ DQ
                 </tabViewController>
                 <customObject id="dMx-JZ-Wak" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="1649"/>
+            <point key="canvasLocation" x="480" y="1641"/>
         </scene>
         <!--Response Data View Controller-->
         <scene sceneID="NTx-Oj-UdA">
@@ -670,13 +670,13 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" viewBased="YES" id="jjo-Ii-iNw">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="348" minWidth="40" maxWidth="1000" id="biU-iE-eyc">
+                                                <tableColumn width="347" minWidth="40" maxWidth="1000" id="biU-iE-eyc">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -690,7 +690,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="AUF-1L-vZJ">
-                                                            <rect key="frame" x="1" y="1" width="348" height="63"/>
+                                                            <rect key="frame" x="1" y="1" width="347" height="63"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yab-Rx-9oP">
@@ -709,11 +709,15 @@ DQ
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="LED-6k-83n" id="GtE-0g-Fdf"/>
+                                                <outlet property="delegate" destination="LED-6k-83n" id="E8b-hl-EcL"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Tgl-7Q-gmy">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Tgl-7Q-gmy">
                                     <rect key="frame" x="0.0" y="284" width="350" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -730,6 +734,9 @@ DQ
                             <constraint firstItem="p1b-j6-XFw" firstAttribute="leading" secondItem="HCx-Ep-jmX" secondAttribute="leading" id="s10-NK-vvF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="jjo-Ii-iNw" id="ccT-Sm-xUd"/>
+                    </connections>
                 </viewController>
                 <customObject id="YdF-Nh-7gV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
