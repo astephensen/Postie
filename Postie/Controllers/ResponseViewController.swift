@@ -44,6 +44,8 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
         return 2 + headerCount
     }
     
+    // MARK: - NSTableViewDelegate
+    
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // Headers header cell view.
         if row == 0 {
@@ -71,13 +73,28 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
         return 28.0
     }
     
-    // MARK: - NSTableViewDelegate
-    
     func tableView(tableView: NSTableView, isGroupRow row: Int) -> Bool {
         if row == 0 {
             return true
         }
         return false
+    }
+    
+    // MARK: Selection
+    
+    func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return row >= 2
+    }
+    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        // Copy header to the clipboard for now.
+        if let selectedRow = tableView?.selectedRow {
+            if let (name, value) = selectedRequest?.responseHeaders[selectedRow - 2] {
+                let pasteboard = NSPasteboard.generalPasteboard()
+                pasteboard.clearContents()
+                pasteboard.writeObjects(["\(name): \(value)"])
+            }
+        }
     }
     
 }
