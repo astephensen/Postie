@@ -96,7 +96,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
                 let encodeArray = [newText!]
                 let encodedData = try NSJSONSerialization.dataWithJSONObject(encodeArray, options: [])
                 let encodedJSON = String(data: encodedData, encoding: NSUTF8StringEncoding)
-                let encodedTextRange = Range<String.Index>(start: encodedJSON!.startIndex.advancedBy(2), end: encodedJSON!.endIndex.advancedBy(-2))
+                let encodedTextRange = encodedJSON!.startIndex.advancedBy(2) ..< encodedJSON!.endIndex.advancedBy(-2)
                 let encodedText = encodedJSON?.substringWithRange(encodedTextRange)
                 let javascript = "window.editor.doc.setValue(\(prettyPrintText(encodedText!)));"
                 webView?.evaluateJavaScript(javascript, completionHandler: nil)
