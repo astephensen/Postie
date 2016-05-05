@@ -11,6 +11,7 @@ body {
     height: calc(100vh);
     font-family: "menlo";
     font-size: 11px;
+    line-height: 1.2em;
 }
 
 .CodeMirror-selected {

@@ -21,7 +21,8 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     var config: [String: AnyObject] = [
         "lineNumbers": true,
         "styleActiveLine": true,
-        "matchBrackets": true,
+        "autoCloseBrackets": true,
+        "matchBrackets": false,
         "mode": "text",
         "tabSize": 2,
         "autofocus": true
