@@ -15,7 +15,7 @@ struct RequestSender {
     ///
     /// - Parameter request: The request to send.
     /// - Parameter updated: The closure to call when sending the request has updated.
-    static func sendRequest(request: Request, updated: (request: Request) -> Void) {
+    static func sendRequest(_ request: Request, updated: @escaping (_ request: Request) -> Void) {
         weak var weakRequest = request
         guard let requestURL = request.url else {
             return
@@ -25,8 +25,8 @@ struct RequestSender {
         }
         
         // Create the request and set the method.
-        var urlRequest = NSMutableURLRequest(URL: requestURL)
-        urlRequest.HTTPMethod = method
+        var urlRequest = NSMutableURLRequest(url: requestURL as URL)
+        urlRequest.httpMethod = method
         
         // Set the headers.
         for (header, value) in request.headers {
@@ -34,18 +34,23 @@ struct RequestSender {
         }
         
         // Set form data.
+        /*
+        FIXME
         if request.formData.count > 0 {
-            let encoding = Alamofire.ParameterEncoding.URL
+            let encoding = Alamofire.ParameterEncoding.url
             (urlRequest, _) = encoding.encode(urlRequest, parameters: request.formData)
         }
+        */
         
         // Set the body data.
         if let bodyJSON = request.bodyJSON {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(bodyJSON, options: [])
+            urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: bodyJSON, options: [])
         }
         
         // Send the request.
+        /*
+        FIXME
         Alamofire.request(urlRequest).response { (request, response, data, error) in
             if let request = weakRequest {
                 request.response = response
@@ -53,5 +58,6 @@ struct RequestSender {
                 updated(request: request)
             }
         }
+        */
     }
 }

@@ -14,12 +14,12 @@ class TableNameValueCellView: NSView {
     @IBOutlet var nameLabel: NSTextField?
     @IBOutlet var valueLabel: NSTextField?
     // Colours.
-    var backgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0).CGColor
-    var alternateBackgroundColour = NSColor(white: 250.0/255.0, alpha: 1.0).CGColor
-    var titleBackgroundColour = NSColor.whiteColor().CGColor
+    var backgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0).cgColor
+    var alternateBackgroundColour = NSColor(white: 250.0/255.0, alpha: 1.0).cgColor
+    var titleBackgroundColour = NSColor.white.cgColor
     // Fonts.
-    var defaultFont = NSFont.systemFontOfSize(11.0)
-    var titleFont = NSFont.systemFontOfSize(11.0)
+    var defaultFont = NSFont.systemFont(ofSize: 11.0)
+    var titleFont = NSFont.systemFont(ofSize: 11.0)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,9 +27,9 @@ class TableNameValueCellView: NSView {
         wantsLayer = true
         layer?.backgroundColor = backgroundColour
         bottomBorder?.wantsLayer = true
-        bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).CGColor
+        bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).cgColor
         dividerView?.wantsLayer = true
-        dividerView?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).CGColor
+        dividerView?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).cgColor
     }
     
     var titleCell = false {

@@ -34,7 +34,7 @@ class EditorViewController: NSViewController, CodeMirrorViewDelegate {
     
     // MARK: - UIStoryboard
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "EmbedRequestPathViewController" {
             requestPathViewController = segue.destinationController as? RequestPathViewController
         }

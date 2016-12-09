@@ -8,19 +8,8 @@
 
 import Alamofire
 
-extension Method {
-    static func fromString(method: String) -> Method {
-        switch (method) {
-        case "OPTIONS": return .OPTIONS
-        case "GET": return .GET
-        case "HEAD": return .HEAD
-        case "POST": return .POST
-        case "PUT": return .PUT
-        case "PATCH": return .PATCH
-        case "DELETE": return .DELETE
-        case "TRACE": return .TRACE
-        case "CONNECT": return .CONNECT
-        default: return .GET
-        }
+extension HTTPMethod {
+    static func fromString(_ method: String) -> HTTPMethod {
+        return .get
     }
 }

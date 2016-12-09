@@ -20,15 +20,15 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
         super.viewDidLoad()
         tableView?.intercellSpacing = NSSize(width: 0, height: 0)
         // Register cell nibs.
-        let tableHeaderCellViewNib = NSNib(nibNamed: "TableHeaderCellView", bundle: NSBundle.mainBundle())
-        tableView?.registerNib(tableHeaderCellViewNib, forIdentifier: "TableHeaderCellView")
-        let tableNameValueCellViewNib = NSNib(nibNamed: "TableNameValueCellView", bundle: NSBundle.mainBundle())
-        tableView?.registerNib(tableNameValueCellViewNib, forIdentifier: "TableNameValueCellView")
+        let tableHeaderCellViewNib = NSNib(nibNamed: "TableHeaderCellView", bundle: Bundle.main)
+        tableView?.register(tableHeaderCellViewNib, forIdentifier: "TableHeaderCellView")
+        let tableNameValueCellViewNib = NSNib(nibNamed: "TableNameValueCellView", bundle: Bundle.main)
+        tableView?.register(tableNameValueCellViewNib, forIdentifier: "TableNameValueCellView")
     }
     
     // MARK: - Functions
     
-    func requestChanged(request: Request) {
+    func requestChanged(_ request: Request) {
         if request === selectedRequest {
             tableView?.reloadData()
         }
@@ -36,7 +36,7 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
     
     // MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         var headerCount = 0
         if let allHeaders = selectedRequest?.response?.allHeaderFields {
             headerCount = allHeaders.count
@@ -46,21 +46,22 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
     
     // MARK: - NSTableViewDelegate
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // Headers header cell view.
         if row == 0 {
-            let headerCellView = tableView.makeViewWithIdentifier("TableHeaderCellView", owner: self) as? TableHeaderCellView
+            let headerCellView = tableView.make(withIdentifier: "TableHeaderCellView", owner: self) as? TableHeaderCellView
             headerCellView?.headerLabel?.stringValue = "Headers"
             return headerCellView
         }
         // Header values.
-        let nameValueCellView = tableView.makeViewWithIdentifier("TableNameValueCellView", owner: self) as? TableNameValueCellView
+        let nameValueCellView = tableView.make(withIdentifier: "TableNameValueCellView", owner: self) as? TableNameValueCellView
         if row == 1 {
             nameValueCellView?.titleCell = true
             nameValueCellView?.nameLabel?.stringValue = "Name"
             nameValueCellView?.valueLabel?.stringValue = "Value"
         } else {
-            nameValueCellView?.alternateRow = Bool(row % 2)
+            // FIXME
+            // nameValueCellView?.alternateRow = Bool(row % 2)
             if let header = selectedRequest?.responseHeaders[row - 2] {
                 nameValueCellView?.nameLabel?.stringValue = header.name
                 nameValueCellView?.valueLabel?.stringValue = header.value
@@ -69,11 +70,11 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
         return nameValueCellView
     }
     
-    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 28.0
     }
     
-    func tableView(tableView: NSTableView, isGroupRow row: Int) -> Bool {
+    func tableView(_ tableView: NSTableView, isGroupRow row: Int) -> Bool {
         if row == 0 {
             return true
         }
@@ -82,17 +83,17 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
     
     // MARK: Selection
     
-    func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         return row >= 2
     }
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         // Copy header to the clipboard for now.
         if let selectedRow = tableView?.selectedRow {
             if let (name, value) = selectedRequest?.responseHeaders[selectedRow - 2] {
-                let pasteboard = NSPasteboard.generalPasteboard()
+                let pasteboard = NSPasteboard.general()
                 pasteboard.clearContents()
-                pasteboard.writeObjects(["\(name): \(value)"])
+                pasteboard.writeObjects(["\(name): \(value)" as NSPasteboardWriting])
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension NSURL {
+extension URL {
     
     // The colours that should be used.
     struct AttributedStringColours {
@@ -21,41 +21,42 @@ extension NSURL {
     var attributedString: NSAttributedString {
         let attributedString = NSMutableAttributedString()
         
-        attributedString.appendAttributedString(formattedString(scheme, colour: AttributedStringColours.scheme))
-        attributedString.appendAttributedString(formattedString("://", colour: AttributedStringColours.secondary))
-        attributedString.appendAttributedString(formattedString(user, colour: AttributedStringColours.secondary))
+        attributedString.append(formattedString(scheme, colour: AttributedStringColours.scheme))
+        attributedString.append(formattedString("://", colour: AttributedStringColours.secondary))
+        attributedString.append(formattedString(user, colour: AttributedStringColours.secondary))
         if password != nil {
-            attributedString.appendAttributedString(formattedString(":", colour: AttributedStringColours.secondary))
-            attributedString.appendAttributedString(formattedString(password, colour: AttributedStringColours.secondary))
-            attributedString.appendAttributedString(formattedString("@", colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString(":", colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString(password, colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString("@", colour: AttributedStringColours.secondary))
         }
-        attributedString.appendAttributedString(formattedString(host, colour: AttributedStringColours.primary))
+        attributedString.append(formattedString(host, colour: AttributedStringColours.primary))
         if port != nil {
-            attributedString.appendAttributedString(formattedString(":", colour: AttributedStringColours.secondary))
-            attributedString.appendAttributedString(formattedString(port?.stringValue, colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString(":", colour: AttributedStringColours.secondary))
+            // FIXME
+            // attributedString.append(formattedString(port?.stringValue, colour: AttributedStringColours.secondary))
         }
-        attributedString.appendAttributedString(formattedString(path, colour: AttributedStringColours.secondary))
-        attributedString.appendAttributedString(formattedString(pathExtension, colour: AttributedStringColours.secondary))
-        attributedString.appendAttributedString(formattedString(parameterString, colour: AttributedStringColours.secondary))
+        attributedString.append(formattedString(path, colour: AttributedStringColours.secondary))
+        attributedString.append(formattedString(pathExtension, colour: AttributedStringColours.secondary))
+        attributedString.append(formattedString(path, colour: AttributedStringColours.secondary))
         if query != nil {
-            attributedString.appendAttributedString(formattedString("?", colour: AttributedStringColours.secondary))
-            attributedString.appendAttributedString(formattedString(query, colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString("?", colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString(query, colour: AttributedStringColours.secondary))
         }
-        attributedString.appendAttributedString(formattedString(fragment, colour: AttributedStringColours.secondary))
+        attributedString.append(formattedString(fragment, colour: AttributedStringColours.secondary))
         
         // Set a paragraph style across the whole string to truncate.
-        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.lineBreakMode = .ByTruncatingTail
+        let paragraphStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.lineBreakMode = .byTruncatingTail
         attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
         
         return attributedString
     }
     
-    func formattedString(string: String?, colour: NSColor) -> NSAttributedString {
+    func formattedString(_ string: String?, colour: NSColor) -> NSAttributedString {
         if let string = string {
             return NSAttributedString(string: string, attributes: [
                 NSForegroundColorAttributeName: colour,
-                NSFontAttributeName: NSFont.systemFontOfSize(12.0)
+                NSFontAttributeName: NSFont.systemFont(ofSize: 12.0)
             ])
         }
         return NSAttributedString()

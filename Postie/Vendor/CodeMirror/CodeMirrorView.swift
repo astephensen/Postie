@@ -10,15 +10,15 @@ import Cocoa
 import WebKit
 
 @objc protocol CodeMirrorViewDelegate {
-    optional func codeMirrorViewDidLoad(codeMirrorView: CodeMirrorView)
-    optional func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String)
-    optional func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int)
+    @objc optional func codeMirrorViewDidLoad(_ codeMirrorView: CodeMirrorView)
+    @objc optional func codeMirrorView(_ codeMirrorView: CodeMirrorView, didChangeText newText: String)
+    @objc optional func codeMirrorView(_ codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int)
 }
 
 class CodeMirrorView: NSView, WKScriptMessageHandler {
     var webView: WKWebView?
     var delegate: CodeMirrorViewDelegate?
-    var config: [String: AnyObject] = [
+    var config: [String: Any] = [
         "lineNumbers": true,
         "styleActiveLine": true,
         "autoCloseBrackets": true,
@@ -38,38 +38,38 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     func setupWebView() {
         // Setup script notification handler.
         let userContentController = WKUserContentController()
-        userContentController.addScriptMessageHandler(self, name: "notification")
+        userContentController.add(self, name: "notification")
         let configuration = WKWebViewConfiguration()
         configuration.userContentController = userContentController
         
         // Create the web view.
-        webView = WKWebView(frame: CGRectZero, configuration: configuration)
+        webView = WKWebView(frame: CGRect.zero, configuration: configuration)
         webView?.translatesAutoresizingMaskIntoConstraints = false
         addSubview(webView!)
         
         // Add constraints.
         let views = ["webView": webView!]
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[webView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
     }
     
     func loadEditor() {
         loadEditor("")
     }
     
-    func loadEditor(text: String) {
-        let htmlFilePath = NSBundle.mainBundle().pathForResource("CodeMirror", ofType: "html")
+    func loadEditor(_ text: String) {
+        let htmlFilePath = Bundle.main.path(forResource: "CodeMirror", ofType: "html")
         do {
-            var htmlFile = try NSString(contentsOfFile: htmlFilePath!, encoding: NSUTF8StringEncoding)
-            let bundlePath = NSBundle.mainBundle().pathForResource("CodeMirror", ofType: "bundle")
+            var htmlFile = try NSString(contentsOfFile: htmlFilePath!, encoding: String.Encoding.utf8.rawValue)
+            let bundlePath = Bundle.main.path(forResource: "CodeMirror", ofType: "bundle")
             // Replace the bundle path in the editor with the real path.
-            htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_BUNDLE_PATH_", withString: bundlePath!)
+            htmlFile = htmlFile.replacingOccurrences(of: "_BUNDLE_PATH_", with: bundlePath!) as NSString
             // Replace the options with the config object.
-            let serialisedConfig = try NSJSONSerialization.dataWithJSONObject(config, options: .PrettyPrinted)
-            htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_CONFIG_", withString: String(data: serialisedConfig, encoding: NSUTF8StringEncoding)!)
+            let serialisedConfig = try JSONSerialization.data(withJSONObject: config, options: .prettyPrinted)
+            htmlFile = htmlFile.replacingOccurrences(of: "_CONFIG_", with: String(data: serialisedConfig, encoding: String.Encoding.utf8)!) as NSString
             // Replace the text to load.
-            htmlFile = htmlFile.stringByReplacingOccurrencesOfString("_LOAD_TEXT_", withString: text)
-            webView?.loadHTMLString(htmlFile as String!, baseURL: NSURL.fileURLWithPath(bundlePath!))
+            htmlFile = htmlFile.replacingOccurrences(of: "_LOAD_TEXT_", with: text) as NSString
+            webView?.loadHTMLString(htmlFile as String!, baseURL: URL(fileURLWithPath: bundlePath!))
         } catch {
             
         }
@@ -77,7 +77,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     // MARK: - Properties
     
-    private var editorText: String? {
+    fileprivate var editorText: String? {
         didSet {
             delegate?.codeMirrorView?(self, didChangeText: editorText!)
         }
@@ -95,10 +95,10 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
             }
             do {
                 let encodeArray = [newText!]
-                let encodedData = try NSJSONSerialization.dataWithJSONObject(encodeArray, options: [])
-                let encodedJSON = String(data: encodedData, encoding: NSUTF8StringEncoding)
-                let encodedTextRange = encodedJSON!.startIndex.advancedBy(2) ..< encodedJSON!.endIndex.advancedBy(-2)
-                let encodedText = encodedJSON?.substringWithRange(encodedTextRange)
+                let encodedData = try JSONSerialization.data(withJSONObject: encodeArray, options: [])
+                let encodedJSON = String(data: encodedData, encoding: String.Encoding.utf8)
+                let encodedTextRange = encodedJSON!.characters.index(encodedJSON!.startIndex, offsetBy: 2) ..< encodedJSON!.characters.index(encodedJSON!.endIndex, offsetBy: -2)
+                let encodedText = encodedJSON?.substring(with: encodedTextRange)
                 let javascript = "window.editor.doc.setValue(\(prettyPrintText(encodedText!)));"
                 webView?.evaluateJavaScript(javascript, completionHandler: nil)
             } catch {}
@@ -122,7 +122,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     var mode = "text" {
         didSet {
-            config["mode"] = mode
+            config["mode"] = mode as AnyObject?
             let javascript = "window.editor.setOption('mode', '\(mode)');"
             webView?.evaluateJavaScript(javascript, completionHandler: nil)
         }
@@ -136,7 +136,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
     
     // MARK: - Functions
 
-    func prettyPrintText(text: String) -> String {
+    func prettyPrintText(_ text: String) -> String {
         if prettyPrint == false {
             return "\"\(text)\""
         }
@@ -148,7 +148,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
         }
     }
 
-    func updateProperty(property: String, value: AnyObject) {
+    func updateProperty(_ property: String, value: AnyObject) {
         switch property {
         case "text":
             if let textValue = value as? String {
@@ -165,7 +165,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
 
     // MARK: - WKScriptMessageHandler
     
-    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if let bodyObject = message.body as? [String: AnyObject] {
             if let event = bodyObject["event"] as? String {
                 // The event will determine what to do with the body.

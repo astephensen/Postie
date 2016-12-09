@@ -33,7 +33,7 @@ class ResponseDataViewController: NSViewController, CodeMirrorViewDelegate {
 
     // MARK: - Functions
     
-    func requestChanged(request: Request) {
+    func requestChanged(_ request: Request) {
         if request === selectedRequest {
             loadRequestBody()
         }
@@ -46,12 +46,12 @@ class ResponseDataViewController: NSViewController, CodeMirrorViewDelegate {
         }
         // Guess encoding of the data to load.
         var bodyString: NSString?
-        NSString.stringEncodingForData(bodyData, encodingOptions: nil, convertedString: &bodyString, usedLossyConversion: nil)
+        NSString.stringEncoding(for: bodyData as Data, encodingOptions: nil, convertedString: &bodyString, usedLossyConversion: nil)
         
         // Convert the NSString to a String
         if let bodyString = bodyString as? String {
             // Set the MIME type - this can also be used to pretty print the response.
-            if let MIMEType = selectedRequest?.response?.MIMEType {
+            if let MIMEType = selectedRequest?.response?.mimeType {
                 codeMirrorView?.mode = MIMEType
             } else {
                 codeMirrorView?.mode = "text"

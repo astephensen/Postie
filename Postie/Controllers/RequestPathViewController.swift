@@ -29,27 +29,27 @@ class RequestPathViewController: NSViewController {
 
         // Setup background, border and divider.
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.whiteColor().CGColor
+        view.layer?.backgroundColor = NSColor.white.cgColor
         bottomBorder?.wantsLayer = true
-        bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).CGColor
+        bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).cgColor
         divider?.wantsLayer = true
         divider?.layer?.backgroundColor = bottomBorder?.layer?.backgroundColor
     }
     
     // MARK: - Functions
     
-    func setupPathForRequest(request: Request?) {
+    func setupPathForRequest(_ request: Request?) {
         // Setup method button.
         methodButton?.image = nil
         if let method = request?.method {
-            let imageName = "method-\(method.lowercaseString)"
+            let imageName = "method-\(method.lowercased())"
             methodButton?.image = NSImage(named: imageName)
         }
         // Setup path bar.
         var pathControlItems: [NSPathControlItem] = []
         if let url = request?.url {
             if url.scheme != "" {
-                pathControlItems.append(pathControlItemForProperty(url.scheme, colour: secondaryColour))
+                pathControlItems.append(pathControlItemForProperty(url.scheme!, colour: secondaryColour))
             }
             if let user = url.user {
                 pathControlItems.append(pathControlItemForProperty(user, colour: tertiaryColour))
@@ -60,9 +60,11 @@ class RequestPathViewController: NSViewController {
             if let host = url.host {
                 pathControlItems.append(pathControlItemForProperty(host, colour: primaryColour))
             }
-            if let port = url.port?.stringValue {
+            if let port = (url as NSURL).port?.stringValue {
                 pathControlItems.append(pathControlItemForProperty(port, colour: tertiaryColour))
             }
+            // FIXME
+            /*
             if let pathComponents = url.pathComponents {
                 for pathComponent in pathComponents {
                     if pathComponent == "/" {
@@ -71,8 +73,9 @@ class RequestPathViewController: NSViewController {
                     pathControlItems.append(pathControlItemForProperty(pathComponent, colour: tertiaryColour))
                 }
             }
+            */
             if let query = url.query {
-                for queryComponent in query.componentsSeparatedByString("&") {
+                for queryComponent in query.components(separatedBy: "&") {
                     pathControlItems.append(pathControlItemForProperty(queryComponent, colour: tertiaryColour))
                 }
             }
@@ -85,12 +88,12 @@ class RequestPathViewController: NSViewController {
     
     // Mark: - Helpers
     
-    func pathControlItemForProperty(property: String, colour: NSColor = NSColor.blackColor()) -> NSPathControlItem {
+    func pathControlItemForProperty(_ property: String, colour: NSColor = NSColor.black) -> NSPathControlItem {
         // We need to word wrap using clipping because NSPathControlItem can't calculate attributed strings properly!
-        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.lineBreakMode = .ByClipping
+        let paragraphStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.lineBreakMode = .byClipping
         let attributes = [
-            NSFontAttributeName: NSFont.systemFontOfSize(12.0),
+            NSFontAttributeName: NSFont.systemFont(ofSize: 12.0),
             NSParagraphStyleAttributeName: paragraphStyle,
             NSForegroundColorAttributeName: colour
         ]

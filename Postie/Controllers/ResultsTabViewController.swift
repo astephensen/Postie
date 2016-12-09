@@ -26,7 +26,7 @@ class ResultsTabViewController: NSTabViewController {
         super.viewDidLoad()
 
         // Hide the tabs.
-        self.tabStyle = .Unspecified
+        self.tabStyle = .unspecified
     }
     
 }

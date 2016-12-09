@@ -16,7 +16,7 @@ struct PrettyPrinter {
     /// - Parameter MIMEType: The MIME type of the text.
     ///
     /// - Returns: A new string that has been pretty printed.
-    static func prettyPrint(text: String, MIMEType: String) -> String {
+    static func prettyPrint(_ text: String, MIMEType: String) -> String {
         switch MIMEType {
         // Process JSON using python.
         case "application/json":
@@ -42,18 +42,18 @@ struct PrettyPrinter {
     /// - Parameter command: The command to execute.
     ///
     /// - Returns: An optional string with the result of the command.
-    private static func callSystemCommand(command: String) -> String? {
+    fileprivate static func callSystemCommand(_ command: String) -> String? {
         // Create the task and pipe to execute the command.
-        let task = NSTask()
+        let task = Process()
         task.launchPath = "/bin/sh"
         task.arguments = ["-c", command]
-        let pipe = NSPipe()
+        let pipe = Pipe()
         task.standardOutput = pipe
         task.launch()
         
         // Read the output from the command.
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: NSUTF8StringEncoding)
+        let output = String(data: data, encoding: String.Encoding.utf8)
         return output
     }
 }

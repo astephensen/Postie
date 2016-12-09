@@ -18,25 +18,25 @@ class RequestsListViewController: NSViewController, NSTableViewDelegate, NSTable
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        tableView?.backgroundColor = NSColor.clearColor()
-        tableView?.selectionHighlightStyle = .SourceList
+        tableView?.backgroundColor = NSColor.clear
+        tableView?.selectionHighlightStyle = .sourceList
     }
     
     // MARK: - NSTableViewDelegate
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
         tableView?.deselectAll(self)
     }
     
     // MARK: - NSTableViewDataSource
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+    func numberOfRows(in tableView: NSTableView) -> Int {
         return requests?.count ?? 0
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let request = requests![row]
-        let requestTableCellView = tableView.makeViewWithIdentifier("RequestCell", owner: self) as? RequestTableCellView
+        let requestTableCellView = tableView.make(withIdentifier: "RequestCell", owner: self) as? RequestTableCellView
         requestTableCellView?.configureForRequest(request)
         return requestTableCellView
     }

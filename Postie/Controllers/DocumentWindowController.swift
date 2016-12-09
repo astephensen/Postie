@@ -7,13 +7,37 @@
 //
 
 import Cocoa
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirrorViewDelegate {
     var mainViewController: MainViewController?
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        window?.titleVisibility = .Hidden
+        window?.titleVisibility = .hidden
         window?.delegate = self
 
         // Make the window content view clip subviews. This ensures the bottom corners stay rounded.
@@ -27,7 +51,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     
     // MARK: - Actions
     
-    @IBAction func panelsToggled(sender: NSSegmentedControl?) {
+    @IBAction func panelsToggled(_ sender: NSSegmentedControl?) {
         if let segmentedControl = sender {
             var selectedSegment = segmentedControl.selectedSegment
             if selectedSegment == 1 {
@@ -37,7 +61,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
         }
     }
     
-    @IBAction func sendRequestAction(sender: NSToolbarItem?) {
+    @IBAction func sendRequestAction(_ sender: NSToolbarItem?) {
         if let request = selectedRequest {
             sendRequest(request)
         }
@@ -45,13 +69,13 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     
     // MARK: - Methods
     
-    func togglePanel(index: Int) {
+    func togglePanel(_ index: Int) {
         if let splitViewItem = mainViewController?.splitViewItems[index] {
-            splitViewItem.collapsed = !splitViewItem.collapsed
+            splitViewItem.isCollapsed = !splitViewItem.isCollapsed
         }
     }
     
-    func sendRequest(request: Request) {
+    func sendRequest(_ request: Request) {
         weak var weakMainViewController = mainViewController
         RequestSender.sendRequest(request) { (request) -> Void in
             weakMainViewController?.resultsViewController?.resultsTabViewController?.responseViewController?.requestChanged(request)
@@ -86,11 +110,11 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     
     // MARK: - CodeMirrorViewDelegate
     
-    func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
+    func codeMirrorView(_ codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
         selectedRequest = currentDocument?.requestAtLocation(cursorLocation)
     }
     
-    func codeMirrorView(codeMirrorView: CodeMirrorView, didChangeText newText: String) {
+    func codeMirrorView(_ codeMirrorView: CodeMirrorView, didChangeText newText: String) {
         currentDocument?.text = newText
         text = newText
     }

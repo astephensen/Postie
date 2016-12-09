@@ -27,7 +27,7 @@ class Document: NSDocument {
         self.text = ""
     }
 
-    override func windowControllerDidLoadNib(aController: NSWindowController) {
+    override func windowControllerDidLoadNib(_ aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
         // Add any code here that needs to be executed once the windowController has loaded the document's window.
     }
@@ -35,7 +35,7 @@ class Document: NSDocument {
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        documentWindowController = storyboard.instantiateControllerWithIdentifier("DocumentWindowController") as? DocumentWindowController
+        documentWindowController = storyboard.instantiateController(withIdentifier: "DocumentWindowController") as? DocumentWindowController
         if let documentWindowController = documentWindowController {
             documentWindowController.currentDocument = self
             addWindowController(documentWindowController)
@@ -62,8 +62,8 @@ class Document: NSDocument {
     /// - Parameter location: The location of the request to find.
     ///
     /// - Returns: The request if one could be found.
-    func requestAtLocation(location: Int) -> Request? {
-        for (index, range) in requestRanges.enumerate() {
+    func requestAtLocation(_ location: Int) -> Request? {
+        for (index, range) in requestRanges.enumerated() {
             if NSLocationInRange(location, range) {
                 return requests[index]
             }
@@ -83,16 +83,16 @@ class Document: NSDocument {
         return true
     }
 
-    override func dataOfType(typeName: String) throws -> NSData {
-        if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
+    override func data(ofType typeName: String) throws -> Data {
+        if let data = text.data(using: String.Encoding.utf8) {
             return data
         }
         // TODO: Handle saving error.
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
 
-    override func readFromData(data: NSData, ofType typeName: String) throws {
-        if let loadedText = NSString(data: data, encoding: NSUTF8StringEncoding) {
+    override func read(from data: Data, ofType typeName: String) throws {
+        if let loadedText = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
             text = loadedText as String
         } else {
             // TODO: Handle loading error.

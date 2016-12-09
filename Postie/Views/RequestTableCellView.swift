@@ -12,13 +12,13 @@ class RequestTableCellView: NSTableCellView {
     @IBOutlet var requestIconImageView: NSImageView?
     @IBOutlet var requestTextField: NSTextField?
 
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
 
         // Drawing code here.
     }
     
-    func configureForRequest(request: Request) {
+    func configureForRequest(_ request: Request) {
         // Set the URL.
         requestTextField?.stringValue = ""
         if let url = request.url {
@@ -27,7 +27,7 @@ class RequestTableCellView: NSTableCellView {
         
         // Set the method icon.
         if let method = request.method {
-            let methodIcon = "method-\(method.lowercaseString)"
+            let methodIcon = "method-\(method.lowercased())"
             requestIconImageView?.image = NSImage(named: methodIcon)
         }
     }

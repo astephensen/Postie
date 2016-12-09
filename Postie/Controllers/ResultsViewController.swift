@@ -25,14 +25,14 @@ class ResultsViewController: NSViewController, NSTabViewDelegate {
         
         // Setup background and border.
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor(white: 247.0/255.0, alpha: 1.0).CGColor
+        view.layer?.backgroundColor = NSColor(white: 247.0/255.0, alpha: 1.0).cgColor
         bottomBorder?.wantsLayer = true
-        bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).CGColor
+        bottomBorder?.layer?.backgroundColor = NSColor(white: 213.0/255.0, alpha: 1.0).cgColor
     }
     
     // MARK: - Actions
     
-    @IBAction func switchTab(sender: NSButton) {
+    @IBAction func switchTab(_ sender: NSButton) {
         switch sender {
         case requestTabButton!:
             resultsTabViewController?.selectedTabViewItemIndex = 0
@@ -48,8 +48,8 @@ class ResultsViewController: NSViewController, NSTabViewDelegate {
     
     // MARK: - Storyboard
     
-    override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if let destination = segue.destinationController as? ResultsTabViewController {
             resultsTabViewController = destination
             resultsTabViewController?.tabView.delegate = self
@@ -58,14 +58,14 @@ class ResultsViewController: NSViewController, NSTabViewDelegate {
     
     // MARK: - NSTabViewDelegate
     
-    func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?) {
+    func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         requestTabButton?.image = NSImage(named: "tab-request")
         responseTabButton?.image = NSImage(named: "tab-response")
         dataTabButton?.image = NSImage(named: "tab-data")
-        for (tabIndex, tabButton) in [requestTabButton!, responseTabButton!, dataTabButton].enumerate() {
+        for (tabIndex, tabButton) in [requestTabButton!, responseTabButton!, dataTabButton].enumerated() {
             tabButton?.image = NSImage(named: tabImages[tabIndex])
             tabButton?.alternateImage = NSImage(named: "\(tabImages[tabIndex])-pressed")
-            if tabView.tabViewItems.indexOf(tabViewItem!) == tabIndex {
+            if tabView.tabViewItems.index(of: tabViewItem!) == tabIndex {
                 tabButton?.image = NSImage(named: "\(tabImages[tabIndex])-selected")
             }
         }

@@ -385,13 +385,16 @@
 				TargetAttributes = {
 					E77E62E71BEEBFF500F14261 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0810;
 					};
 					E77E62FA1BEEBFF600F14261 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = E77E62E71BEEBFF500F14261;
 					};
 					E77E63051BEEBFF600F14261 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = E77E62E71BEEBFF500F14261;
 					};
 				};
@@ -604,6 +607,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.postie;
 				PRODUCT_NAME = Postie;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -621,6 +625,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.postie;
 				PRODUCT_NAME = Postie;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -633,6 +638,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.postietests;
 				PRODUCT_NAME = PostieTests;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Postie.app/Contents/MacOS/Postie";
 			};
 			name = Debug;
@@ -646,6 +652,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.postietests;
 				PRODUCT_NAME = PostieTests;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Postie.app/Contents/MacOS/Postie";
 			};
 			name = Release;
@@ -658,6 +665,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.postieuitests;
 				PRODUCT_NAME = PostieUITests;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Postie;
 				USES_XCTRUNNER = YES;
 			};
@@ -671,6 +679,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alan.postieuitests;
 				PRODUCT_NAME = PostieUITests;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Postie;
 				USES_XCTRUNNER = YES;
 			};
