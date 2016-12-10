@@ -24,21 +24,20 @@ extension URL {
         attributedString.append(formattedString(scheme, colour: AttributedStringColours.scheme))
         attributedString.append(formattedString("://", colour: AttributedStringColours.secondary))
         attributedString.append(formattedString(user, colour: AttributedStringColours.secondary))
-        if password != nil {
+        if let password = password {
             attributedString.append(formattedString(":", colour: AttributedStringColours.secondary))
             attributedString.append(formattedString(password, colour: AttributedStringColours.secondary))
             attributedString.append(formattedString("@", colour: AttributedStringColours.secondary))
         }
         attributedString.append(formattedString(host, colour: AttributedStringColours.primary))
-        if port != nil {
+        if let port = port {
             attributedString.append(formattedString(":", colour: AttributedStringColours.secondary))
-            // FIXME
-            // attributedString.append(formattedString(port?.stringValue, colour: AttributedStringColours.secondary))
+            attributedString.append(formattedString(String(port), colour: AttributedStringColours.secondary))
         }
         attributedString.append(formattedString(path, colour: AttributedStringColours.secondary))
         attributedString.append(formattedString(pathExtension, colour: AttributedStringColours.secondary))
         attributedString.append(formattedString(path, colour: AttributedStringColours.secondary))
-        if query != nil {
+        if let query = query {
             attributedString.append(formattedString("?", colour: AttributedStringColours.secondary))
             attributedString.append(formattedString(query, colour: AttributedStringColours.secondary))
         }

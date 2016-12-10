@@ -27,7 +27,7 @@
 		E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76468521C13E7A7001DE284 /* EditorViewController.swift */; };
 		E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983C1C374CAF00071283 /* RequestTableCellView.swift */; };
 		E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778983E1C374D3600071283 /* RequestMethodView.swift */; };
-		E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77898441C37660800071283 /* NSURL+AttributedString.swift */; };
+		E77898451C37660800071283 /* URL+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77898441C37660800071283 /* URL+AttributedString.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* PostieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* PostieUITests.swift */; };
 		E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */; };
@@ -107,7 +107,7 @@
 		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EditorViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E778983C1C374CAF00071283 /* RequestTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestTableCellView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E778983E1C374D3600071283 /* RequestMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestMethodView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E77898441C37660800071283 /* NSURL+AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSURL+AttributedString.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		E77898441C37660800071283 /* URL+AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "URL+AttributedString.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E77E62E81BEEBFF600F14261 /* Postie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E77E62F61BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B55C001C4B769A00B7EA43 /* Method+String.swift */,
-				E77898441C37660800071283 /* NSURL+AttributedString.swift */,
+				E77898441C37660800071283 /* URL+AttributedString.swift */,
 				E7626A631C6EC30400C2C4DB /* NSViewController+Document.swift */,
 			);
 			path = Extensions;
@@ -466,7 +466,7 @@
 				E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */,
 				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,
 				E75850BD1C8BC009007EBB34 /* ResponseViewController.swift in Sources */,
-				E77898451C37660800071283 /* NSURL+AttributedString.swift in Sources */,
+				E77898451C37660800071283 /* URL+AttributedString.swift in Sources */,
 				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
 				E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,

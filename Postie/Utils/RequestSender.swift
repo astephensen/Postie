@@ -33,13 +33,9 @@ struct RequestSender {
         }
         
         // Set form data.
-        /*
-        FIXME
         if request.formData.count > 0 {
-            let encoding = Alamofire.ParameterEncoding.url
-            (urlRequest, _) = encoding.encode(urlRequest, parameters: request.formData)
+            try! urlRequest = URLEncoding.default.encode(urlRequest, with: request.formData)
         }
-        */
         
         // Set the body data.
         if let bodyJSON = request.bodyJSON {

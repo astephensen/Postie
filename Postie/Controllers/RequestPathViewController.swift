@@ -63,17 +63,12 @@ class RequestPathViewController: NSViewController {
             if let port = (url as NSURL).port?.stringValue {
                 pathControlItems.append(pathControlItemForProperty(port, colour: tertiaryColour))
             }
-            // FIXME
-            /*
-            if let pathComponents = url.pathComponents {
-                for pathComponent in pathComponents {
-                    if pathComponent == "/" {
-                        continue
-                    }
-                    pathControlItems.append(pathControlItemForProperty(pathComponent, colour: tertiaryColour))
+            for pathComponent in url.pathComponents {
+                if pathComponent == "/" {
+                    continue
                 }
+                pathControlItems.append(pathControlItemForProperty(pathComponent, colour: tertiaryColour))
             }
-            */
             if let query = url.query {
                 for queryComponent in query.components(separatedBy: "&") {
                     pathControlItems.append(pathControlItemForProperty(queryComponent, colour: tertiaryColour))

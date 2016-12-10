@@ -60,8 +60,7 @@ class ResponseViewController: NSViewController, NSTableViewDataSource, NSTableVi
             nameValueCellView?.nameLabel?.stringValue = "Name"
             nameValueCellView?.valueLabel?.stringValue = "Value"
         } else {
-            // FIXME
-            // nameValueCellView?.alternateRow = Bool(row % 2)
+            nameValueCellView?.alternateRow = Bool(row % 2 as NSNumber)
             if let header = selectedRequest?.responseHeaders[row - 2] {
                 nameValueCellView?.nameLabel?.stringValue = header.name
                 nameValueCellView?.valueLabel?.stringValue = header.value

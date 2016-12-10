@@ -7,30 +7,6 @@
 //
 
 import Cocoa
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirrorViewDelegate {
     var mainViewController: MainViewController?
@@ -87,8 +63,10 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     
     var currentDocument: Document? {
         didSet {
-            if currentDocument?.requests.count > 0 {
-                selectedRequest = currentDocument?.requests[0]
+            if let requests = currentDocument?.requests {
+                if requests.count > 0 {
+                    selectedRequest = currentDocument?.requests[0]
+                }
             }
             text = currentDocument?.text
         }
