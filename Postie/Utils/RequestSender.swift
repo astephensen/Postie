@@ -15,8 +15,7 @@ struct RequestSender {
     ///
     /// - Parameter request: The request to send.
     /// - Parameter updated: The closure to call when sending the request has updated.
-    static func sendRequest(_ request: Request, updated: @escaping (_ request: Request) -> Void) {
-        weak var weakRequest = request
+    static func send(_ request: Request, updated: @escaping (_ request: Request) -> Void) {
         guard let requestURL = request.url else {
             return
         }
@@ -25,7 +24,7 @@ struct RequestSender {
         }
         
         // Create the request and set the method.
-        var urlRequest = NSMutableURLRequest(url: requestURL as URL)
+        var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = method
         
         // Set the headers.
@@ -49,15 +48,13 @@ struct RequestSender {
         }
         
         // Send the request.
-        /*
-        FIXME
-        Alamofire.request(urlRequest).response { (request, response, data, error) in
+        weak var weakRequest = request
+        Alamofire.request(urlRequest).response { response in
             if let request = weakRequest {
-                request.response = response
-                request.bodyData = data
-                updated(request: request)
+                request.response = response.response
+                request.bodyData = response.data
+                updated(request)
             }
         }
-        */
     }
 }

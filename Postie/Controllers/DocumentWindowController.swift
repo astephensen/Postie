@@ -77,7 +77,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     
     func sendRequest(_ request: Request) {
         weak var weakMainViewController = mainViewController
-        RequestSender.sendRequest(request) { (request) -> Void in
+        RequestSender.send(request) { request -> Void in
             weakMainViewController?.resultsViewController?.resultsTabViewController?.responseViewController?.requestChanged(request)
             weakMainViewController?.resultsViewController?.resultsTabViewController?.responseDataViewController?.requestChanged(request)
         }
