@@ -69,7 +69,7 @@ class CodeMirrorView: NSView, WKScriptMessageHandler {
             htmlFile = htmlFile.replacingOccurrences(of: "_CONFIG_", with: String(data: serialisedConfig, encoding: String.Encoding.utf8)!) as NSString
             // Replace the text to load.
             htmlFile = htmlFile.replacingOccurrences(of: "_LOAD_TEXT_", with: text) as NSString
-            webView?.loadHTMLString(htmlFile as String!, baseURL: URL(fileURLWithPath: bundlePath!))
+            let _ = webView?.loadHTMLString(htmlFile as String!, baseURL: URL(fileURLWithPath: bundlePath!))
         } catch {
             
         }
