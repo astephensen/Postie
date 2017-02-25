@@ -10,6 +10,7 @@ import Cocoa
 
 class DocumentWindowController: NSWindowController, NSWindowDelegate, EditorViewControllerDelegate {
     var mainViewController: MainViewController?
+    @IBOutlet var navigationSegmentedControl: NSSegmentedControl?
 
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -23,6 +24,9 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, EditorView
         // Setup delegates and references.
         mainViewController = self.contentViewController as? MainViewController
         mainViewController?.editorViewController?.delegate = self
+
+        // Change segmented control. Do this here to prevent warnings in IB.
+        navigationSegmentedControl?.segmentStyle = .separated
     }
     
     // MARK: - Actions

@@ -326,7 +326,7 @@ DQ
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="GjJ-vI-RdE"/>
                                 <toolbarItem implicitItemIdentifier="65AD8CC4-84D4-4726-9C97-8A7DB70AF938" label="Send" paletteLabel="Send" image="icon-send" id="CAp-fk-mpW">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="41" height="27"/>
+                                    <size key="minSize" width="39" height="27"/>
                                     <size key="maxSize" width="41" height="27"/>
                                     <button key="view" verticalHuggingPriority="750" id="dyq-GY-htN" userLabel="Send">
                                         <rect key="frame" x="0.0" y="14" width="39" height="25"/>
@@ -340,14 +340,32 @@ DQ
                                         <action selector="sendRequestAction:" target="jGA-0Y-lOj" id="tnr-KF-UZm"/>
                                     </connections>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="583B116C-ED81-4A78-B85E-09355DAEFBB5" label="Navigation" paletteLabel="Navigation" id="i3K-bc-WeA">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="0.0" height="25"/>
+                                    <size key="maxSize" width="59" height="28"/>
+                                    <segmentedControl key="view" autoresizesSubviews="NO" verticalHuggingPriority="750" id="fAf-gj-n7S">
+                                        <rect key="frame" x="4" y="14" width="56" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="momentary" id="4wS-md-nuP">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="NSGoLeftTemplate" width="24"/>
+                                                <segment image="NSGoRightTemplate" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                    </segmentedControl>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
+                                <toolbarItem reference="i3K-bc-WeA"/>
                                 <toolbarItem reference="CAp-fk-mpW"/>
                                 <toolbarItem reference="GjJ-vI-RdE"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
                     <connections>
+                        <outlet property="navigationSegmentedControl" destination="fAf-gj-n7S" id="e8u-Hp-bwc"/>
                         <segue destination="q3S-ZV-PeO" kind="relationship" relationship="window.shadowedContentViewController" id="8F4-h9-Vob"/>
                     </connections>
                 </windowController>
@@ -737,6 +755,8 @@ DQ
         </scene>
     </scenes>
     <resources>
+        <image name="NSGoLeftTemplate" width="9" height="12"/>
+        <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="icon-send" width="15" height="18"/>
         <image name="method-get" width="16" height="16"/>
         <image name="tab-data" width="15" height="15"/>
