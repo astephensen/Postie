@@ -326,8 +326,8 @@ DQ
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="GjJ-vI-RdE"/>
                                 <toolbarItem implicitItemIdentifier="65AD8CC4-84D4-4726-9C97-8A7DB70AF938" label="Send" paletteLabel="Send" image="icon-send" id="CAp-fk-mpW">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="39" height="25"/>
-                                    <size key="maxSize" width="39" height="25"/>
+                                    <size key="minSize" width="41" height="27"/>
+                                    <size key="maxSize" width="41" height="27"/>
                                     <button key="view" verticalHuggingPriority="750" id="dyq-GY-htN" userLabel="Send">
                                         <rect key="frame" x="0.0" y="14" width="39" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -353,7 +353,7 @@ DQ
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="325.5"/>
+            <point key="canvasLocation" x="72" y="325"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="bGd-bE-8P1">
