@@ -9,19 +9,14 @@
 import Cocoa
 
 class MainViewController: NSSplitViewController {
-    var requestsListViewController: RequestsListViewController? {
-        get {
-            return splitViewItems[0].viewController as? RequestsListViewController
-        }
-    }
     var editorViewController: EditorViewController? {
         get {
-            return splitViewItems[1].viewController as? EditorViewController
+            return splitViewItems[0].viewController as? EditorViewController
         }
     }
     var resultsViewController: ResultsViewController? {
         get {
-            return splitViewItems[2].viewController as? ResultsViewController
+            return splitViewItems[1].viewController as? ResultsViewController
         }
     }
 }

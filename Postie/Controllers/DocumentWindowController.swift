@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirrorViewDelegate {
+class DocumentWindowController: NSWindowController, NSWindowDelegate, EditorViewControllerDelegate {
     var mainViewController: MainViewController?
 
     override func windowDidLoad() {
@@ -22,21 +22,11 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
         
         // Setup delegates and references.
         mainViewController = self.contentViewController as? MainViewController
-        mainViewController?.editorViewController?.codeMirrorView?.delegate = self
+        mainViewController?.editorViewController?.delegate = self
     }
     
     // MARK: - Actions
-    
-    @IBAction func panelsToggled(_ sender: NSSegmentedControl?) {
-        if let segmentedControl = sender {
-            var selectedSegment = segmentedControl.selectedSegment
-            if selectedSegment == 1 {
-                selectedSegment = 2
-            }
-            togglePanel(selectedSegment)
-        }
-    }
-    
+
     @IBAction func sendRequestAction(_ sender: NSToolbarItem?) {
         if let request = selectedRequest {
             sendRequest(request)
@@ -44,13 +34,7 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
     }
     
     // MARK: - Methods
-    
-    func togglePanel(_ index: Int) {
-        if let splitViewItem = mainViewController?.splitViewItems[index] {
-            splitViewItem.isCollapsed = !splitViewItem.isCollapsed
-        }
-    }
-    
+
     func sendRequest(_ request: Request) {
         weak var weakMainViewController = mainViewController
         RequestSender.send(request) { request -> Void in
@@ -80,20 +64,11 @@ class DocumentWindowController: NSWindowController, NSWindowDelegate, CodeMirror
         }
     }
     
-    var text: String? {
-        didSet {
-            mainViewController?.requestsListViewController?.requests = currentDocument?.requests
-        }
-    }
-    
-    // MARK: - CodeMirrorViewDelegate
-    
-    func codeMirrorView(_ codeMirrorView: CodeMirrorView, didChangeCursorLocation cursorLocation: Int) {
-        selectedRequest = currentDocument?.requestAtLocation(cursorLocation)
-    }
-    
-    func codeMirrorView(_ codeMirrorView: CodeMirrorView, didChangeText newText: String) {
-        currentDocument?.text = newText
-        text = newText
+    var text: String?
+
+    // MARK: - EditorViewControllerDelegate
+
+    func editorViewController(sender: EditorViewController, didChangeCursorIndex cursorIndex: Int) {
+        selectedRequest = currentDocument?.requestAtLocation(cursorIndex)
     }
 }

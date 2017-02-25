@@ -15,12 +15,8 @@
 		E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421F9D1C126F8D00C0DA38 /* Document.swift */; };
 		E7421FA11C12718900C0DA38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA01C12718900C0DA38 /* MainViewController.swift */; };
 		E7421FA31C12719900C0DA38 /* DocumentWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA21C12719900C0DA38 /* DocumentWindowController.swift */; };
-		E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */; };
 		E7421FA71C12ACD600C0DA38 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA61C12ACD600C0DA38 /* Request.swift */; };
 		E7421FA91C12AF9400C0DA38 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FA81C12AF9400C0DA38 /* RequestTests.swift */; };
-		E7421FAF1C12C15300C0DA38 /* CodeMirror.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */; };
-		E7421FB01C12C15300C0DA38 /* CodeMirror.html in Resources */ = {isa = PBXBuildFile; fileRef = E7421FAD1C12C15300C0DA38 /* CodeMirror.html */; };
-		E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */; };
 		E75850BB1C8BBF95007EBB34 /* ResponseDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */; };
 		E75850BD1C8BC009007EBB34 /* ResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */; };
 		E7626A641C6EC30400C2C4DB /* NSViewController+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626A631C6EC30400C2C4DB /* NSViewController+Document.swift */; };
@@ -30,6 +26,8 @@
 		E77898451C37660800071283 /* URL+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77898441C37660800071283 /* URL+AttributedString.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* PostieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* PostieUITests.swift */; };
+		E78E99F01E610CAC00F861F1 /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99EF1E610CAC00F861F1 /* Fragaria.framework */; };
+		E78E99F11E610CBA00F861F1 /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99EF1E610CAC00F861F1 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */; };
 		E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */; };
 		E79561A51C8BC9510040B4C4 /* TableNameValueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */; };
@@ -79,6 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E78E99F11E610CBA00F861F1 /* Fragaria.framework in Embed Frameworks */,
 				E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -95,12 +94,8 @@
 		E7421F9D1C126F8D00C0DA38 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Document.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E7421FA01C12718900C0DA38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E7421FA21C12719900C0DA38 /* DocumentWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DocumentWindowController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestsListViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E7421FA61C12ACD600C0DA38 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Request.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E7421FA81C12AF9400C0DA38 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeMirror.bundle; sourceTree = "<group>"; };
-		E7421FAD1C12C15300C0DA38 /* CodeMirror.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CodeMirror.html; sourceTree = "<group>"; };
-		E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodeMirrorView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataViewController.swift; sourceTree = "<group>"; };
 		E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
 		E7626A631C6EC30400C2C4DB /* NSViewController+Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSViewController+Document.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -116,14 +111,13 @@
 		E77E63061BEEBFF600F14261 /* PostieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* PostieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostieUITests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E78E99EF1E610CAC00F861F1 /* Fragaria.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fragaria.framework; path = Postie/Vendor/Fragaria.framework; sourceTree = "<group>"; };
 		E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeaderCellView.swift; sourceTree = "<group>"; };
 		E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderCellView.xib; sourceTree = "<group>"; };
 		E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNameValueCellView.swift; sourceTree = "<group>"; };
 		E79561A61C8BC9870040B4C4 /* TableNameValueCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableNameValueCellView.xib; sourceTree = "<group>"; };
 		E7B5463E1C589708006B5A83 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
-		E7B5467C1C58D8B4006B5A83 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/Mac/ReSwift.framework; sourceTree = "<group>"; };
-		E7B5467D1C58D8B4006B5A83 /* ReSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReSwift.framework.dSYM; path = Carthage/Build/Mac/ReSwift.framework.dSYM; sourceTree = "<group>"; };
 		E7B55C001C4B769A00B7EA43 /* Method+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Method+String.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E7E9369A1C810ED80092552D /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		E7F3BC5A1C6B36DD0087104F /* PrettyPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PrettyPrinter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -136,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B546471C58971A006B5A83 /* Alamofire.framework in Frameworks */,
+				E78E99F01E610CAC00F861F1 /* Fragaria.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,31 +183,12 @@
 				E76468521C13E7A7001DE284 /* EditorViewController.swift */,
 				E7421FA01C12718900C0DA38 /* MainViewController.swift */,
 				E702EBE51C5C54B3001C8F74 /* RequestPathViewController.swift */,
-				E7421FA41C127DE200C0DA38 /* RequestsListViewController.swift */,
 				E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */,
 				E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */,
 				E712BB741C54902F001E5514 /* ResultsTabViewController.swift */,
 				E712BB721C549009001E5514 /* ResultsViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E7421FAA1C12C15300C0DA38 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				E7421FAB1C12C15300C0DA38 /* CodeMirror */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		E7421FAB1C12C15300C0DA38 /* CodeMirror */ = {
-			isa = PBXGroup;
-			children = (
-				E7421FAC1C12C15300C0DA38 /* CodeMirror.bundle */,
-				E7421FAD1C12C15300C0DA38 /* CodeMirror.html */,
-				E7421FAE1C12C15300C0DA38 /* CodeMirrorView.swift */,
-			);
-			path = CodeMirror;
 			sourceTree = "<group>";
 		};
 		E778983B1C374C9200071283 /* Views */ = {
@@ -270,7 +246,6 @@
 				E7421F991C126F7600C0DA38 /* Resources */,
 				E7421F941C126D0700C0DA38 /* Storyboards */,
 				E7F3BC591C6B36C70087104F /* Utils */,
-				E7421FAA1C12C15300C0DA38 /* Vendor */,
 				E778983B1C374C9200071283 /* Views */,
 			);
 			path = Postie;
@@ -298,10 +273,9 @@
 		E7B5463D1C589702006B5A83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E78E99EF1E610CAC00F861F1 /* Fragaria.framework */,
 				E7B5463E1C589708006B5A83 /* Alamofire.framework */,
 				E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */,
-				E7B5467C1C58D8B4006B5A83 /* ReSwift.framework */,
-				E7B5467D1C58D8B4006B5A83 /* ReSwift.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -424,13 +398,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7421FB01C12C15300C0DA38 /* CodeMirror.html in Resources */,
 				E7421F961C126D0700C0DA38 /* Main.storyboard in Resources */,
 				E7B546411C589708006B5A83 /* Alamofire.framework.dSYM in Resources */,
 				E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */,
 				E79561A71C8BC9870040B4C4 /* TableNameValueCellView.xib in Resources */,
 				E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */,
-				E7421FAF1C12C15300C0DA38 /* CodeMirror.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */,
-				E7421FB11C12C15300C0DA38 /* CodeMirrorView.swift in Sources */,
 				E7E9369B1C810ED80092552D /* RequestSender.swift in Sources */,
 				E778983D1C374CAF00071283 /* RequestTableCellView.swift in Sources */,
 				E79561A51C8BC9510040B4C4 /* TableNameValueCellView.swift in Sources */,
@@ -467,7 +438,6 @@
 				E778983F1C374D3600071283 /* RequestMethodView.swift in Sources */,
 				E75850BD1C8BC009007EBB34 /* ResponseViewController.swift in Sources */,
 				E77898451C37660800071283 /* URL+AttributedString.swift in Sources */,
-				E7421FA51C127DE200C0DA38 /* RequestsListViewController.swift in Sources */,
 				E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */,
 				E76468531C13E7A7001DE284 /* EditorViewController.swift in Sources */,
 				E7421F9E1C126F8D00C0DA38 /* Document.swift in Sources */,
@@ -606,6 +576,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Postie/Vendor",
 				);
 				INFOPLIST_FILE = Postie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -624,6 +595,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Postie/Vendor",
 				);
 				INFOPLIST_FILE = Postie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
