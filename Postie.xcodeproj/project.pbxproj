@@ -26,8 +26,9 @@
 		E77898451C37660800071283 /* URL+AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77898441C37660800071283 /* URL+AttributedString.swift */; };
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* PostieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* PostieUITests.swift */; };
-		E78E99F01E610CAC00F861F1 /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99EF1E610CAC00F861F1 /* Fragaria.framework */; };
-		E78E99F11E610CBA00F861F1 /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99EF1E610CAC00F861F1 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E78E99F31E6121E200F861F1 /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99F21E6121E200F861F1 /* Fragaria.framework */; };
+		E78E99F41E61223500F861F1 /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99F21E6121E200F861F1 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E78E99F61E6128ED00F861F1 /* postie.plist in Resources */ = {isa = PBXBuildFile; fileRef = E78E99F51E6128ED00F861F1 /* postie.plist */; };
 		E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */; };
 		E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */; };
 		E79561A51C8BC9510040B4C4 /* TableNameValueCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */; };
@@ -77,7 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E78E99F11E610CBA00F861F1 /* Fragaria.framework in Embed Frameworks */,
+				E78E99F41E61223500F861F1 /* Fragaria.framework in Embed Frameworks */,
 				E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -111,7 +112,8 @@
 		E77E63061BEEBFF600F14261 /* PostieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* PostieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostieUITests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E78E99EF1E610CAC00F861F1 /* Fragaria.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fragaria.framework; path = Postie/Vendor/Fragaria.framework; sourceTree = "<group>"; };
+		E78E99F21E6121E200F861F1 /* Fragaria.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fragaria.framework; path = Frameworks/Fragaria.framework; sourceTree = "<group>"; };
+		E78E99F51E6128ED00F861F1 /* postie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = postie.plist; sourceTree = "<group>"; };
 		E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeaderCellView.swift; sourceTree = "<group>"; };
 		E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderCellView.xib; sourceTree = "<group>"; };
 		E79561A41C8BC9510040B4C4 /* TableNameValueCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNameValueCellView.swift; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B546471C58971A006B5A83 /* Alamofire.framework in Frameworks */,
-				E78E99F01E610CAC00F861F1 /* Fragaria.framework in Frameworks */,
+				E78E99F31E6121E200F861F1 /* Fragaria.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				E7421F9A1C126F7600C0DA38 /* Assets.xcassets */,
+				E78E99F51E6128ED00F861F1 /* postie.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,7 +276,7 @@
 		E7B5463D1C589702006B5A83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E78E99EF1E610CAC00F861F1 /* Fragaria.framework */,
+				E78E99F21E6121E200F861F1 /* Fragaria.framework */,
 				E7B5463E1C589708006B5A83 /* Alamofire.framework */,
 				E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */,
 			);
@@ -402,6 +405,7 @@
 				E7B546411C589708006B5A83 /* Alamofire.framework.dSYM in Resources */,
 				E7421F9B1C126F7600C0DA38 /* Assets.xcassets in Resources */,
 				E79561A71C8BC9870040B4C4 /* TableNameValueCellView.xib in Resources */,
+				E78E99F61E6128ED00F861F1 /* postie.plist in Resources */,
 				E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,7 +580,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Postie/Vendor",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Postie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -595,7 +599,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Postie/Vendor",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Postie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

@@ -41,6 +41,11 @@ class EditorViewController: NSViewController, NSTextDelegate, MGSDragOperationDe
         fragariaView?.gutterBackgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0)
         fragariaView?.gutterDividerDashed = false
         fragariaView?.gutterDividerColour = NSColor(white: 213.0/255.0, alpha: 1.0)
+        fragariaView?.textView.textContainerInset = NSSize(width: 0, height: 4)
+        fragariaView?.textView.isAutomaticLinkDetectionEnabled = false
+        // Syntax setup.
+        let syntaxDefinitionDictionary = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "postie", ofType: "plist")!)
+        fragariaView?.syntaxDefinitionDictionary = syntaxDefinitionDictionary!
     }
 
     func loadDocument() {

@@ -30,6 +30,7 @@ class ResponseDataViewController: NSViewController {
         fragariaView?.backgroundColor = NSColor(white: 247.0/255.0, alpha: 1.0)
         fragariaView?.gutterBackgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0)
         fragariaView?.gutterDividerDashed = false
+        fragariaView?.textView.textContainerInset = NSSize(width: 0, height: 4)
     }
     
     func requestChanged(_ request: Request) {
