@@ -1,21 +1,23 @@
 # Postie
 
-Postie is a HTTP client for OS X.
+Postie is a simple HTTP client for macOS.
+
+_You probably shouldn't be using this in its current state._
 
 ## Installation
 
 Clone the repo.
 
 ```
-$ git clone git@github.com:astephensen/Postie.git
-$ cd Postie
-$ git submodule update --init --recursive
+git clone git@github.com:astephensen/Postie.git
+cd Postie
+git submodule update --init --recursive
 ```
 
 Open the Xcode project.
 
 ```
-$ open Postie.xcodeproj
+open Postie.xcodeproj
 ```
 
 Build and Run!
