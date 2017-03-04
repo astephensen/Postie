@@ -27,7 +27,6 @@
 		E77E62EC1BEEBFF600F14261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E62EB1BEEBFF600F14261 /* AppDelegate.swift */; };
 		E77E630B1BEEBFF600F14261 /* PostieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77E630A1BEEBFF600F14261 /* PostieUITests.swift */; };
 		E78E99F31E6121E200F861F1 /* Fragaria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99F21E6121E200F861F1 /* Fragaria.framework */; };
-		E78E99F41E61223500F861F1 /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E78E99F21E6121E200F861F1 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E78E99F61E6128ED00F861F1 /* postie.plist in Resources */ = {isa = PBXBuildFile; fileRef = E78E99F51E6128ED00F861F1 /* postie.plist */; };
 		E79561A11C8BC6040040B4C4 /* TableHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */; };
 		E79561A31C8BC6380040B4C4 /* TableHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */; };
@@ -38,12 +37,62 @@
 		E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7B5463E1C589708006B5A83 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7B5464A1C58971D006B5A83 /* Alamofire.framework.dSYM in Carthage */ = {isa = PBXBuildFile; fileRef = E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */; };
 		E7B55C011C4B769A00B7EA43 /* Method+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B55C001C4B769A00B7EA43 /* Method+String.swift */; };
+		E7C492C21E6A409000D1D41B /* Fragaria.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E75C734D1E6A405200F6EBE2 /* Fragaria.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7E9369B1C810ED80092552D /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E9369A1C810ED80092552D /* RequestSender.swift */; };
 		E7F3BC5B1C6B36DD0087104F /* PrettyPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F3BC5A1C6B36DD0087104F /* PrettyPrinter.swift */; };
 		E7FD1E241C163F6500EC3EC1 /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FD1E231C163F6500EC3EC1 /* DocumentTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E75C73421E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AB648E2A11FB385700AEF7BD;
+			remoteInfo = "Fragaria Doc";
+		};
+		E75C73441E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ABCA4DAF16137FC000E4849B;
+			remoteInfo = "Fragaria Simple";
+		};
+		E75C73461E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0C1464C1A87196200DDE90A;
+			remoteInfo = "Fragaria Complex";
+		};
+		E75C73481E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0718B501AB551460073493A;
+			remoteInfo = "Fragaria Prefs";
+		};
+		E75C734A1E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 01F0D6FC1C120F7D000A08B6;
+			remoteInfo = "Fragaria Swift";
+		};
+		E75C734C1E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AB69B62B118B745700903D1D;
+			remoteInfo = Fragaria;
+		};
+		E75C734E1E6A405200F6EBE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0E5210D1A90E34F005CB80B;
+			remoteInfo = "Fragaria Tests";
+		};
 		E77E62FC1BEEBFF600F14261 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E77E62E01BEEBFF500F14261 /* Project object */;
@@ -78,7 +127,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E78E99F41E61223500F861F1 /* Fragaria.framework in Embed Frameworks */,
+				E7C492C21E6A409000D1D41B /* Fragaria.framework in Embed Frameworks */,
 				E7B546481C58971A006B5A83 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -99,6 +148,7 @@
 		E7421FA81C12AF9400C0DA38 /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E75850BA1C8BBF95007EBB34 /* ResponseDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDataViewController.swift; sourceTree = "<group>"; };
 		E75850BC1C8BC009007EBB34 /* ResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseViewController.swift; sourceTree = "<group>"; };
+		E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fragaria.xcodeproj; path = Fragaria/Fragaria.xcodeproj; sourceTree = "<group>"; };
 		E7626A631C6EC30400C2C4DB /* NSViewController+Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "NSViewController+Document.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E76468521C13E7A7001DE284 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EditorViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E778983C1C374CAF00071283 /* RequestTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestTableCellView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -112,7 +162,7 @@
 		E77E63061BEEBFF600F14261 /* PostieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77E630A1BEEBFF600F14261 /* PostieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostieUITests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E77E630C1BEEBFF600F14261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E78E99F21E6121E200F861F1 /* Fragaria.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fragaria.framework; path = Frameworks/Fragaria.framework; sourceTree = "<group>"; };
+		E78E99F21E6121E200F861F1 /* Fragaria.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fragaria.framework; path = /Users/Alan/Projects/Postie/Frameworks/Fragaria.framework; sourceTree = "<absolute>"; };
 		E78E99F51E6128ED00F861F1 /* postie.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = postie.plist; sourceTree = "<group>"; };
 		E79561A01C8BC6040040B4C4 /* TableHeaderCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeaderCellView.swift; sourceTree = "<group>"; };
 		E79561A21C8BC6380040B4C4 /* TableHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderCellView.xib; sourceTree = "<group>"; };
@@ -194,6 +244,28 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		E75C71471E6A404500F6EBE2 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		E75C73381E6A405200F6EBE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E75C73431E6A405200F6EBE2 /* Fragaria Doc.app */,
+				E75C73451E6A405200F6EBE2 /* Fragaria Simple.app */,
+				E75C73471E6A405200F6EBE2 /* Fragaria Complex.app */,
+				E75C73491E6A405200F6EBE2 /* Fragaria Prefs.app */,
+				E75C734B1E6A405200F6EBE2 /* Fragaria Swift.app */,
+				E75C734D1E6A405200F6EBE2 /* Fragaria.framework */,
+				E75C734F1E6A405200F6EBE2 /* Fragaria Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E778983B1C374C9200071283 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +296,7 @@
 				E77E62FE1BEEBFF600F14261 /* PostieTests */,
 				E77E63091BEEBFF600F14261 /* PostieUITests */,
 				E77E62E91BEEBFF600F14261 /* Products */,
+				E75C71471E6A404500F6EBE2 /* Vendor */,
 				E7B5463D1C589702006B5A83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -276,7 +349,6 @@
 		E7B5463D1C589702006B5A83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E78E99F21E6121E200F861F1 /* Fragaria.framework */,
 				E7B5463E1C589708006B5A83 /* Alamofire.framework */,
 				E7B5463F1C589708006B5A83 /* Alamofire.framework.dSYM */,
 			);
@@ -383,10 +455,17 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-GB",
 			);
 			mainGroup = E77E62DF1BEEBFF500F14261;
 			productRefGroup = E77E62E91BEEBFF600F14261 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E75C73381E6A405200F6EBE2 /* Products */;
+					ProjectRef = E75C73371E6A405200F6EBE2 /* Fragaria.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E77E62E71BEEBFF500F14261 /* Postie */,
@@ -395,6 +474,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E75C73431E6A405200F6EBE2 /* Fragaria Doc.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Doc.app";
+			remoteRef = E75C73421E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E75C73451E6A405200F6EBE2 /* Fragaria Simple.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Simple.app";
+			remoteRef = E75C73441E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E75C73471E6A405200F6EBE2 /* Fragaria Complex.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Complex.app";
+			remoteRef = E75C73461E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E75C73491E6A405200F6EBE2 /* Fragaria Prefs.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Prefs.app";
+			remoteRef = E75C73481E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E75C734B1E6A405200F6EBE2 /* Fragaria Swift.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Fragaria Swift.app";
+			remoteRef = E75C734A1E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E75C734D1E6A405200F6EBE2 /* Fragaria.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Fragaria.framework;
+			remoteRef = E75C734C1E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E75C734F1E6A405200F6EBE2 /* Fragaria Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Fragaria Tests.xctest";
+			remoteRef = E75C734E1E6A405200F6EBE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E77E62E61BEEBFF500F14261 /* Resources */ = {
@@ -580,7 +711,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Postie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -599,7 +729,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Postie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

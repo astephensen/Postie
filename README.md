@@ -8,18 +8,14 @@ Clone the repo.
 
 ```
 $ git clone git@github.com:astephensen/Postie.git
-```
-
-Build the [Carthage](https://github.com/Carthage/Carthage) dependencies.
-
-```
-$ carthage update
+$ cd Postie
+$ git submodule update --init --recursive
 ```
 
 Open the Xcode project.
 
 ```
-$ open Postie/Postie.xcodeproj
+$ open Postie.xcodeproj
 ```
 
 Build and Run!
