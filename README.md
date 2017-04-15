@@ -14,6 +14,7 @@ Clone the repo.
 git clone git@github.com:astephensen/Postie.git
 cd Postie
 git submodule update --init --recursive
+carthage update --platform macOS
 ```
 
 Open the Xcode project.
