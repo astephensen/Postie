@@ -14,12 +14,13 @@ class RequestMethodView: NSView {
     var method = "get"
     
     let requestColours = [
-        "get": NSColor(red: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1.0),
-        "put": NSColor(red: 230.0/255.0, green: 126.0/255.0, blue: 34.0/255.0, alpha: 1.0),
-        "post": NSColor(red: 46.0/255.0, green: 204.0/255.0, blue: 113.0/255.0, alpha: 1.0),
-        "patch": NSColor(red: 155.0/255.0, green: 89.0/255.0, blue: 182.0/255.0, alpha: 1.0),
-        "delete": NSColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0),
-        "head": NSColor(red: 149.0/255.0, green: 165.0/255.0, blue: 166.0/255.0, alpha: 1.0)
+        // Need to use srgb<> for now because of SyntaxKit.
+        "get": NSColor(srgbRed: 52.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1.0),
+        "put": NSColor(srgbRed: 230.0/255.0, green: 126.0/255.0, blue: 34.0/255.0, alpha: 1.0),
+        "post": NSColor(srgbRed: 46.0/255.0, green: 204.0/255.0, blue: 113.0/255.0, alpha: 1.0),
+        "patch": NSColor(srgbRed: 155.0/255.0, green: 89.0/255.0, blue: 182.0/255.0, alpha: 1.0),
+        "delete": NSColor(srgbRed: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0),
+        "head": NSColor(srgbRed: 149.0/255.0, green: 165.0/255.0, blue: 166.0/255.0, alpha: 1.0)
     ]
 
     override func draw(_ dirtyRect: NSRect) {

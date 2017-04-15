@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby20
+require 'json'
+
+stdin = STDIN.read
+indent_level = (ENV['TM_SOFT_TABS'] == "NO" ? "\t" : " "*ENV['TM_TAB_SIZE'].to_i )
+
+begin
+hash = JSON.parse stdin
+print JSON.pretty_generate(hash, indent: indent_level)
+rescue Exception =&gt; e
+print stdin
+end
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^H</string>
+	<key>name</key>
+	<string>Reformat Document / Selection</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>replaceInput</string>
+	<key>scope</key>
+	<string>source.json</string>
+	<key>uuid</key>
+	<string>4B74F2DE-E051-4E8D-9124-EBD90A2CDD2B</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

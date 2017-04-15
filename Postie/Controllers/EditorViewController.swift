@@ -7,14 +7,14 @@
 //
 
 import Cocoa
-import Fragaria
+import CodeView
 
 protocol EditorViewControllerDelegate {
     func editorViewController(sender: EditorViewController, didChangeCursorIndex cursorIndex: Int)
 }
 
-class EditorViewController: NSViewController, NSTextDelegate, MGSDragOperationDelegate, MGSFragariaTextViewDelegate {
-    @IBOutlet var fragariaView: MGSFragariaView?
+class EditorViewController: NSViewController, CodeViewDelegate {
+    @IBOutlet var codeView: CodeView!
     var requestPathViewController: RequestPathViewController?
     var delegate: EditorViewControllerDelegate?
 
@@ -35,38 +35,32 @@ class EditorViewController: NSViewController, NSTextDelegate, MGSDragOperationDe
     // MARK: - Functions
 
     func setupEditor() {
-        fragariaView?.textViewDelegate = self
-        fragariaView?.indentWithSpaces = true
-        fragariaView?.minimumGutterWidth = 30
-        fragariaView?.gutterBackgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0)
-        fragariaView?.gutterDividerDashed = false
-        fragariaView?.gutterDividerColour = NSColor(white: 213.0/255.0, alpha: 1.0)
-        fragariaView?.textView.textContainerInset = NSSize(width: 0, height: 4)
-        fragariaView?.textView.isAutomaticLinkDetectionEnabled = false
-        // Syntax setup.
-        let syntaxDefinitionDictionary = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "postie", ofType: "plist")!)
-        fragariaView?.syntaxDefinitionDictionary = syntaxDefinitionDictionary!
+        codeView.delegate = self
+        codeView.fragariaView.indentWithSpaces = true
+        codeView.fragariaView.minimumGutterWidth = 30
+        codeView.fragariaView.gutterBackgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0)
+        codeView.fragariaView.gutterDividerDashed = false
+        codeView.fragariaView.gutterDividerColour = NSColor(white: 213.0/255.0, alpha: 1.0)
+        codeView.fragariaView.textView.textContainerInset = NSSize(width: 0, height: 4)
+        codeView.fragariaView.textView.isAutomaticLinkDetectionEnabled = false
     }
 
     func loadDocument() {
-        fragariaView?.string = document.text as NSString
+        codeView.fragariaView.string = document.text as NSString
     }
 
     func updateCursorIndex() {
-        if let index = fragariaView?.textView.selectedRange.location {
-            delegate?.editorViewController(sender: self, didChangeCursorIndex: index)
-        }
+        let index = codeView.fragariaView.textView.selectedRange.location
+        delegate?.editorViewController(sender: self, didChangeCursorIndex: index)
     }
 
     // MARK: - NSTextDelegate
 
     func textDidChange(_ notification: Notification) {
-        if let text = fragariaView?.string as? String {
-            document.text = text
-            // Need to update the cursor index so that the newly built requests are used.
-            // Hopefully this can be improved someday.
-            updateCursorIndex()
-        }
+        document.text = codeView.fragariaView.string as String
+        // Need to update the cursor index so that the newly built requests are used.
+        // Hopefully this can be improved someday.
+        updateCursorIndex()
     }
 
     func textViewDidChangeSelection(_ notification: Notification) {

@@ -7,10 +7,10 @@
 //
 
 import Cocoa
-import Fragaria
+import CodeView
 
 class ResponseDataViewController: NSViewController {
-    @IBOutlet var fragariaView: MGSFragariaView?
+    @IBOutlet var codeView: CodeView?
     var selectedRequest: Request? {
         didSet {
             loadRequestBody()
@@ -25,12 +25,12 @@ class ResponseDataViewController: NSViewController {
     // MARK: - Functions
 
     func setupEditor() {
-        fragariaView?.minimumGutterWidth = 30
-        fragariaView?.textView.isEditable = false
-        fragariaView?.backgroundColor = NSColor(white: 247.0/255.0, alpha: 1.0)
-        fragariaView?.gutterBackgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0)
-        fragariaView?.gutterDividerDashed = false
-        fragariaView?.textView.textContainerInset = NSSize(width: 0, height: 4)
+        codeView?.fragariaView.minimumGutterWidth = 30
+        codeView?.fragariaView.textView.isEditable = false
+        codeView?.fragariaView.backgroundColor = NSColor(white: 247.0/255.0, alpha: 1.0)
+        codeView?.fragariaView.gutterBackgroundColour = NSColor(white: 247.0/255.0, alpha: 1.0)
+        codeView?.fragariaView.gutterDividerDashed = false
+        codeView?.fragariaView.textView.textContainerInset = NSSize(width: 0, height: 4)
     }
     
     func requestChanged(_ request: Request) {
@@ -41,7 +41,7 @@ class ResponseDataViewController: NSViewController {
     
     func loadRequestBody() {
         guard let bodyData = selectedRequest?.bodyData else {
-            fragariaView?.string = ""
+            codeView?.fragariaView.string = ""
             return
         }
         // Guess encoding of the data to load.
@@ -50,16 +50,17 @@ class ResponseDataViewController: NSViewController {
         
         // Load the string into the editor.
         if let bodyString = bodyString {
-            fragariaView?.string = bodyString
+            codeView?.fragariaView.string = bodyString
         }
 
         // Attempt to set the editor highlight based on the MIME type.
+        /*
         if let MIMEType = selectedRequest?.response?.mimeType {
-            // TODO: Fix this.
-            fragariaView?.syntaxDefinitionName = "Javascript"
+            
         } else {
-            fragariaView?.syntaxDefinitionName = "Text"
+            
         }
+        */
     }
 
 }

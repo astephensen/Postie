@@ -1,0 +1,10 @@
+framework module CodeView {
+  umbrella header "CodeView.h"
+
+  export *
+  module * { export * }
+}
+
+module CodeView.Swift {
+    header "CodeView-Swift.h"
+}

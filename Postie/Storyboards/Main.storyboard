@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -402,7 +402,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="350" height="320"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oaf-EZ-3KW" customClass="MGSFragariaView">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="oaf-EZ-3KW" customClass="CodeView" customModule="CodeView">
                                 <rect key="frame" x="0.0" y="0.0" width="350" height="291"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="Yrv-YZ-0ep"/>
@@ -429,7 +429,7 @@ DQ
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fragariaView" destination="oaf-EZ-3KW" id="w8z-18-gWK"/>
+                        <outlet property="codeView" destination="oaf-EZ-3KW" id="IYO-fy-3pQ"/>
                     </connections>
                 </viewController>
                 <customObject id="Rrd-5u-plh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -469,7 +469,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q2G-nb-yPB" customClass="MGSFragariaView">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="q2G-nb-yPB" customClass="CodeView" customModule="CodeView">
                                 <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                             </customView>
                         </subviews>
@@ -481,7 +481,7 @@ DQ
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fragariaView" destination="q2G-nb-yPB" id="UqX-kT-0Zx"/>
+                        <outlet property="codeView" destination="q2G-nb-yPB" id="xAg-Vp-Mdn"/>
                     </connections>
                 </viewController>
                 <customObject id="2Ra-mR-QHb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -539,7 +539,7 @@ DQ
                                                             <rect key="frame" x="1" y="1" width="347" height="63"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yab-Rx-9oP">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yab-Rx-9oP">
                                                                     <rect key="frame" x="0.0" y="46" width="100" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Kfr-GK-mFR">
